@@ -1,27 +1,17 @@
 import React from 'react'
-import logo from './logo.svg'
-import main_logo from './images/header_logo.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NotFound from './components/common/NotFound'
+import ScrollToTop from './components/common/ScrollToTop'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <img src={main_logo} width="125px" />
-      </header>
+    <div>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
