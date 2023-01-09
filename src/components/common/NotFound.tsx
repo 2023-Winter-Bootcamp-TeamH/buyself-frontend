@@ -1,7 +1,22 @@
 import React from 'react'
+import Header from './Header'
+import styled from 'styled-components'
 
 const NotFound = () => {
-  return <div>404: 페이지를 찾을 수 없습니다.</div>
+  return (
+    <div>
+      <Header />
+      <Text>404: 페이지를 찾을 수 없습니다.</Text>
+    </div>
+  )
 }
 
 export default NotFound
+
+const Text = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  font-size: 1.5rem;
+`
