@@ -18,7 +18,7 @@ interface BuyCardProps {
   price: string
 }
 
-const BuyList = ({ ItemList }: { ItemList: BuyCardProps }) => {
+const BuyList = ({ ItemList }: { ItemList: BuyCardProps[] }) => {
   return (
     <StyledList>
       {ItemList &&

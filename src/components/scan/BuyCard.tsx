@@ -17,16 +17,11 @@ const StyledCard = styled.div`
   box-shadow: 0.1rem 0.4rem rgba(0, 0, 0, 0.25);
 `
 
-interface BuyCardProps {
-  name: string
-  price: string
-}
-
-const BuyCard = ({ ItemList }: { ItemList: BuyCardProps }) => {
+const BuyCard = ({ name, price }: { name: string; price: string }) => {
   return (
     <StyledCard>
-      <h4>{ItemList.name}</h4>
-      <h6>{ItemList.price}</h6>
+      <h4>{name}</h4>
+      <h6>{price}</h6>
     </StyledCard>
   )
 }
