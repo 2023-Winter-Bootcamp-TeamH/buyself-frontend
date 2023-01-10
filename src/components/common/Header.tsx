@@ -14,7 +14,7 @@ const Header = () => {
         </Arrow>
       </Link>
       <Link to="/" style={{ marginTop: '1.5rem' }}>
-        <Image src={logo} width="190px" />
+        <Image src={logo} />
       </Link>
       <Link to="/" style={{ color: 'black' }}>
         <Cart>
@@ -41,10 +41,18 @@ const Box = styled.div`
     radial-gradient(17.09px at 50% calc(100% + 9.8px), #0000 99%, #000 101%) 50%
       calc(100% - 14px) / 56px 100% repeat-x;
   background: rgb(255, 255, 255);
+  @media all and (max-width: 767px) {
+    height: 6rem;
+  }
 `
 const Image = styled.img`
   display: flex;
   align-items: center;
+  width: 11.875rem;
+  @media all and (max-width: 767px) {
+    width: 9rem;
+    margin-top: 0.1rem;
+  }
 `
 
 const Arrow = styled.label`
@@ -53,6 +61,9 @@ const Arrow = styled.label`
   font-size: 2.5rem;
   margin-top: 1.5rem;
   cursor: pointer;
+  @media all and (max-width: 767px) {
+    font-size: 2.2rem;
+  }
 `
 
 const Cart = styled.label`
@@ -61,4 +72,8 @@ const Cart = styled.label`
   font-size: 2.8rem;
   margin-top: 1.5rem;
   cursor: pointer;
+  @media all and (max-width: 767px) {
+    font-size: 2.5rem;
+    margin-top: 1.3rem;
+  }
 `

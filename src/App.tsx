@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NotFound from './components/common/NotFound'
 import ScrollToTop from './components/common/ScrollToTop'
 import { createGlobalStyle } from 'styled-components'
+import MainPage from './pages/MainPage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/*" element={<NotFound />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </BrowserRouter>
     </div>
