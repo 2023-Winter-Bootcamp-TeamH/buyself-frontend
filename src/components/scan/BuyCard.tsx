@@ -34,8 +34,8 @@ const BuyCard = ({
 export default BuyCard
 
 const StyledCard = styled.div`
-  width: 15.313rem;
-  height: 20.5rem;
+  width: 10rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,12 +47,12 @@ const StyledCard = styled.div`
   background-color: #fff;
   box-shadow: 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 11.313rem;
-    height: 18.5rem;
+    width: 10rem;
+    height: 15rem;
     margin-bottom: 1rem;
   }
   @media all and (max-width: 767px) {
-    width: 13.25rem;
+    width: 12rem;
     height: 16.971rem;
     margin-bottom: 1.5rem;
   }
@@ -63,17 +63,19 @@ const Cancel = styled.label`
   height: 1.5rem;
   display: flex;
   justify-content: flex-end;
+  margin-right: 5rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 11.313rem;
+    margin-right: 1.5rem;
   }
   @media all and (max-width: 767px) {
-    width: 13.25rem;
+    margin-right: 3.5rem;
   }
 `
 
 const Image = styled.img`
-  width: 6.438rem;
-  height: 9.563rem;
+  width: 4rem;
+  height: 7rem;
   margin-bottom: 2rem;
   @media all and (max-width: 767px) {
     width: 4.438rem;
@@ -83,14 +85,14 @@ const Image = styled.img`
 `
 
 const TextLarge = styled.div`
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   font-weight: 1000;
   @media all and (max-width: 767px) {
     font-size: 1.2rem;
   }
 `
 const TextSmall = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   @media all and (max-width: 767px) {
     font-size: 1rem;
@@ -98,14 +100,14 @@ const TextSmall = styled.div`
 `
 
 const CountButton = styled.button`
-  width: 10rem;
-  height: 2.2rem;
+  width: 8rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 0.15rem solid #000000;
   background-color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-top: 1rem;
   @media all and (max-width: 767px) {

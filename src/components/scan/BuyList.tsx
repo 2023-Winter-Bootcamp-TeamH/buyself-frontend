@@ -31,11 +31,11 @@ export default BuyList
 
 const StyledList = styled.div`
   width: 80vw;
-  height: 25rem;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5.375rem 13.375rem 1.125rem 13.313rem;
+  margin: 5.375rem 13.375rem 1.125rem 14rem;
   padding: 1.75rem 1.75rem 0 1.75rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
@@ -69,6 +69,5 @@ const BuyCardBox = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     padding: 2rem 0;
-    margin-left: 1.5rem;
   }
 `
