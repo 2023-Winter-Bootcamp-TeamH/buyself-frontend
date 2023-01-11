@@ -4,9 +4,9 @@ import { BsCamera } from 'react-icons/bs'
 
 /* 웹캠 실행버튼 */
 
-const Scanner = () => {
+const Scanner = ({ onClick }: { onClick: () => void }) => {
   return (
-    <StyledButton>
+    <StyledButton onClick={onClick}>
       <BsCamera size="70" />
     </StyledButton>
   )
@@ -22,6 +22,7 @@ const StyledButton = styled.button`
   border-radius: 2.9rem;
   box-shadow: 0 0.5rem rgba(0, 0, 0, 0.25);
   margin-top: 4rem;
+  cursor: pointer;
   &:hover {
     background-color: #ff9292;
   }
