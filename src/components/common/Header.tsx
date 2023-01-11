@@ -1,27 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from '../../images/header_logo.svg'
 import { FaChevronLeft } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import CheckList from '../checklist/CheckList'
+
+/**
+ * 상단 헤더 컴포넌트
+ * 로고, 뒤로가기 버튼, 장바구니 체크리스트 토글 버튼
+ */
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleMenu = () => {
+    setIsOpen((isOpen) => !isOpen)
+  }
   return (
-    <Box>
-      <Link to="/" style={{ color: 'black' }}>
-        <Arrow>
-          <FaChevronLeft />
-        </Arrow>
-      </Link>
-      <Link to="/" style={{ marginTop: '1.5rem' }}>
-        <Image src={logo} />
-      </Link>
-      <Link to="/" style={{ color: 'black' }}>
+    <>
+      <Box>
+        <Link to="/" style={{ color: 'black' }}>
+          <Arrow>
+            <FaChevronLeft />
+          </Arrow>
+        </Link>
+        <Link to="/" style={{ marginTop: '1.5rem' }}>
+          <Image src={logo} />
+        </Link>
         <Cart>
-          <AiOutlineShoppingCart />
+          <AiOutlineShoppingCart
+            onClick={() => {
+              toggleMenu()
+            }}
+          />
         </Cart>
-      </Link>
-    </Box>
+      </Box>
+      <CheckList isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
   )
 }
 
@@ -70,10 +85,10 @@ const Cart = styled.label`
   display: flex;
   align-items: center;
   font-size: 2.8rem;
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   cursor: pointer;
   @media all and (max-width: 767px) {
     font-size: 2.5rem;
-    margin-top: 1.3rem;
+    margin-bottom: 1rem;
   }
 `
