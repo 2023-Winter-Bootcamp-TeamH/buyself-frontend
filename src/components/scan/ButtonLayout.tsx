@@ -2,12 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ScanButton from './ScanButton'
 
-const Layout = styled.div`
-  display: flex;
-  width: 80rem;
-  height: 3rem;
-  justify-content: flex-end;
-`
+/* 하단부 결제버튼, 취소버튼 담는 레이아웃 */
 
 const ButtonLayout = () => {
   return (
@@ -19,3 +14,13 @@ const ButtonLayout = () => {
 }
 
 export default ButtonLayout
+
+const Layout = styled.div`
+  display: flex;
+  width: 80vw;
+  height: 3.125rem;
+  justify-content: flex-end;
+  @media all and (max-width: 767px) {
+    justify-content: center;
+  }
+`

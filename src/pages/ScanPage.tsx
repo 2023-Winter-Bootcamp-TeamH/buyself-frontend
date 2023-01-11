@@ -1,21 +1,12 @@
 import React from 'react'
 import Header from '../components/common/Header'
+import styled from 'styled-components'
 import ButtonLayout from '../components/scan/ButtonLayout'
 import Scanner from '../components/scan/Scanner'
-import ScanPageLayout from '../components/scan/ScanPageLayout'
 import BuyList from '../components/scan/BuyList'
+import ItemList from '../components/scan/ItemList'
 
-interface BuyCardProps {
-  name: string
-  price: string
-}
-
-const ItemList: BuyCardProps[] = [
-  {
-    name: '짜요짜요',
-    price: '1200원',
-  },
-]
+/* 상품인식페이지 */
 
 const ScanPage = () => {
   return (
@@ -31,3 +22,13 @@ const ScanPage = () => {
 }
 
 export default ScanPage
+
+const ScanPageLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justfy-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
+  border-bottom: 1rem solid #fff;
+`
