@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
 import image from '../../images/test_image.png'
@@ -14,18 +14,31 @@ const BuyCard = ({
   price: string
   count: number
 }) => {
+  const [number, setNumber] = useState(count)
+  const onIncrease = () => {
+    setNumber(number + 1)
+  }
+  const onDecrease = () => {
+    number !== 0 && setNumber(number - 1)
+  }
   return (
     <StyledCard>
       <Cancel>
-        <BsXLg size="20" />
+        <IconButton>
+          <BsXLg size="20" />
+        </IconButton>
       </Cancel>
       <Image src={image} />
       <TextLarge>{name}</TextLarge>
       <TextSmall>{price}</TextSmall>
       <CountButton>
-        <BsDashLg />
-        {count}
-        <BsPlusLg />
+        <IconButton onClick={onDecrease}>
+          <BsDashLg />
+        </IconButton>
+        {number}
+        <IconButton onClick={onIncrease}>
+          <BsPlusLg />
+        </IconButton>
       </CountButton>
     </StyledCard>
   )
@@ -111,8 +124,17 @@ const CountButton = styled.button`
   font-weight: 700;
   margin-top: 1rem;
   @media all and (max-width: 767px) {
-    width: 8rem;
     font-size: 1rem;
     margin-top: 0.5rem;
   }
+`
+
+const IconButton = styled.div`
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
 `
