@@ -40,33 +40,14 @@ const StyledList = styled.div`
   border-radius: 1.5rem 1.5rem 1rem 1rem;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
   background-color: #fff;
-  
   overflow: auto;
-  ::-webkit-scrollbar {
-    width: 80vw;
-    height: 0.8rem;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #eeeeee;
-    border-radius: 20rem;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 20rem;
-  }
-
   @media all and (max-width: 767px) {
     height: 45rem;
     flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: scroll;
-    ::-webkit-scrollbar {
-      width: 0.8rem;
-      height: 25rem;
-    }
-    }
+    padding: 0;
+    margin-bottom: 1rem;
   }
 `
 const BuyCardBox = styled.div`
@@ -75,4 +56,10 @@ const BuyCardBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  @media all and (max-width: 767px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    margin-left: 1.5rem;
+  }
 `

@@ -20,6 +20,7 @@ const Layout = styled.div`
   width: 80vw;
   height: 3.125rem;
   justify-content: flex-end;
+  margin-bottom: 2rem;
   @media all and (max-width: 767px) {
     justify-content: center;
   }

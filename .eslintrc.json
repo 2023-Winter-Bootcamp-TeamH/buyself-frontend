@@ -19,6 +19,7 @@
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "@typescript-eslint/strict-boolean-expressi": "false"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/prefer-optional-chain": "off"
   }
 }

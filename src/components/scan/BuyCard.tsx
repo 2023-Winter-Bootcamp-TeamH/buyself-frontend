@@ -48,11 +48,12 @@ const StyledCard = styled.div`
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 11.313rem;
     height: 18.5rem;
+    margin-bottom: 1rem;
   }
   @media all and (max-width: 767px) {
-    width: 8.25rem;
-    height: 11.971rem;
-    margin-right: 2rem;
+    width: 13.25rem;
+    height: 16.971rem;
+    margin-bottom: 1.5rem;
   }
 `
 

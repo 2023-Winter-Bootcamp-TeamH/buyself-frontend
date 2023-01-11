@@ -28,7 +28,4 @@ const ScanPageLayout = styled.div`
   flex-direction: column;
   align-items: center;
   justfy-content: space-evenly;
-  width: 100vw;
-  height: 100vh;
-  border-bottom: 1rem solid #fff;
 `
