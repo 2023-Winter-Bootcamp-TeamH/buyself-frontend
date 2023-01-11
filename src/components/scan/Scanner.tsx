@@ -7,7 +7,7 @@ import { BsCamera } from 'react-icons/bs'
 const Scanner = () => {
   return (
     <StyledButton>
-      <BsCamera size="74" />
+      <BsCamera size="70" />
     </StyledButton>
   )
 }
@@ -15,13 +15,13 @@ const Scanner = () => {
 export default Scanner
 
 const StyledButton = styled.button`
-  height: 8rem;
+  height: 7.5rem;
   width: 20rem;
   background: #ff6d6d;
   border: solid 0.2rem;
   border-radius: 2.9rem;
   box-shadow: 0 0.5rem rgba(0, 0, 0, 0.25);
-  margin-top: 11rem;
+  margin-top: 5rem;
   &:hover {
     background-color: #ff9292;
   }
@@ -31,10 +31,10 @@ const StyledButton = styled.button`
     border-radius: 2.7rem;
   }
   @media all and (max-width: 767px) {
-    height: 6rem;
-    width: 16rem;
+    height: 5.5rem;
+    width: 15rem;
+    margin-top: 3rem;
     border-radius: 3rem;
-    margin-top: 8rem;
     box-shadow: 0 0.8rem 0.2rem rgba(0, 0, 0, 0.25);
   }
 `

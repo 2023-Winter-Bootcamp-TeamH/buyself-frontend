@@ -35,19 +35,28 @@ const StyledList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6.375rem 13.375rem 1.125rem 13.313rem;
+  margin: 5.375rem 13.375rem 1.125rem 13.313rem;
   padding: 1.75rem 1.75rem 0 1.75rem;
-  border-radius: 1.5rem 1.5rem 1rem 1rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
   background-color: #fff;
   overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 10rem;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10rem;
+  }
   @media all and (max-width: 767px) {
-    height: 45rem;
+    height: 30rem;
     flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 0;
-    margin-bottom: 1rem;
   }
 `
 const BuyCardBox = styled.div`

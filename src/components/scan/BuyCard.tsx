@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
+import image from '../../images/test_image.png'
 
 /* BuyCard - 스캔된 상품 카드 컴포넌트 */
 
@@ -18,7 +19,7 @@ const BuyCard = ({
       <Cancel>
         <BsXLg size="20" />
       </Cancel>
-      <ImageBox />
+      <Image src={image} />
       <TextLarge>{name}</TextLarge>
       <TextSmall>{price}</TextSmall>
       <CountButton>
@@ -66,15 +67,14 @@ const Cancel = styled.label`
     width: 11.313rem;
   }
   @media all and (max-width: 767px) {
-    width: 8.25rem;
+    width: 13.25rem;
   }
 `
 
-const ImageBox = styled.label`
+const Image = styled.img`
   width: 6.438rem;
   height: 9.563rem;
   margin-bottom: 2rem;
-  border: 1rem solid #000;
   @media all and (max-width: 767px) {
     width: 4.438rem;
     height: 7.563rem;
@@ -86,14 +86,14 @@ const TextLarge = styled.div`
   font-size: 1.7rem;
   font-weight: 1000;
   @media all and (max-width: 767px) {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 `
 const TextSmall = styled.div`
   font-size: 1.2rem;
   font-weight: 700;
   @media all and (max-width: 767px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 `
 
