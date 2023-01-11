@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import image from '../../images/test_image.png'
+import { BsPlusLg, BsDashLg } from 'react-icons/bs'
 
 /**
  * 체크리스트 상품 카드
@@ -32,7 +33,7 @@ const CheckListCard = ({ title, price }: { title: string; price: number }) => {
               handleClickSub()
             }}
           >
-            -
+            <BsDashLg />
           </Button>
           {quantity}
           <Button
@@ -40,7 +41,7 @@ const CheckListCard = ({ title, price }: { title: string; price: number }) => {
               handleClickAdd()
             }}
           >
-            +
+            <BsPlusLg />
           </Button>
         </QuantityBox>
       </DetailContainer>
@@ -82,15 +83,17 @@ const QuantityBox = styled.div`
   font-size: 1.5rem;
   margin-bottom: 1rem;
   width: 10rem;
-  border: 1px solid black;
+  border: 2px solid black;
 `
 const Button = styled.div`
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
   cursor: pointer;
 `
 
 const Price = styled.div`
   margin-top: 2rem;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.2rem;
 `
