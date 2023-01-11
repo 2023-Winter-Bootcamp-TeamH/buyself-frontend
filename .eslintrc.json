@@ -18,6 +18,8 @@
   "plugins": ["react"],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/prefer-optional-chain": "off"
   }
 }
