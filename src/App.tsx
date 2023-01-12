@@ -4,10 +4,7 @@ import NotFound from './components/common/NotFound'
 import ScrollToTop from './components/common/ScrollToTop'
 import { createGlobalStyle } from 'styled-components'
 import MainPage from './pages/MainPage'
-<<<<<<< HEAD
 import ScanPage from './pages/ScanPage'
-=======
->>>>>>> product
 import ProductPage from './pages/ProductPage'
 
 function App() {
@@ -19,12 +16,8 @@ function App() {
         <Routes>
           <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
-<<<<<<< HEAD
           <Route path="/scan" element={<ScanPage />} />
           <Route path="/product" element={<ProductPage />} />
-=======
-          <Route path="/ProductPage" element={<ProductPage />} />
->>>>>>> product
         </Routes>
       </BrowserRouter>
     </div>
