@@ -11,15 +11,20 @@ const BuyCard = ({
   count,
 }: {
   name: string
-  price: string
+  price: number
   count: number
 }) => {
-  const [number, setNumber] = useState(count)
+  const [number, setNumber] = useState(1)
+  const [priceValue, setPrice] = useState(price)
   const onIncrease = () => {
+    setPrice(price * (number + 1))
     setNumber(number + 1)
   }
   const onDecrease = () => {
-    number !== 0 && setNumber(number - 1)
+    if (number > 1) {
+      setNumber(number - 1)
+      setPrice(priceValue - price)
+    }
   }
   return (
     <StyledCard>
@@ -30,7 +35,7 @@ const BuyCard = ({
       </Cancel>
       <Image src={image} />
       <TextLarge>{name}</TextLarge>
-      <TextSmall>{price}</TextSmall>
+      <TextSmall>{priceValue}원</TextSmall>
       <CountButton>
         <IconButton onClick={onDecrease}>
           <BsDashLg />

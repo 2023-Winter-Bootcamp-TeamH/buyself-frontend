@@ -3,8 +3,14 @@ import styled from 'styled-components'
 
 const Div = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  margin-right: 8rem;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    margin-right: 5rem;
+  }
   @media all and (max-width: 767px) {
+    margin-right: 3rem;
+  }
 `
 
 const Input = styled.input`
@@ -15,16 +21,20 @@ const Input = styled.input`
   width: 37rem;
   border-radius: 8px;
   font-size: 1.5rem;
-  margin-left:30.5rem;
-  margin-top:3rem;
-  margin-bottom:3rem;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin-left: 30.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 6rem;
+  }
   @media all and (max-width: 767px) {
-    height: 1.5rem;
-  width: 20rem;
-  margin-left:0;
-  margin-top:2rem;
-  margin-bottom:2rem;
+    height: 2rem;
+    width: 18rem;
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 `
 const Button = styled.button`
   display: flex;
@@ -35,26 +45,30 @@ const Button = styled.button`
   background: #ff6060;
   box-shadow: 2px 2px black;
   color: white;
-  font-weight: 1000;
+  font-weight: 800;
   border-radius: 8px;
-  font-size: 2.0rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  margin-top:3rem;
-  margin-left:1rem;
-  @media all and (max-width: 767px) {
-    height: 1.8rem;
-    width: 4rem;
-    font-size: 1.0rem;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    width: 7rem;
+    font-size: 1.2rem;
     font-weight: 800;
-    margin-top:2rem;
-
+  }
+  @media all and (max-width: 767px) {
+    height: 2.3rem;
+    width: 4rem;
+    font-size: 1rem;
+    font-weight: 800;
+    margin-top: 2rem;
+  }
 `
 
 const ProductSearch = () => {
   return (
     <Div>
       <Input autoFocus />
-
       <Button>검색</Button>
     </Div>
   )
