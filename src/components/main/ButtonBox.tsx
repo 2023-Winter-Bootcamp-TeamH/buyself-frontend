@@ -6,10 +6,10 @@ import Button from './Button'
 const ButtonBox = () => {
   return (
     <Box>
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/scan" style={{ textDecoration: 'none' }}>
         <Button title="결제" />
       </Link>
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/product" style={{ textDecoration: 'none' }}>
         <Button title="상품" />
       </Link>
     </Box>
