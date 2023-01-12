@@ -5,7 +5,7 @@ import BuyCard from './BuyCard'
 
 interface BuyCardProps {
   name: string
-  price: string
+  price: number
   count: number
 }
 
