@@ -49,6 +49,9 @@ const Button = styled.div`
   border: solid 2px #000;
   background-color: #95dceb;
   cursor: pointer;
+  &:hover {
+    background: #c6dceb;
+  }
 `
 
 const TextBox = styled.div`

@@ -51,6 +51,9 @@ const Button = styled.button`
   cursor: pointer;
   margin-top: 3rem;
   margin-left: 1rem;
+  &:hover {
+    background: #ff7d6d;
+  }
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 7rem;
     font-size: 1.2rem;

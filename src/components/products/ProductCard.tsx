@@ -62,6 +62,7 @@ const IMGBlock = styled.div`
   border-radius: 20px;
   padding: 0.5rem 0;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
   @media all and (max-width: 767px) {
     width: 9.5rem;
     height: 11rem;
@@ -72,8 +73,14 @@ const IMG = styled.img`
   display: flex;
   align-self: center;
   width: 13rem;
+  &:hover {
+    width: 14rem;
+  }
   @media all and (max-width: 767px) {
     width: 7rem;
+    &:hover {
+      width: 8rem;
+    }
   }
 `
 const CheckButton = styled.button`
@@ -89,6 +96,9 @@ const CheckButton = styled.button`
   font-weight: 800;
   margin-left: 2.5rem;
   margin-top: 0.5rem;
+  &:hover {
+    background: #c6dceb;
+  }
   @media all and (max-width: 767px) {
     height: 2rem;
     width: 6rem;
