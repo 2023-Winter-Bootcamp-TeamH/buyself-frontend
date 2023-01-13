@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import TextBox from './TextBox'
 
+/* 결제정보창에 텍스트 레이아웃 */
+
 const BuyInfoLabel = ({ text, price }: { text: string; price: string }) => {
   return (
     <Label>
@@ -20,4 +22,5 @@ const Label = styled.div`
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
+  margin: 0 auto;
 `

@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import Divisions from './Divisions'
 import BuyTable from './BuyTable'
 import BuyItem from '../scan/BuyItem'
 import { FaCheckSquare } from 'react-icons/fa'
+
+/** 테이블표가 있는 왼쪽 레이아웃 */
 
 const LeftLayout = () => {
   return (
     <Layout>
       <AllCheckLabel>
-        <FaCheckSquare size="40" />
+        <IconButton>
+          <FaCheckSquare size="35" />
+        </IconButton>
         <Label>전체선택</Label>
       </AllCheckLabel>
-      <Divisions IsShort />
+      <Line />
       <BuyTable BuyItem={BuyItem} />
     </Layout>
   )
@@ -21,13 +24,24 @@ const LeftLayout = () => {
 export default LeftLayout
 
 const Layout = styled.div`
-  width: 72.25rem;
+  width: 55%;
   height: 50.438rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 5rem;
+  padding: 5%;
+  @media all and (min-width: 768px) and (max-width: 1160px) {
+    width: 90%;
+    height: 28rem;
+    font-size: 1.3rem;
+    padding: 3rem;
+  }
+  @media all and (max-width: 767px) {
+    width: 90%;
+    height: 28rem;
+    padding: 2rem;
+  }
 `
 const AllCheckLabel = styled.div`
   width: 90%;
@@ -42,4 +56,24 @@ const Label = styled.div`
   font-size: 1.7rem;
   font-weight: bold;
   margin-left: 1.5rem;
+  @media all and (max-width: 767px) {
+    font-size: 1.3rem;
+  }
+`
+const Line = styled.div`
+  width: 95%;
+  border-bottom: 0.15rem solid black;
+  margin-bottom: 1rem;
+  @media all and (max-width: 767px) {
+    margin-top: 1rem;
+  }
+`
+const IconButton = styled.div`
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
 `

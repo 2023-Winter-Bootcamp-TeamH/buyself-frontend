@@ -24,6 +24,14 @@ const Btn = styled.button`
   &:hover {
     background-color: #cae7ed;
   }
+  @media all and (min-width: 768px) and (max-width: 1325px) {
+    height: 5rem;
+    width: 20rem;
+    font-size: 1.7rem;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 1.5rem;
+  }
 `
 
 const RedBtn = styled(Btn)`

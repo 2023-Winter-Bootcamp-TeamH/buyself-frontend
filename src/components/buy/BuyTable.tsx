@@ -4,6 +4,8 @@ import { HiTrash } from 'react-icons/hi'
 import { FaCheckSquare } from 'react-icons/fa'
 import TdProduct from './TdProduct'
 
+/** 결제창 테이블표 */
+
 interface Props {
   name: string
   price: string
@@ -16,24 +18,30 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
       <Table>
         <Thead>
           <TrCheck>
-            <FaCheckSquare size="40" />
+            <IconButton>
+              <FaCheckSquare size="35" />
+            </IconButton>
           </TrCheck>
-          <TrProduct>상품/옵션정보</TrProduct>
-          <Tr>구매예정금액</Tr>
-          <Tr>행사/할인</Tr>
+          <TrProduct>구매정보</TrProduct>
+          <Tr>가격</Tr>
+          <Tr>할인정보</Tr>
           <Tr>선택</Tr>
         </Thead>
         {BuyItem &&
           BuyItem.map((v, index) => (
             <Tbody key={index}>
               <TdCheck>
-                <FaCheckSquare size="40" />
+                <IconButton>
+                  <FaCheckSquare size="35" />
+                </IconButton>
               </TdCheck>
               <TdProduct name={v.name} price={v.price} count={v.count} />
               <Td>{v.price}</Td>
               <Td>X</Td>
               <Td>
-                <HiTrash size="40" />
+                <IconButton>
+                  <HiTrash size="35" />
+                </IconButton>
               </Td>
             </Tbody>
           ))}
@@ -45,10 +53,10 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
 export default BuyTable
 
 const TableBox = styled.div`
-  width: 71rem;
+  width: 100%;
   height: 40rem;
   background: white;
-  border-left: 0.15rem solid;
+  border-left: 0.16rem solid;
   border-right: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -56,21 +64,26 @@ const TableBox = styled.div`
     width: 0.8rem;
     height: 0.8rem;
     background: #ff9668;
-    border-left: 0.15rem solid;
   }
   &::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10rem;
   }
+  @media all and (min-width: 1140px) and (max-width: 1325px) {
+    font-size: 1.3rem;
+  }
+  @media all and (max-width: 767px) {
+    height: 25rem;
+  }
 `
 
 const Table = styled.div`
-  width: 71rem;
+  width: 100%;
   height: 40rem;
   display: flex;
   flex-direction: column;
   background: white;
-  border: 0.15rem solid;
+  border: 0.16rem solid;
   border-left: 0;
   border-right: 0;
 `
@@ -83,17 +96,27 @@ const Thead = styled(Table)`
   justify-content: center;
   align-items: center;
   border: 0;
-  border-bottom: 0.15rem solid;
-  font-size: 1.7rem;
+  border-bottom: 0.16rem solid;
+  font-size: 1.6rem;
   font-weight: bold;
+  white-space: pre-wrap;
+  @media all and (min-width: 768px) and (max-width: 1325px) {
+    font-size: 1.2rem;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 `
 
 const Tbody = styled(Thead)`
   height: 12rem;
+  @media all and (max-width: 767px) {
+    height: 10rem;
+  }
 `
 const TrCheck = styled(Thead)`
   width: 10%;
-  border-right: 0.15rem solid;
+  border-right: 0.16rem solid;
   border-bottom: 0;
 `
 const TrProduct = styled(TrCheck)`
@@ -104,7 +127,22 @@ const Tr = styled(TrCheck)`
 `
 const TdCheck = styled(TrCheck)`
   height: 12rem;
+  @media all and (max-width: 767px) {
+    height: 10rem;
+  }
 `
 const Td = styled(Tr)`
   height: 12rem;
+  @media all and (max-width: 767px) {
+    height: 10rem;
+  }
+`
+const IconButton = styled.div`
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
 `
