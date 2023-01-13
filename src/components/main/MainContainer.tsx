@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import typo from '../../images/typo3.svg'
+import typo from '../../images/typo5.svg'
 import FadeIn from 'react-fade-in'
 import ButtonBox from './ButtonBox'
 
