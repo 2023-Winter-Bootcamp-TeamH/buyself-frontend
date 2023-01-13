@@ -24,6 +24,9 @@ const Text = styled.div`
   font-weight: bold;
   margin-right: 0;
   margin-left: 1rem;
+  @media all and (max-width: 767px) {
+    font-size: 1.3rem;
+  }
 `
 const Price = styled(Text)`
   justify-content: flex-end;

@@ -50,7 +50,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border-right: 0.16rem solid;
   border-bottom: 0;
@@ -59,6 +59,7 @@ const Box = styled.div`
   }
   @media all and (max-width: 767px) {
     font-size: 1.2rem;
+    flex-direction: column;
   }
 `
 const ImageBox = styled.div`
@@ -68,6 +69,7 @@ const ImageBox = styled.div`
   align-items: center;
   margin-left: 1rem;
   @media all and (max-width: 767px) {
+    width: 5rem;
     margin-left: 0;
   }
 `
@@ -78,17 +80,13 @@ const RightBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  @media all and (max-width: 767px) {
-    margin-top: 2rem;
-  }
 `
 const Image = styled.img`
-  width: 10rem;
+  width: 80%;
   height: 70%;
   @media all and (max-width: 767px) {
-    width: 5.438rem;
-    height: 7.563rem;
-    margin-bottom: 0.5rem;
+    width: 5rem;
+    height: 5rem;
     margin-left: 0;
   }
 `
@@ -114,6 +112,7 @@ const CountButton = styled.button`
     height: 2.2rem;
     font-size: 1rem;
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 `
 const IconButton = styled.div`

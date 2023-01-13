@@ -20,7 +20,8 @@ const Label = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
   margin: 0 auto;
+  @media all and (max-width: 767px) {
+    height: 3rem;
+  }
 `

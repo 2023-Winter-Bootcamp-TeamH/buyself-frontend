@@ -53,7 +53,7 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
 export default BuyTable
 
 const TableBox = styled.div`
-  width: 100%;
+  width: 95%;
   height: 40rem;
   background: white;
   border-left: 0.16rem solid;
@@ -97,7 +97,7 @@ const Thead = styled(Table)`
   align-items: center;
   border: 0;
   border-bottom: 0.16rem solid;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
   white-space: pre-wrap;
   @media all and (min-width: 768px) and (max-width: 1325px) {
@@ -110,9 +110,6 @@ const Thead = styled(Table)`
 
 const Tbody = styled(Thead)`
   height: 12rem;
-  @media all and (max-width: 767px) {
-    height: 10rem;
-  }
 `
 const TrCheck = styled(Thead)`
   width: 10%;
@@ -127,15 +124,9 @@ const Tr = styled(TrCheck)`
 `
 const TdCheck = styled(TrCheck)`
   height: 12rem;
-  @media all and (max-width: 767px) {
-    height: 10rem;
-  }
 `
 const Td = styled(Tr)`
   height: 12rem;
-  @media all and (max-width: 767px) {
-    height: 10rem;
-  }
 `
 const IconButton = styled.div`
   width: 1.7rem;

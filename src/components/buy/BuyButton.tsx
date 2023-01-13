@@ -27,10 +27,16 @@ const Btn = styled.button`
   @media all and (min-width: 768px) and (max-width: 1325px) {
     height: 5rem;
     width: 20rem;
-    font-size: 1.7rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
   }
   @media all and (max-width: 767px) {
+    height: 5rem;
+    width: 20rem;
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
   }
 `
 

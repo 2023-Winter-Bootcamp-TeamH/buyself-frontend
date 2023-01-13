@@ -29,14 +29,15 @@ export default BuyPage
 const BuyPageLayout = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  padding: 0 0 4rem 0;
   @media all and (max-width: 1160px) {
     flex-direction: column;
   }
 `
 const ButtonLayout = styled.div`
   width: 100%;
-  height: 15rem;
+  height: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -30,17 +30,17 @@ const Layout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 5%;
+  padding: 3rem;
   @media all and (min-width: 768px) and (max-width: 1160px) {
     width: 90%;
     height: 28rem;
+    padding: 2rem 0;
     font-size: 1.3rem;
-    padding: 3rem;
   }
   @media all and (max-width: 767px) {
     width: 90%;
     height: 28rem;
-    padding: 2rem;
+    padding: 2rem 0;
   }
 `
 const AllCheckLabel = styled.div`
