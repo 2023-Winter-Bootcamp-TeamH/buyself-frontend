@@ -6,6 +6,7 @@ import { createGlobalStyle } from 'styled-components'
 import MainPage from './pages/MainPage'
 import ScanPage from './pages/ScanPage'
 import ProductPage from './pages/ProductPage'
+import SearchPage from './pages/SearchPage'
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/scan" element={<ScanPage />} />
           <Route path="/product" element={<ProductPage />} />
+
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </BrowserRouter>
     </div>
