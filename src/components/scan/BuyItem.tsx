@@ -4,7 +4,7 @@ interface BuyCardProps {
   count: number
 }
 
-const ItemList: BuyCardProps[] = [
+const BuyItem: BuyCardProps[] = [
   {
     name: '짜요짜요',
     price: '1200원',
@@ -27,4 +27,4 @@ const ItemList: BuyCardProps[] = [
   },
 ]
 
-export default ItemList
+export default BuyItem

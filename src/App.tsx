@@ -5,6 +5,7 @@ import ScrollToTop from './components/common/ScrollToTop'
 import { createGlobalStyle } from 'styled-components'
 import MainPage from './pages/MainPage'
 import ScanPage from './pages/ScanPage'
+import BuyPage from './pages/BuyPage'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<MainPage />} />
           <Route path="/scan" element={<ScanPage />} />
+          <Route path="/buy" element={<BuyPage />} />
         </Routes>
       </BrowserRouter>
     </div>

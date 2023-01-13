@@ -1,0 +1,30 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const TextBox = ({ text, price }: { text: string; price: string }) => {
+  return (
+    <>
+      <Text>{text}</Text>
+      <Price>{price}</Price>
+    </>
+  )
+}
+
+export default TextBox
+
+const Text = styled.div`
+  width: 10rem;
+  height: 3.938rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 0;
+  margin-left: 1rem;
+`
+const Price = styled(Text)`
+  justify-content: flex-end;
+  margin-right: 1rem;
+  margin-left: 0;
+`
