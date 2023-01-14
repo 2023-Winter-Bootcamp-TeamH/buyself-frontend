@@ -11,41 +11,49 @@ const TdProduct = ({
   count,
 }: {
   name: string
-  price: string
+  price: number
   count: number
 }) => {
   const [number, setNumber] = useState(count)
+  const [priceValue, setPrice] = useState(price)
   const onIncrease = () => {
     setNumber(number + 1)
+    setPrice(price * (number + 1))
   }
   const onDecrease = () => {
-    number !== 0 && setNumber(number - 1)
+    if (number !== 0) {
+      setNumber(number - 1)
+      setPrice(priceValue - price)
+    }
   }
   return (
-    <Box>
-      <ImageBox>
-        <Image src={image} />
-      </ImageBox>
-      <RightBox>
-        {name}
-        <CountButton>
-          <IconButton onClick={onDecrease}>
-            <BsDashLg />
-          </IconButton>
-          {number}
-          <IconButton onClick={onIncrease}>
-            <BsPlusLg />
-          </IconButton>
-        </CountButton>
-      </RightBox>
-    </Box>
+    <>
+      <ProductBox>
+        <ImageBox>
+          <Image src={image} />
+        </ImageBox>
+        <RightBox>
+          {name}
+          <CountButton>
+            <IconButton onClick={onDecrease}>
+              <BsDashLg />
+            </IconButton>
+            {number}
+            <IconButton onClick={onIncrease}>
+              <BsPlusLg />
+            </IconButton>
+          </CountButton>
+        </RightBox>
+      </ProductBox>
+      <PriceBox>{priceValue}</PriceBox>
+    </>
   )
 }
 
 export default TdProduct
 
-const Box = styled.div`
-  width: 39%;
+const ProductBox = styled.div`
+  width: 76.6%;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -61,6 +69,10 @@ const Box = styled.div`
     font-size: 1.2rem;
     flex-direction: column;
   }
+`
+const PriceBox = styled(ProductBox)`
+  width: 33.4%;
+  justify-content: center;
 `
 const ImageBox = styled.div`
   width: 30%;

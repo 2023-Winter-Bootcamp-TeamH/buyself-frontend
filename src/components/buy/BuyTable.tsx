@@ -7,7 +7,7 @@ import TdProduct from './TdProduct'
 
 interface Props {
   name: string
-  price: string
+  price: number
   count: number
   check: boolean
 }
@@ -25,7 +25,6 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
       setCheckItems([])
     }
   }
-
   const handleSingleCheck = (checked: boolean, id: string) => {
     if (checked) {
       setCheckItems((prev) => [...prev, id])
@@ -65,8 +64,9 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
                   checked={!!checkItems.includes(v.name)}
                 />
               </TdCheck>
-              <TdProduct name={v.name} price={v.price} count={v.count} />
-              <Td>{v.price}</Td>
+              <ProductBox>
+                <TdProduct name={v.name} price={v.price} count={v.count} />
+              </ProductBox>
               <Td>X</Td>
               <Td>
                 <IconButton>
@@ -158,6 +158,14 @@ const TdCheck = styled(Body)`
   border-right: 0.16rem solid;
   border-bottom: 0;
 `
+const ProductBox = styled.div`
+  width: 56.6%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
 const Td = styled(TdCheck)`
   width: 17%;
 `
@@ -176,6 +184,7 @@ const StyledInput = styled.input`
   border-radius: 0.35rem;
   width: 1.7rem;
   height: 1.7rem;
+  cursor: pointer;
 
   &:checked {
     border-color: transparent;

@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 /** 결제정보창 텍스트 (총주문금액 / ---원) */
 
-const TextBox = ({ text, price }: { text: string; price: string }) => {
+const TextBox = ({ text, price }: { text: string; price: number }) => {
   return (
     <>
       <Text>{text}</Text>
-      <Price>{price}</Price>
+      <Price>{price}원</Price>
     </>
   )
 }

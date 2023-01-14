@@ -11,7 +11,7 @@ const BuyCard = ({
   count,
 }: {
   name: string
-  price: string
+  price: number
   count: number
 }) => {
   const [number, setNumber] = useState(count)
@@ -30,7 +30,7 @@ const BuyCard = ({
       </Cancel>
       <Image src={image} />
       <TextLarge>{name}</TextLarge>
-      <TextSmall>{price}</TextSmall>
+      <TextSmall>{price}원</TextSmall>
       <CountButton>
         <IconButton onClick={onDecrease}>
           <BsDashLg />

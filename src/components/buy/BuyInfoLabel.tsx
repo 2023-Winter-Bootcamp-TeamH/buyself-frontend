@@ -4,7 +4,7 @@ import TextBox from './TextBox'
 
 /* 결제정보창에 텍스트 레이아웃 */
 
-const BuyInfoLabel = ({ text, price }: { text: string; price: string }) => {
+const BuyInfoLabel = ({ text, price }: { text: string; price: number }) => {
   return (
     <Label>
       <TextBox text={text} price={price} />

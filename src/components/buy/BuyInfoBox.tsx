@@ -9,12 +9,12 @@ const BuyInfoBox = ({ children }: { children?: React.ReactNode }) => {
   return (
     <>
       <Box>
-        <BuyInfoLabel text="총 주문금액" price="-----원" />
+        <BuyInfoLabel text="총 주문금액" price={1000} />
         <Divisions />
-        <BuyInfoLabel text="원가" price="-----원" />
-        <BuyInfoLabel text="할인금액" price="-----원" />
+        <BuyInfoLabel text="원가" price={1000} />
+        <BuyInfoLabel text="할인금액" price={1000} />
         <Divisions IsShort />
-        <BuyInfoLabel text="최종 결제 금액" price="-----원" />
+        <BuyInfoLabel text="최종 결제 금액" price={1000} />
         {children}
       </Box>
     </>
