@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import BuyTable from './BuyTable'
 import BuyItem from '../scan/BuyItem'
-import { FaCheckSquare } from 'react-icons/fa'
+import { FaListAlt } from 'react-icons/fa'
 
 /** 테이블표가 있는 왼쪽 레이아웃 */
 
@@ -11,9 +11,9 @@ const LeftLayout = () => {
     <Layout>
       <AllCheckLabel>
         <IconButton>
-          <FaCheckSquare size="35" />
+          <FaListAlt size="35" />
         </IconButton>
-        <Label>전체선택</Label>
+        <Label>담은 상품 목록</Label>
       </AllCheckLabel>
       <Line />
       <BuyTable BuyItem={BuyItem} />

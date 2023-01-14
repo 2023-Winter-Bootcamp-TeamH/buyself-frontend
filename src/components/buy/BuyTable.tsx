@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { HiTrash } from 'react-icons/hi'
-import { FaCheckSquare } from 'react-icons/fa'
 import TdProduct from './TdProduct'
 
 /** 결제창 테이블표 */
@@ -10,30 +9,61 @@ interface Props {
   name: string
   price: string
   count: number
+  check: boolean
 }
 
 const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
+  const rows = BuyItem
+  const [checkItems, setCheckItems] = useState<string[]>([])
+
+  const handleAllCheck = (checked: boolean) => {
+    if (checked) {
+      const idArray: string[] = []
+      rows.forEach((list) => idArray.push(list.name))
+      setCheckItems(idArray)
+    } else {
+      setCheckItems([])
+    }
+  }
+
+  const handleSingleCheck = (checked: boolean, id: string) => {
+    if (checked) {
+      setCheckItems((prev) => [...prev, id])
+    } else {
+      setCheckItems(checkItems.filter((el: string) => el !== id))
+    }
+  }
+
   return (
     <TableBox>
       <Table>
-        <Thead>
-          <TrCheck>
-            <IconButton>
-              <FaCheckSquare size="35" />
-            </IconButton>
-          </TrCheck>
-          <TrProduct>구매정보</TrProduct>
-          <Tr>가격</Tr>
-          <Tr>할인정보</Tr>
-          <Tr>선택</Tr>
-        </Thead>
-        {BuyItem &&
-          BuyItem.map((v, index) => (
-            <Tbody key={index}>
+        <Head>
+          <ThCheck>
+            <StyledInput
+              type="checkbox"
+              onChange={(e) => {
+                handleAllCheck(e.target.checked)
+              }}
+              checked={checkItems.length === rows.length}
+            />
+          </ThCheck>
+          <ThProduct>구매정보</ThProduct>
+          <Th>가격</Th>
+          <Th>할인정보</Th>
+          <Th>선택</Th>
+        </Head>
+        {rows &&
+          rows.map((v, index) => (
+            <Body key={index}>
               <TdCheck>
-                <IconButton>
-                  <FaCheckSquare size="35" />
-                </IconButton>
+                <StyledInput
+                  key={v.name}
+                  type="checkbox"
+                  onChange={(e) => {
+                    handleSingleCheck(e.target.checked, v.name)
+                  }}
+                  checked={!!checkItems.includes(v.name)}
+                />
               </TdCheck>
               <TdProduct name={v.name} price={v.price} count={v.count} />
               <Td>{v.price}</Td>
@@ -43,7 +73,7 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
                   <HiTrash size="35" />
                 </IconButton>
               </Td>
-            </Tbody>
+            </Body>
           ))}
       </Table>
     </TableBox>
@@ -88,11 +118,12 @@ const Table = styled.div`
   border-right: 0;
 `
 
-const Thead = styled(Table)`
+const Head = styled(Table)`
   width: 100%;
   height: 4rem;
   display: flex;
   flex-direction: row;
+  background: white;
   justify-content: center;
   align-items: center;
   border: 0;
@@ -108,25 +139,27 @@ const Thead = styled(Table)`
   }
 `
 
-const Tbody = styled(Thead)`
+const Body = styled(Head)`
   height: 12rem;
 `
-const TrCheck = styled(Thead)`
+const ThCheck = styled(Head)`
   width: 10%;
   border-right: 0.16rem solid;
   border-bottom: 0;
 `
-const TrProduct = styled(TrCheck)`
+const ThProduct = styled(ThCheck)`
   width: 39%;
 `
-const Tr = styled(TrCheck)`
+const Th = styled(ThCheck)`
   width: 17%;
 `
-const TdCheck = styled(TrCheck)`
-  height: 12rem;
+const TdCheck = styled(Body)`
+  width: 10%;
+  border-right: 0.16rem solid;
+  border-bottom: 0;
 `
-const Td = styled(Tr)`
-  height: 12rem;
+const Td = styled(TdCheck)`
+  width: 17%;
 `
 const IconButton = styled.div`
   width: 1.7rem;
@@ -136,4 +169,19 @@ const IconButton = styled.div`
   align-items: center;
   margin: 0;
   cursor: pointer;
+`
+const StyledInput = styled.input`
+  appearance: none;
+  border: 0.2rem solid black;
+  border-radius: 0.35rem;
+  width: 1.7rem;
+  height: 1.7rem;
+
+  &:checked {
+    border-color: transparent;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: black;
 `
