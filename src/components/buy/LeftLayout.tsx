@@ -64,6 +64,9 @@ const Line = styled.div`
   width: 95%;
   border-bottom: 0.15rem solid black;
   margin-bottom: 1rem;
+  @media all and (min-width: 768px) and (max-width: 1160px) {
+    margin-top: 1rem;
+  }
   @media all and (max-width: 767px) {
     margin-top: 1rem;
   }
