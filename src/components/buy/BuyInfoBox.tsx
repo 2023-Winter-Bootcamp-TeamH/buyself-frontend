@@ -5,16 +5,22 @@ import Divisions from './Divisions'
 
 /* 오른쪽 결제 정보창 */
 
-const BuyInfoBox = ({ children }: { children?: React.ReactNode }) => {
+const BuyInfoBox = ({
+  children,
+  price,
+}: {
+  children?: React.ReactNode
+  price: number
+}) => {
   return (
     <>
       <Box>
-        <BuyInfoLabel text="총 주문금액" price={1000} />
+        <BuyInfoLabel text="총 주문금액" price={price} />
         <Divisions />
-        <BuyInfoLabel text="원가" price={1000} />
-        <BuyInfoLabel text="할인금액" price={1000} />
+        <BuyInfoLabel text="원가" price={price} />
+        <BuyInfoLabel text="할인금액" price={0} />
         <Divisions IsShort />
-        <BuyInfoLabel text="최종 결제 금액" price={1000} />
+        <BuyInfoLabel text="최종 결제 금액" price={price} />
         {children}
       </Box>
     </>

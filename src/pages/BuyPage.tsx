@@ -4,16 +4,22 @@ import BuyButton from '../components/buy/BuyButton'
 import BuyInfoBox from '../components/buy/BuyInfoBox'
 import LeftLayout from '../components/buy/LeftLayout'
 import Header from '../components/common/Header'
+import BuyItem from '../components/scan/BuyItem'
 
 /** 결제 페이지 */
 
 const BuyPage = () => {
+  const sumPrice = BuyItem.map((p) => p.price).reduce(
+    (prev, current) => prev + current,
+    0
+  )
+  console.log(sumPrice)
   return (
     <>
       <Header />
       <BuyPageLayout>
         <LeftLayout />
-        <BuyInfoBox>
+        <BuyInfoBox price={sumPrice}>
           <ButtonLayout>
             <BuyButton text="전체 상품 주문하기" IsRed />
             <BuyButton text="선택 상품 주문하기" />
