@@ -35,7 +35,7 @@ const BuyCard = ({
       </Cancel>
       <Image src={image} />
       <TextLarge>{name}</TextLarge>
-      <TextSmall>{priceValue}원</TextSmall>
+      <TextSmall>{price}원</TextSmall>
       <CountButton>
         <IconButton onClick={onDecrease}>
           <BsDashLg />
