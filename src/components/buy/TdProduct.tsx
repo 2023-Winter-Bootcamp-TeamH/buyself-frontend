@@ -53,7 +53,7 @@ const TdProduct = ({
 export default TdProduct
 
 const ProductBox = styled.div`
-  width: 76.6%;
+  width: 76.56%;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -71,7 +71,7 @@ const ProductBox = styled.div`
   }
 `
 const PriceBox = styled(ProductBox)`
-  width: 33.4%;
+  width: 33.44%;
   justify-content: center;
 `
 const ImageBox = styled.div`
