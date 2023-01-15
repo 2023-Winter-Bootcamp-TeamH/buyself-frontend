@@ -1,14 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import icecream from '../../images/test_image.png'
-const ProductCard = ({ title, price }: { title: string; price: string }) => {
+
+interface ProductCardProps {
+  class_name: string
+  id: number
+  img_url: string
+  price: number
+}
+
+const ProductCard = ({ data }: { data: ProductCardProps }) => {
   return (
     <Block>
       <IMGBlock>
-        <IMG src={icecream} />
+        <IMG src={data.img_url} />
       </IMGBlock>
-      <TitleText>{title}</TitleText>
-      <PriceText>{price}</PriceText>
+      <TitleText>{data.class_name}</TitleText>
+      <PriceText>{data.price}원</PriceText>
       <CheckButton>체크리스트 추가</CheckButton>
     </Block>
   )
@@ -23,7 +30,8 @@ justify-content: center;
   font-weight: 800;
   margin-top:1rem;
   @media all and (max-width: 767px) {
-    font-size: 1.2rem;
+    font-size:0;
+    font-size: 0.5rem;
     margin-top:1rem;
     margin-left: 1.5rem;
 
@@ -32,7 +40,7 @@ justify-content: center;
 const PriceText = styled.div`
   display: flex;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 1000;
   @media all and (max-width: 767px) {
     font-size: 0.6rem;

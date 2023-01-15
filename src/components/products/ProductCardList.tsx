@@ -1,24 +1,67 @@
-import React from 'react'
-import ProductCard from './ProductCard'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
+import ProductCard from './ProductCard'
+import { Pagination } from './Pagination'
 
-interface ProductCardProps {
-  title: string
-  price: string
+interface Response {
+  data: Data[]
+  meta: Meta
 }
 
-const ProductCardList = ({
-  ProductList,
-}: {
-  ProductList: ProductCardProps[]
-}) => {
+export interface Meta {
+  has_next: boolean
+  has_prev: boolean
+  next_page: number
+  page: number
+  pages: number
+  prev_page: number
+  total_count: number
+}
+
+export interface Data {
+  class_name: string
+  id: number
+  img_url: string
+  price: number
+}
+
+const ProductCardList = () => {
+  const [data, setdata] = useState<Data[]>()
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(6)
+  const handlePages = (updatePage: number) => setPage(updatePage)
+
+  const fetchData = async (page: number) => {
+    try {
+      const response = await axios.get<Response>(
+        `http://127.0.0.1:5000/api/products?page=${page}
+        `
+      )
+      const { data } = response.data
+      setdata(data)
+      setTotalPages(response.data.meta.pages)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  useEffect(() => {
+    fetchData(page)
+  }, [page])
+
   return (
-    <Div>
-      {ProductList &&
-        ProductList.map((v, index) => (
-          <ProductCard key={index} title={v.title} price={v.price} />
-        ))}
-    </Div>
+    <>
+      <Div>
+        {data && data.map((data) => <ProductCard key={data.id} data={data} />)}
+      </Div>
+      <DivP>
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          handlePagination={handlePages}
+        />
+      </DivP>
+    </>
   )
 }
 
@@ -28,4 +71,10 @@ const Div = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+`
+
+const DivP = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
 `

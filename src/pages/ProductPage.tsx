@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/common/Header'
-import ProductList from '../components/products/ProductList'
 import ProductCardList from '../components/products/ProductCardList'
 import ProductSearch from '../components/products/productSearch'
 import Candy from '../images/Candy.png'
@@ -15,7 +14,7 @@ const ProductPage = () => {
       <Header />
       <ProductSearch />
 
-      <ProductCardList ProductList={ProductList} />
+      <ProductCardList />
     </>
   )
 }
