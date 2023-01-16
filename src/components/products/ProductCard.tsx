@@ -28,12 +28,14 @@ display:flex;
 justify-content: center;
   font-size: 1.5rem;
   font-weight: 800;
-  margin-top:1rem;
+  margin-top:1.2rem;
+  margin-bottom:0.3rem;
   @media all and (max-width: 767px) {
     font-size:0;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     margin-top:1rem;
     margin-left: 1.5rem;
+    margin-bottom:0;
 
 `
 
@@ -42,15 +44,18 @@ const PriceText = styled.div`
   justify-content: center;
   font-size: 1rem;
   font-weight: 1000;
+  margin-bottom: 0.3rem;
   @media all and (max-width: 767px) {
+    font-size: 0;
     font-size: 0.6rem;
     margin-left: 1.5rem;
+    margin-bottom: 0;
   }
 `
 const Block = styled.div`
   width: 17rem;
   height: 30rem;
-  margin: 1rem 4rem 1rem 4rem;
+  margin: 1rem 4rem 1.5rem 4rem;
   border-radius: 20px;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     margin: 0.5rem 2rem 0.5rem 2rem;

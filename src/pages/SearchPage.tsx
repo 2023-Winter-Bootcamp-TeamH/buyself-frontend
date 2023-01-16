@@ -18,14 +18,7 @@ const SearchPage = () => {
       {zero ? (
         <Zero>해당하는 상품을 찾을 수 없습니다.</Zero>
       ) : (
-        <Common>
-          <ProductCard title="월드콘" price="1000" />
-          <ProductCard title="월드콘" price="1000" />
-          <ProductCard title="월드콘" price="1000" />
-          <ProductCard title="월드콘" price="1000" />
-          <ProductCard title="월드콘" price="1000" />
-          <ProductCard title="월드콘" price="1000" />
-        </Common>
+        <Common></Common>
       )}
     </>
   )
