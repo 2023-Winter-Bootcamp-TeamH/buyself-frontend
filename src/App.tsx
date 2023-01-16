@@ -8,10 +8,11 @@ import ScanPage from './pages/ScanPage'
 import ProductPage from './pages/ProductPage'
 import SearchPage from './pages/SearchPage'
 import BuyPage from './pages/BuyPage'
+import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className="Font">
       <GlobalStyle />
       <BrowserRouter>
         <ScrollToTop />
