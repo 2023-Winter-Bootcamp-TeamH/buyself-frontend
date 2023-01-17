@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
 import image from '../../images/test_image.png'
 import { BuyCardProps } from './BuyList'
-import { deleteProduct, store } from '../../store'
+import {
+  decreaseProduct,
+  deleteProduct,
+  increaseProduct,
+  store,
+} from '../../store'
 
 /* BuyCard - 스캔된 상품 카드 컴포넌트 */
 
@@ -14,15 +19,14 @@ const BuyCard = ({
   img_url,
   count,
 }: BuyCardProps): React.ReactElement => {
-  const [number, setNumber] = useState(count)
   const [priceValue, setPrice] = useState(price)
   const onIncrease = () => {
-    setPrice(price * (number + 1))
-    setNumber(number + 1)
+    store.dispatch(increaseProduct(id))
+    setPrice(price * (count + 1))
   }
   const onDecrease = () => {
-    if (number > 1) {
-      setNumber(number - 1)
+    if (count > 1) {
+      store.dispatch(decreaseProduct(id))
       setPrice(priceValue - price)
     }
   }
@@ -42,7 +46,7 @@ const BuyCard = ({
         <IconButton onClick={onDecrease}>
           <BsDashLg />
         </IconButton>
-        {number}
+        {count}
         <IconButton onClick={onIncrease}>
           <BsPlusLg />
         </IconButton>

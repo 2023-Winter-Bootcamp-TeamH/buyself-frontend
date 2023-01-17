@@ -31,6 +31,20 @@ const buyList = createSlice({
       )
       state.products.splice(index, 1)
     },
+    increaseProduct: (state, action) => {
+      const index = state.products.findIndex(
+        (item) => item.id === action.payload
+      )
+      state.products[index].count++
+    },
+    decreaseProduct: (state, action) => {
+      const index = state.products.findIndex(
+        (item) => item.id === action.payload
+      )
+      if (state.products[index].count > 1) {
+        state.products[index].count--
+      }
+    },
   },
 })
 
@@ -40,6 +54,7 @@ const store = configureStore({
   },
 })
 
-export const { addProduct, deleteProduct } = buyList.actions
+export const { addProduct, deleteProduct, increaseProduct, decreaseProduct } =
+  buyList.actions
 export type RootState = ReturnType<typeof store.getState>
 export { store, buyList }
