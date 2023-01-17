@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg } from 'react-icons/bs'
-import image from '../../images/test_image.png'
 
 /** 테이블표 중 구매정보 컴포넌트 */
 
 const TdProduct = ({
+  img_url,
   name,
   price,
   count,
 }: {
+  img_url: string
   name: string
   price: number
   count: number
@@ -30,7 +31,7 @@ const TdProduct = ({
     <>
       <ProductBox>
         <ImageBox>
-          <Image src={image} />
+          <Image src={img_url} />
         </ImageBox>
         <RightBox>
           {name}

@@ -2,24 +2,19 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { HiTrash } from 'react-icons/hi'
 import TdProduct from './TdProduct'
+import { deleteProduct, RootState, store } from '../../store'
+import { useSelector } from 'react-redux'
 
 /** 결제창 테이블표 */
 
-interface Props {
-  name: string
-  price: number
-  count: number
-  check: boolean
-}
-
-const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
-  const rows = BuyItem
+const BuyTable = () => {
+  const products = useSelector((state: RootState) => state.buyList.products)
   const [checkItems, setCheckItems] = useState<string[]>([])
 
   const handleAllCheck = (checked: boolean) => {
     if (checked) {
       const idArray: string[] = []
-      rows.forEach((list) => idArray.push(list.name))
+      products.forEach((list) => idArray.push(list.class_name))
       setCheckItems(idArray)
     } else {
       setCheckItems([])
@@ -43,7 +38,7 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
               onChange={(e) => {
                 handleAllCheck(e.target.checked)
               }}
-              checked={checkItems.length === rows.length}
+              checked={checkItems.length === products.length}
             />
           </ThCheck>
           <ThProduct>구매정보</ThProduct>
@@ -51,25 +46,30 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
           <Th>할인정보</Th>
           <Th>선택</Th>
         </Head>
-        {rows &&
-          rows.map((v, index) => (
+        {products &&
+          products.map((v, index) => (
             <Body key={index}>
               <TdCheck>
                 <StyledInput
-                  key={v.name}
+                  key={index}
                   type="checkbox"
                   onChange={(e) => {
-                    handleSingleCheck(e.target.checked, v.name)
+                    handleSingleCheck(e.target.checked, v.class_name)
                   }}
-                  checked={!!checkItems.includes(v.name)}
+                  checked={!!checkItems.includes(v.class_name)}
                 />
               </TdCheck>
               <ProductBox>
-                <TdProduct name={v.name} price={v.price} count={v.count} />
+                <TdProduct
+                  img_url={v.img_url}
+                  name={v.class_name}
+                  price={v.price}
+                  count={v.count}
+                />
               </ProductBox>
               <Td>X</Td>
               <Td>
-                <IconButton>
+                <IconButton onClick={() => store.dispatch(deleteProduct(v.id))}>
                   <HiTrash size="35" />
                 </IconButton>
               </Td>

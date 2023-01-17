@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import BuyTable from './BuyTable'
-import BuyItem from '../scan/BuyItem'
 import { FaListAlt } from 'react-icons/fa'
 
 /** 테이블표가 있는 왼쪽 레이아웃 */
@@ -16,7 +15,7 @@ const LeftLayout = () => {
         <Label>담은 상품 목록</Label>
       </AllCheckLabel>
       <Line />
-      <BuyTable BuyItem={BuyItem} />
+      <BuyTable />
     </Layout>
   )
 }

@@ -30,7 +30,6 @@ const Modal = ({ onClose }: { onClose: () => void }) => {
         .post<BuyCardProps[]>('/predict', fileData)
         .then((res) => {
           setLoading(false)
-          console.log(res.data)
           res.data.map((v) =>
             store.dispatch(
               addProduct({

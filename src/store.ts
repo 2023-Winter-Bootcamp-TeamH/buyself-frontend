@@ -45,6 +45,11 @@ const buyList = createSlice({
         state.products[index].count--
       }
     },
+    totalPrice: (state) => {
+      state.productTotal = state.products
+        .map((item) => item.price * item.count)
+        .reduce((acc, price) => acc + price, 0)
+    },
   },
 })
 
@@ -54,7 +59,12 @@ const store = configureStore({
   },
 })
 
-export const { addProduct, deleteProduct, increaseProduct, decreaseProduct } =
-  buyList.actions
+export const {
+  addProduct,
+  deleteProduct,
+  increaseProduct,
+  decreaseProduct,
+  totalPrice,
+} = buyList.actions
 export type RootState = ReturnType<typeof store.getState>
 export { store, buyList }
