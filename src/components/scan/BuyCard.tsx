@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
 import image from '../../images/test_image.png'
+import { BuyCardProps } from './BuyList'
+import { deleteProduct, store } from '../../store'
 
 /* BuyCard - 스캔된 상품 카드 컴포넌트 */
 
 const BuyCard = ({
-  name,
+  id,
+  class_name,
   price,
   img_url,
-}: {
-  name: string
-  price: number
-  img_url: string
-}) => {
-  const [number, setNumber] = useState(1)
+  count,
+}: BuyCardProps): React.ReactElement => {
+  const [number, setNumber] = useState(count)
   const [priceValue, setPrice] = useState(price)
   const onIncrease = () => {
     setPrice(price * (number + 1))
@@ -28,7 +28,7 @@ const BuyCard = ({
   }
   return (
     <StyledCard>
-      <Cancel>
+      <Cancel onClick={() => store.dispatch(deleteProduct(id))}>
         <IconButton>
           <BsXLg size="20" />
         </IconButton>
@@ -36,7 +36,7 @@ const BuyCard = ({
       <ImgBlock>
         <Image src={img_url} />
       </ImgBlock>
-      <TextLarge>{name}</TextLarge>
+      <TextLarge>{class_name}</TextLarge>
       <TextSmall>{priceValue}원</TextSmall>
       <CountButton>
         <IconButton onClick={onDecrease}>

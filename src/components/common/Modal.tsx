@@ -30,12 +30,23 @@ const Modal = ({ onClose }: { onClose: () => void }) => {
         .post<BuyCardProps[]>('/predict', fileData)
         .then((res) => {
           setLoading(false)
-          res.data.map((v) => store.dispatch(addProduct(v)))
+          console.log(res.data)
+          res.data.map((v) =>
+            store.dispatch(
+              addProduct({
+                id: v.id,
+                class_name: v.class_name,
+                price: v.price,
+                count: 1,
+                img_url: v.img_url,
+              })
+            )
+          )
           handleClose()
         })
         .catch((err) => {
           alert('문제가 발생했습니다. 다시 시도해주세요.')
-          console.log(err.response.data)
+          console.log(err)
           setLoading(false)
         })
     }

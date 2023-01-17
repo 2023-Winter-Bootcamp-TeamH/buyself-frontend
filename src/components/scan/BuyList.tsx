@@ -6,15 +6,15 @@ import BuyCard from './BuyCard'
 /* 결제상품 리스트 컴포넌트 */
 
 export interface BuyCardProps {
+  id: number
   class_name: string
   price: number
   img_url: string
+  count: number
 }
 
 const BuyList = () => {
   const products = useSelector((state: RootState) => state.buyList.products)
-  console.log(products + 'hh')
-  // console.log(JSON.stringify(Array.from(products)))  Object.values(products).map((value, i) => console.log(value))
 
   return (
     <StyledList>
@@ -22,10 +22,12 @@ const BuyList = () => {
         {products &&
           products.map((value, i) => (
             <BuyCard
+              id={value.id}
               key={i}
-              name={value.class_name}
+              class_name={value.class_name}
               price={value.price}
               img_url={value.img_url}
+              count={value.count}
             />
           ))}
       </BuyCardBox>
