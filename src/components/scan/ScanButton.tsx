@@ -11,7 +11,7 @@ export default ScanButton
 
 const StyledButton = styled.button`
   height: 3.125rem;
-  width: 11.54rem;
+  width: 11.4rem;
   background: #95dceb;
   border-radius: 0.5rem;
   font-size: 1.2rem;
