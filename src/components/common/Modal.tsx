@@ -2,49 +2,97 @@ import React, { useCallback, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose, AiOutlineCamera } from 'react-icons/ai'
 import Webcam from 'react-webcam'
+import Loading from './Loading'
+import { BuyCardProps } from '../scan/BuyList'
+import { customAxios } from './CustomAxios'
+import { store, addProduct } from '../../store'
 
 const Modal = ({ onClose }: { onClose: () => void }) => {
+  const [isLoading, setLoading] = useState(false)
   const webcamRef = useRef<Webcam>(null)
   const [imgSrc, setImgSrc] = useState<string | null>(null)
+  const [file, setFile] = useState<File | null>(null)
 
   const capture = useCallback(() => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot()
       setImgSrc(imageSrc)
+      dataUrlToFile(imageSrc)
     }
   }, [webcamRef, setImgSrc])
 
+  const predict = () => {
+    if (file) {
+      setLoading(true)
+      const fileData = new FormData()
+      fileData.append('file', file)
+      customAxios
+        .post<BuyCardProps[]>('/predict', fileData)
+        .then((res) => {
+          setLoading(false)
+          res.data.map((v) => store.dispatch(addProduct(v)))
+          handleClose()
+        })
+        .catch((err) => {
+          alert('문제가 발생했습니다. 다시 시도해주세요.')
+          console.log(err.response.data)
+          setLoading(false)
+        })
+    }
+  }
+
   const handleClose = () => {
+    setLoading(false)
     onClose?.()
   }
-  return (
-    <Overlay>
-      <ModalWrap>
-        <CloseButton
-          onClick={() => {
-            handleClose()
-          }}
-        >
-          <AiOutlineClose />
-        </CloseButton>
-        <Webcam
-          ref={webcamRef}
-          audio={false}
-          screenshotFormat="image/jpeg"
-          style={{ width: '100%', borderRadius: '1.5rem', margin: '0' }}
-        />
-        {imgSrc && <Image src={imgSrc} />}
-        <Button
-          onClick={() => {
-            capture()
-          }}
-        >
-          <AiOutlineCamera />
-        </Button>
-        <ComplteButton>완료</ComplteButton>
-      </ModalWrap>
-    </Overlay>
-  )
+
+  const dataUrlToFile = async (dataUrl: string | null) => {
+    if (dataUrl) {
+      const res = await fetch(dataUrl)
+      const blob = await res.blob()
+      const file = new File([blob], 'image', { type: 'image/jpeg' })
+      setFile(file)
+    }
+  }
+
+  if (isLoading) {
+    return <Loading />
+  } else {
+    return (
+      <Overlay>
+        <ModalWrap>
+          <CloseButton
+            onClick={() => {
+              handleClose()
+            }}
+          >
+            <AiOutlineClose />
+          </CloseButton>
+          <Webcam
+            ref={webcamRef}
+            audio={false}
+            screenshotFormat="image/jpeg"
+            style={{ width: '100%', borderRadius: '1.5rem', margin: '0' }}
+          />
+          {imgSrc && <Image src={imgSrc} />}
+          <Button
+            onClick={() => {
+              capture()
+            }}
+          >
+            <AiOutlineCamera />
+          </Button>
+          <ComplteButton
+            onClick={() => {
+              predict()
+            }}
+          >
+            완료
+          </ComplteButton>
+        </ModalWrap>
+      </Overlay>
+    )
+  }
 }
 
 export default Modal

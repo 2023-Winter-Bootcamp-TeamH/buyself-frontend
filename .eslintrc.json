@@ -22,8 +22,11 @@
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/prefer-optional-chain": "off",
     "@typescript-eslint/no-floating-promises": "off",
-    "@typescript-eslint/no-confusing-void-expression": "off"
+    "@typescript-eslint/no-confusing-void-expression": "off",
     "@typescript-eslint/restrict-plus-operands": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }

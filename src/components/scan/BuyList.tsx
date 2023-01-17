@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { RootState } from '../../store'
 import BuyCard from './BuyCard'
 /* 결제상품 리스트 컴포넌트 */
 
-interface BuyCardProps {
-  name: string
+export interface BuyCardProps {
+  class_name: string
   price: number
-  count: number
+  img_url: string
 }
 
-const BuyList = ({ ItemList }: { ItemList: BuyCardProps[] }) => {
+const BuyList = () => {
+  const products = useSelector((state: RootState) => state.buyList.products)
+  console.log(products + 'hh')
+  // console.log(JSON.stringify(Array.from(products)))  Object.values(products).map((value, i) => console.log(value))
+
   return (
     <StyledList>
       <BuyCardBox>
-        {ItemList &&
-          ItemList.map((v, index) => (
+        {products &&
+          products.map((value, i) => (
             <BuyCard
-              key={index}
-              name={v.name}
-              price={v.price}
-              count={v.count}
+              key={i}
+              name={value.class_name}
+              price={value.price}
+              img_url={value.img_url}
             />
           ))}
       </BuyCardBox>

@@ -8,11 +8,11 @@ import image from '../../images/test_image.png'
 const BuyCard = ({
   name,
   price,
-  count,
+  img_url,
 }: {
   name: string
   price: number
-  count: number
+  img_url: string
 }) => {
   const [number, setNumber] = useState(1)
   const [priceValue, setPrice] = useState(price)
@@ -33,9 +33,11 @@ const BuyCard = ({
           <BsXLg size="20" />
         </IconButton>
       </Cancel>
-      <Image src={image} />
+      <ImgBlock>
+        <Image src={img_url} />
+      </ImgBlock>
       <TextLarge>{name}</TextLarge>
-      <TextSmall>{price}원</TextSmall>
+      <TextSmall>{priceValue}원</TextSmall>
       <CountButton>
         <IconButton onClick={onDecrease}>
           <BsDashLg />
@@ -52,8 +54,8 @@ const BuyCard = ({
 export default BuyCard
 
 const StyledCard = styled.div`
-  width: 10rem;
-  height: 15rem;
+  width: 11rem;
+  height: 16rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,7 +67,7 @@ const StyledCard = styled.div`
   background-color: #fff;
   box-shadow: 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 10rem;
+    width: 11rem;
     height: 15rem;
     margin-bottom: 1rem;
   }
@@ -77,37 +79,36 @@ const StyledCard = styled.div`
 `
 
 const Cancel = styled.label`
-  width: 15.313rem;
+  margin-left: 8rem;
   height: 1.5rem;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 5rem;
+  cursor: pointer;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 11.313rem;
-    margin-right: 1.5rem;
+    margin-left: 8rem;
   }
   @media all and (max-width: 767px) {
-    margin-right: 3.5rem;
+    margin-left: 10rem;
   }
+`
+const ImgBlock = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 7rem;
+  height: 7rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
 `
 
 const Image = styled.img`
-  width: 4rem;
-  height: 7rem;
-  margin-bottom: 2rem;
+  width: 6rem;
   @media all and (max-width: 767px) {
-    width: 4.438rem;
-    height: 7.563rem;
+    width: 5rem;
     margin-bottom: 0.5rem;
   }
 `
 
 const TextLarge = styled.div`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 1000;
-  @media all and (max-width: 767px) {
-    font-size: 1.2rem;
-  }
 `
 const TextSmall = styled.div`
   font-size: 1rem;

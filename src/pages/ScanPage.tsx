@@ -31,7 +31,7 @@ const ScanPage = () => {
             }}
           />
         )}
-        <BuyList ItemList={ItemList} />
+        <BuyList />
         <ButtonLayout />
       </ScanPageLayout>
     </>
