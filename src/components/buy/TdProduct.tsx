@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg } from 'react-icons/bs'
 import { decreaseProduct, increaseProduct, store } from '../../store'
@@ -24,6 +24,9 @@ const TdProduct = ({
       setPrice(priceValue - price)
     }
   }
+  useEffect(() => {
+    setPrice(price * count)
+  }, [price, count])
   return (
     <>
       <ProductBox>

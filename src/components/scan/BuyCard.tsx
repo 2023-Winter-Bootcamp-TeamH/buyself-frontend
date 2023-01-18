@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
 import image from '../../images/test_image.png'
@@ -30,6 +30,9 @@ const BuyCard = ({
       setPrice(priceValue - price)
     }
   }
+  useEffect(() => {
+    setPrice(price * count)
+  }, [price, count])
   return (
     <StyledCard>
       <Cancel onClick={() => store.dispatch(deleteProduct(id))}>
