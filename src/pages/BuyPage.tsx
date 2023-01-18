@@ -30,10 +30,10 @@ const BuyPage = () => {
         <LeftLayout />
         <BuyInfoBox price={total}>
           <ButtonLayout>
-            <Link to="/">
+            <Link to="/pay">
               <BuyButton text="전체 상품 주문하기" IsRed />
             </Link>
-            <Link to="/">
+            <Link to="/pay">
               <BuyButton text="선택 상품 주문하기" />
             </Link>
           </ButtonLayout>
