@@ -45,10 +45,8 @@ const buyList = createSlice({
         state.products[index].count--
       }
     },
-    totalPrice: (state) => {
-      state.productTotal = state.products
-        .map((item) => item.price * item.count)
-        .reduce((acc, price) => acc + price, 0)
+    totalPrice: (state, action) => {
+      state.productTotal = action.payload
     },
   },
 })

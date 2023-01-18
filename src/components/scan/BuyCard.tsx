@@ -113,6 +113,9 @@ const Image = styled.img`
 const TextLarge = styled.div`
   font-size: 1.2rem;
   font-weight: 1000;
+  @media all and (min-width: 768px) and (max-width: 1325px) {
+    font-size: 1rem;
+  }
 `
 const TextSmall = styled.div`
   font-size: 1rem;
