@@ -67,5 +67,8 @@ const Common = styled.div`
 const Zero = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 3rem;
+  font-size: 1.4rem;
+  font-weight: bold;
   font-family: Pretendard;
 `
