@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+/** 상품 내용 삽입 카드
+ * 상품 이미지
+ * 상품 이름,가격
+ * 체크리스트
+ */
+
 interface ProductCardProps {
   class_name: string
   id: number
@@ -27,15 +33,17 @@ const TitleText = styled.div`
 display:flex;
 justify-content: center;
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: bolder;
   margin-top:1.2rem;
   margin-bottom:0.3rem;
   @media all and (max-width: 767px) {
     font-size:0;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     margin-top:1rem;
     margin-left: 1.5rem;
     margin-bottom:0;
+    margin-bottom:0.1rem;
+
 
 `
 
@@ -64,6 +72,7 @@ const Block = styled.div`
     width: 8rem;
     height: 17rem;
     margin: 1.5rem;
+    margin-left: 0;
   }
 `
 const IMGBlock = styled.div`

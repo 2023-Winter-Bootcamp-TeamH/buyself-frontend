@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
+/** 상품 검색 기능  */
+
 const ProductSearch = () => {
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
@@ -50,7 +52,8 @@ const Div = styled.div`
     margin-right: 5rem;
   }
   @media all and (max-width: 767px) {
-    margin-right: 3rem;
+    mari-right: 0;
+    margin-right: 0.5rem;
   }
 `
 
@@ -72,9 +75,9 @@ const Input = styled.input`
   @media all and (max-width: 767px) {
     height: 2rem;
     width: 18rem;
-    margin-left: 1.5rem;
+    margin-left: 0;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 `
 const Button = styled.button`
@@ -104,6 +107,8 @@ const Button = styled.button`
     height: 2.3rem;
     width: 4rem;
     font-size: 1rem;
+    margin-left: 0;
+    margin-left: 0.5rem;
     font-weight: 800;
     margin-top: 2rem;
   }
