@@ -1,0 +1,8 @@
+.PayIcon {
+  display: flex;
+  margin-top: 2rem;
+  color: #95dceb;
+  @media all and (max-width: 767px) {
+    margin-top: 0;
+  }
+}

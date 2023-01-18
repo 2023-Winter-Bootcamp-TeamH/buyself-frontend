@@ -8,10 +8,12 @@ import ScanPage from './pages/ScanPage'
 import ProductPage from './pages/ProductPage'
 import SearchPage from './pages/SearchPage'
 import BuyPage from './pages/BuyPage'
+import PaymentPage from './pages/PaymentPage'
+import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className="Font">
       <GlobalStyle />
       <BrowserRouter>
         <ScrollToTop />
@@ -22,6 +24,7 @@ function App() {
           <Route path="/product" element={<ProductPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/buy" element={<BuyPage />} />
+          <Route path="/pay" element={<PaymentPage />} />
         </Routes>
       </BrowserRouter>
     </div>

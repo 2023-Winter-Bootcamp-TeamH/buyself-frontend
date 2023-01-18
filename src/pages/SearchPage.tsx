@@ -1,44 +1,24 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React from 'react'
 import Header from '../components/common/Header'
-import ProductCard from '../components/products/ProductCard'
+import SearchCardList from '../components/search/SearchCardList'
 import ProductSearch from '../components/products/productSearch'
+import { useLocation } from 'react-router-dom'
 
 /**
  * 검색 결과 페이지
- * 추후 api 연동 후 keword, pagination 추가 필요
  */
 
 const SearchPage = () => {
-  const [zero] = useState(false)
+  const location = useLocation()
+  const keyWord = location.state as string
+
   return (
     <>
       <Header />
       <ProductSearch />
-      {zero ? (
-        <Zero>해당하는 상품을 찾을 수 없습니다.</Zero>
-      ) : (
-        <Common></Common>
-      )}
+      <SearchCardList keyWord={keyWord} />
     </>
   )
 }
 
 export default SearchPage
-
-const Common = styled.div`
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  padding-bottom: 3rem;
-  margin: 3rem auto;
-  flex-direction: row;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-`
-
-const Zero = styled.div`
-  display: flex;
-  justify-content: center;
-  font-family: Pretendard;
-`
