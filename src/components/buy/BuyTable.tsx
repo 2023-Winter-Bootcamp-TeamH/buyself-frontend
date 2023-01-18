@@ -1,38 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { HiTrash } from 'react-icons/hi'
 import TdProduct from './TdProduct'
+import { deleteProduct, RootState, store, totalPrice } from '../../store'
+import { useSelector } from 'react-redux'
 
 /** 결제창 테이블표 */
 
-interface Props {
-  name: string
-  price: number
-  count: number
-  check: boolean
-}
-
-const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
-  const rows = BuyItem
-  const [checkItems, setCheckItems] = useState<string[]>([])
+const BuyTable = () => {
+  const products = useSelector((state: RootState) => state.buyList.products)
+  const [checkItems, setCheckItems] = useState<number[]>([])
 
   const handleAllCheck = (checked: boolean) => {
     if (checked) {
-      const idArray: string[] = []
-      rows.forEach((list) => idArray.push(list.name))
+      const idArray: number[] = []
+      products.forEach((list) => idArray.push(list.id))
       setCheckItems(idArray)
     } else {
       setCheckItems([])
     }
   }
-  const handleSingleCheck = (checked: boolean, id: string) => {
+  const handleSingleCheck = (checked: boolean, id: number) => {
     if (checked) {
       setCheckItems((prev) => [...prev, id])
     } else {
-      setCheckItems(checkItems.filter((el: string) => el !== id))
+      setCheckItems(checkItems.filter((el: number) => el !== id))
     }
   }
 
+  useEffect(() => {
+    console.log(checkItems)
+  }, [checkItems])
   return (
     <TableBox>
       <Table>
@@ -43,7 +41,7 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
               onChange={(e) => {
                 handleAllCheck(e.target.checked)
               }}
-              checked={checkItems.length === rows.length}
+              checked={checkItems.length === products.length}
             />
           </ThCheck>
           <ThProduct>구매정보</ThProduct>
@@ -51,25 +49,31 @@ const BuyTable = ({ BuyItem }: { BuyItem: Props[] }) => {
           <Th>할인정보</Th>
           <Th>선택</Th>
         </Head>
-        {rows &&
-          rows.map((v, index) => (
+        {products &&
+          products.map((v, index) => (
             <Body key={index}>
               <TdCheck>
                 <StyledInput
-                  key={v.name}
+                  key={index}
                   type="checkbox"
                   onChange={(e) => {
-                    handleSingleCheck(e.target.checked, v.name)
+                    handleSingleCheck(e.target.checked, v.id)
                   }}
-                  checked={!!checkItems.includes(v.name)}
+                  checked={!!checkItems.includes(v.id)}
                 />
               </TdCheck>
               <ProductBox>
-                <TdProduct name={v.name} price={v.price} count={v.count} />
+                <TdProduct
+                  id={v.id}
+                  img_url={v.img_url}
+                  class_name={v.class_name}
+                  price={v.price}
+                  count={v.count}
+                />
               </ProductBox>
               <Td>X</Td>
               <Td>
-                <IconButton>
+                <IconButton onClick={() => store.dispatch(deleteProduct(v.id))}>
                   <HiTrash size="35" />
                 </IconButton>
               </Td>
@@ -128,14 +132,14 @@ const Head = styled(Table)`
   align-items: center;
   border: 0;
   border-bottom: 0.16rem solid;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   white-space: pre-wrap;
   @media all and (min-width: 768px) and (max-width: 1325px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   @media all and (max-width: 767px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 `
 

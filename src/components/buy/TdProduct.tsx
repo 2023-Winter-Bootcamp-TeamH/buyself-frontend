@@ -1,28 +1,26 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg } from 'react-icons/bs'
-import image from '../../images/test_image.png'
+import { decreaseProduct, increaseProduct, store } from '../../store'
+import { BuyCardProps } from '../scan/BuyList'
 
 /** 테이블표 중 구매정보 컴포넌트 */
 
 const TdProduct = ({
-  name,
+  id,
+  img_url,
+  class_name,
   price,
   count,
-}: {
-  name: string
-  price: number
-  count: number
-}) => {
-  const [number, setNumber] = useState(count)
+}: BuyCardProps): React.ReactElement => {
   const [priceValue, setPrice] = useState(price)
   const onIncrease = () => {
-    setNumber(number + 1)
-    setPrice(price * (number + 1))
+    store.dispatch(increaseProduct(id))
+    setPrice(price * (count + 1))
   }
   const onDecrease = () => {
-    if (number !== 0) {
-      setNumber(number - 1)
+    if (count > 1) {
+      store.dispatch(decreaseProduct(id))
       setPrice(priceValue - price)
     }
   }
@@ -30,15 +28,15 @@ const TdProduct = ({
     <>
       <ProductBox>
         <ImageBox>
-          <Image src={image} />
+          <Image src={img_url} />
         </ImageBox>
         <RightBox>
-          {name}
+          {class_name}
           <CountButton>
             <IconButton onClick={onDecrease}>
               <BsDashLg />
             </IconButton>
-            {number}
+            {count}
             <IconButton onClick={onIncrease}>
               <BsPlusLg />
             </IconButton>
@@ -63,9 +61,11 @@ const ProductBox = styled.div`
   border-right: 0.16rem solid;
   border-bottom: 0;
   @media all and (min-width: 768px) and (max-width: 1325px) {
+    width: 77%;
     font-size: 1.3rem;
   }
   @media all and (max-width: 767px) {
+    width: 78%;
     font-size: 1.2rem;
     flex-direction: column;
   }
@@ -75,8 +75,8 @@ const PriceBox = styled(ProductBox)`
   justify-content: center;
 `
 const ImageBox = styled.div`
-  width: 30%;
-  height: 100%;
+  width: 30%
+  height: 8rem;
   display: flex;
   align-items: center;
   margin-left: 1rem;
@@ -92,13 +92,14 @@ const RightBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 1.3rem;
+  @media all and (max-width: 767px) {
+    font-size: 1rem;
+  }
 `
 const Image = styled.img`
-  width: 80%;
-  height: 70%;
+  width: 5rem;
   @media all and (max-width: 767px) {
-    width: 5rem;
-    height: 5rem;
     margin-left: 0;
   }
 `

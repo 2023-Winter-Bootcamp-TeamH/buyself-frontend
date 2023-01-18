@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import ButtonLayout from '../components/scan/ButtonLayout'
 import Scanner from '../components/scan/Scanner'
 import BuyList from '../components/scan/BuyList'
-import ItemList from '../components/scan/BuyItem'
 import Modal from '../components/common/Modal'
 
 /* 상품인식페이지 */
@@ -31,7 +30,7 @@ const ScanPage = () => {
             }}
           />
         )}
-        <BuyList ItemList={ItemList} />
+        <BuyList />
         <ButtonLayout />
       </ScanPageLayout>
     </>

@@ -1,28 +1,41 @@
-import React from 'react'
+import { toNamespacedPath } from 'path'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BuyButton from '../components/buy/BuyButton'
 import BuyInfoBox from '../components/buy/BuyInfoBox'
 import LeftLayout from '../components/buy/LeftLayout'
 import Header from '../components/common/Header'
-import BuyItem from '../components/scan/BuyItem'
+import { RootState, store, totalPrice } from '../store'
 
 /** 결제 페이지 */
 
 const BuyPage = () => {
-  const sumPrice = BuyItem.map((p) => p.price).reduce(
-    (prev, current) => prev + current,
-    0
-  )
-  console.log(sumPrice)
+  const items = useSelector((state: RootState) => state.buyList.products)
+  const total = useSelector((state: RootState) => state.buyList.productTotal)
+  useEffect(() => {
+    store.dispatch(
+      totalPrice(
+        items
+          .map((item) => item.price * item.count)
+          .reduce((acc, price) => acc + price, 0)
+      )
+    )
+  }, [items])
   return (
     <>
       <Header />
       <BuyPageLayout>
         <LeftLayout />
-        <BuyInfoBox price={sumPrice}>
+        <BuyInfoBox price={total}>
           <ButtonLayout>
-            <BuyButton text="전체 상품 주문하기" IsRed />
-            <BuyButton text="선택 상품 주문하기" />
+            <Link to="/">
+              <BuyButton text="전체 상품 주문하기" IsRed />
+            </Link>
+            <Link to="/">
+              <BuyButton text="선택 상품 주문하기" />
+            </Link>
           </ButtonLayout>
         </BuyInfoBox>
       </BuyPageLayout>
