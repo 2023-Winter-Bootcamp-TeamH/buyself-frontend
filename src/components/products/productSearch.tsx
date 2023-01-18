@@ -1,5 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+
+const ProductSearch = () => {
+  const [search, setSearch] = useState('')
+  const navigate = useNavigate()
+  const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    setSearch(e.target.value)
+  }
+  const onSearch = (e: React.MouseEvent<HTMLElement>) => {
+    if (search === '') {
+      e.preventDefault()
+      alert('검색어를 입력해주세요')
+    }
+    navigate('/search', { state: search })
+  }
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      if (search === '') {
+        e.preventDefault()
+        alert('검색어를 입력해주세요')
+      }
+      navigate('/search', { state: search })
+    }
+  }
+
+  return (
+    <Div>
+      <Input
+        autoFocus
+        type="text"
+        placeholder="상품 이름 검색하기"
+        onChange={onChangeSearch}
+        onKeyPress={handleKeyPress}
+      />
+      <Button onClick={onSearch}>검색</Button>
+    </Div>
+  )
+}
+
+export default ProductSearch
 
 const Div = styled.div`
   display: flex;
@@ -67,14 +108,3 @@ const Button = styled.button`
     margin-top: 2rem;
   }
 `
-
-const ProductSearch = () => {
-  return (
-    <Div>
-      <Input autoFocus />
-      <Button>검색</Button>
-    </Div>
-  )
-}
-
-export default ProductSearch
