@@ -27,7 +27,6 @@ const SearchCardList = ({ keyWord }: { keyWord: string | null }) => {
         `http://127.0.0.1:5000/search?kw=${keyWord}`
       )
       setData(res.data.data)
-      console.log(data)
       if (res.data.data.length === 0) {
         setZero(true)
       }
