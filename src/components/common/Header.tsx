@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../images/header_logo.svg'
 import { FaChevronLeft } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
@@ -16,14 +16,17 @@ const Header = () => {
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen)
   }
+  const navigate = useNavigate()
   return (
     <>
       <Box>
-        <Link to="/" style={{ color: 'black' }}>
-          <Arrow>
-            <FaChevronLeft />
-          </Arrow>
-        </Link>
+        <Arrow
+          onClick={() => {
+            navigate(-1)
+          }}
+        >
+          <FaChevronLeft />
+        </Arrow>
         <Link to="/" style={{ marginTop: '1.5rem' }}>
           <Image src={logo} />
         </Link>
@@ -74,7 +77,7 @@ const Arrow = styled.label`
   display: flex;
   align-items: center;
   font-size: 2.5rem;
-  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   cursor: pointer;
   @media all and (max-width: 767px) {
     font-size: 2.2rem;

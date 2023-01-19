@@ -24,7 +24,7 @@ export default LeftLayout
 
 const Layout = styled.div`
   width: 55%;
-  height: 50.438rem;
+  height: 48rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,12 +62,13 @@ const Label = styled.div`
 const Line = styled.div`
   width: 95%;
   border-bottom: 0.15rem solid black;
-  margin-bottom: 1rem;
   @media all and (min-width: 768px) and (max-width: 1160px) {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   @media all and (max-width: 767px) {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 `
 const IconButton = styled.div`
