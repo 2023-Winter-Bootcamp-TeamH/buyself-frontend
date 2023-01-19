@@ -37,8 +37,7 @@ justify-content: center;
   margin-top:1.2rem;
   margin-bottom:0.3rem;
   @media all and (max-width: 767px) {
-    font-size:0;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     margin-top:1rem;
     margin-left: 1.5rem;
     margin-bottom:0;
@@ -62,16 +61,20 @@ const PriceText = styled.div`
 const Block = styled.div`
   width: 17rem;
   height: 30rem;
-  margin: 1rem 4rem 1.5rem 4rem;
   border-radius: 20px;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    margin: 0.5rem 2rem 0.5rem 2rem;
+  margin: 3rem 4rem;
+  @media all and (min-width: 807px) and (max-width: 1500px) {
+    margin: 1rem 2rem;
+  }
+  @media all and (min-width: 768px) and (max-width: 806px) {
+    width: 14rem;
+    height: 28rem;
+    margin: 1rem 2rem;
   }
   @media all and (max-width: 767px) {
     width: 8rem;
     height: 17rem;
-    margin: 1.5rem;
-    margin-left: 0;
+    margin: 1rem 2rem;
   }
 `
 const IMGBlock = styled.div`
@@ -84,6 +87,10 @@ const IMGBlock = styled.div`
   padding: 0.5rem 0;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    width: 15rem;
+    height: 18rem;
+  }
   @media all and (max-width: 767px) {
     width: 9.5rem;
     height: 11rem;

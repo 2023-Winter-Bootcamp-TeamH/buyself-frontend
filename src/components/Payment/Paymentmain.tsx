@@ -4,33 +4,36 @@ import { FaCheckCircle } from 'react-icons/fa'
 import './Paymentmain.css'
 import PaymentButton from './PaymentButton'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 const Paymentmain = () => {
+  const total = useSelector((state: RootState) => state.buyList.productTotal)
   return (
     <Block>
       <ImgBlock>
         <Div>
           <Complte>결제완료</Complte>
         </Div>
-        <hr />
+        <Contour />
         <PayDiv>
-          <TitleDiv>
-            <PayComplte>감사합니다.</PayComplte>
-            <PaymentComplte> 결제가 완료되었습니다.</PaymentComplte>
-          </TitleDiv>
           <IconFont>
             <FaCheckCircle className="PayIcon" />
           </IconFont>
+          <TitleDiv>
+            <PaymentComplte>결제가 정상적으로 완료되었습니다</PaymentComplte>
+            <PayComplte>이용해주셔서 감사합니다</PayComplte>
+          </TitleDiv>
         </PayDiv>
-        <hr />
-        <PriceDiv>총 결제 금액: xx원</PriceDiv>
+        <Contour />
+        <PriceDiv>총 결제 금액: {total}원</PriceDiv>
         <MoveDiv>
           <Box>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <PaymentButton title="메인으로" IsRed />
+            </Link>
             <Link to="/product" style={{ textDecoration: 'none' }}>
               <PaymentButton title="상품 페이지로" />
-            </Link>
-            <Link to="/main" style={{ textDecoration: 'none' }}>
-              <PaymentButton title="메인으로" IsRed />
             </Link>
           </Box>
         </MoveDiv>
@@ -45,29 +48,32 @@ const Block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin: 3rem 0;
   @media all and (max-width: 767px) {
     margin-top: 0;
   }
 `
 
 const ImgBlock = styled.div`
-  width: 70rem;
-  height: 32rem;
+  width: 70%;
   border-radius: 16px;
   background: white;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.3);
   @media all and (max-width: 767px) {
-    height: 33.5rem;
-    width: 22rem;
-    font-size: 1rem;
+    width: 80%;
     font-weight: 800;
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
+`
+const Contour = styled.div`
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
 `
 
 const Div = styled.div`
+  height: 3rem;
   display: flex;
+  align-items: center;
 `
 const PayDiv = styled.div`
   display: flex;
@@ -81,39 +87,27 @@ const PayDiv = styled.div`
   }
 `
 const PriceDiv = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 1rem;
+  margin: 1rem;
   font-size: 1.1rem;
-  margin-bottom: 1rem;
   font-weight: 800;
-  @media all and (max-width: 767px) {
-    font-size: 0;
-    font-size: 0.9rem;
-  }
 `
 const MoveDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   background: #d9d9d9;
+  padding: 0.5rem 0;
   border-radius: 0 0 16px 16px;
-  border-top: 0.1px solid gray;
 `
 
 const Complte = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.8rem;
-  margin-top: 0.3rem;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  margin: 1rem;
   font-weight: bolder;
-  margin-left: 0.8rem;
   @media all and (max-width: 767px) {
-    font-size: 0;
     font-size: 1.4rem;
-    margin-left: 0;
-    margin-left: 0.3rem;
   }
 `
 
@@ -121,28 +115,25 @@ const PayComplte = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  margin-top: 2.5rem;
-  color: #95dceb;
-  font-weight: 800;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  color: dimgrey;
+  font-weight: bold;
   @media all and (max-width: 767px) {
-    font-size: 0;
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 `
 const PaymentComplte = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2.3rem;
   margin-top: 1.8rem;
   color: #95dceb;
   font-weight: 800;
   margin-left: 1rem;
   @media all and (max-width: 767px) {
-    font-size: 0;
-    font-size: 2rem;
-    margin-left: 0;
+    font-size: 1.6rem;
     margin-left: 1rem;
   }
 `
@@ -153,14 +144,12 @@ const Box = styled.div`
 
 const TitleDiv = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  @media all and (max-width: 767px) {
-    flex-direction: column;
-  }
 `
 
 const IconFont = styled.div`
-  font-size: 150px;
+  font-size: 6rem;
   @media all and (max-width: 767px) {
     margin-top: 1.1rem;
     margin-bottom: 1rem;

@@ -24,22 +24,20 @@ const Box = styled.div`
   height: 3rem;
   margin: 1.25rem 1.5rem 1.25rem 1.5rem;
   border-radius: 0.7rem;
-  box-shadow: 0.3rem 0.3rem black;
+  box-shadow: 0.25rem 0.28rem black;
   font-size: 1.3rem;
   font-weight: bold;
   color: black;
   background: #95DCEB;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border: 1px solid black;
   @media all and (max-width: 767px) {
-    width: 9rem;
-    height: 2rem;
-    margin: 0;
+    width: 9.5rem;
+    height: 2.5rem;
     margin: 1.25rem 0.5rem 1.25rem 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   &:hover {
-    background-color: #C9CACA;
+    background-color: #cae7ed;;
 `
 
 const RedBox = styled(Box)`

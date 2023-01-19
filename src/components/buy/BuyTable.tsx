@@ -9,41 +9,11 @@ import { useSelector } from 'react-redux'
 
 const BuyTable = () => {
   const products = useSelector((state: RootState) => state.buyList.products)
-  const [checkItems, setCheckItems] = useState<number[]>([])
 
-  const handleAllCheck = (checked: boolean) => {
-    if (checked) {
-      const idArray: number[] = []
-      products.forEach((list) => idArray.push(list.id))
-      setCheckItems(idArray)
-    } else {
-      setCheckItems([])
-    }
-  }
-  const handleSingleCheck = (checked: boolean, id: number) => {
-    if (checked) {
-      setCheckItems((prev) => [...prev, id])
-    } else {
-      setCheckItems(checkItems.filter((el: number) => el !== id))
-    }
-  }
-
-  useEffect(() => {
-    console.log(checkItems)
-  }, [checkItems])
   return (
     <TableBox>
       <Table>
         <Head>
-          <ThCheck>
-            <StyledInput
-              type="checkbox"
-              onChange={(e) => {
-                handleAllCheck(e.target.checked)
-              }}
-              checked={checkItems.length === products.length}
-            />
-          </ThCheck>
           <ThProduct>구매정보</ThProduct>
           <Th>가격</Th>
           <Th>할인정보</Th>
@@ -52,16 +22,6 @@ const BuyTable = () => {
         {products &&
           products.map((v, index) => (
             <Body key={index}>
-              <TdCheck>
-                <StyledInput
-                  key={index}
-                  type="checkbox"
-                  onChange={(e) => {
-                    handleSingleCheck(e.target.checked, v.id)
-                  }}
-                  checked={!!checkItems.includes(v.id)}
-                />
-              </TdCheck>
               <ProductBox>
                 <TdProduct
                   id={v.id}
@@ -88,7 +48,7 @@ export default BuyTable
 
 const TableBox = styled.div`
   width: 95%;
-  height: 40rem;
+  height: 35rem;
   background: white;
   border-left: 0.16rem solid;
   border-right: 0;
@@ -152,10 +112,10 @@ const ThCheck = styled(Head)`
   border-bottom: 0;
 `
 const ThProduct = styled(ThCheck)`
-  width: 39%;
+  width: 55%;
 `
 const Th = styled(ThCheck)`
-  width: 17%;
+  width: 15%;
 `
 const TdCheck = styled(Body)`
   width: 10%;
@@ -163,7 +123,7 @@ const TdCheck = styled(Body)`
   border-bottom: 0;
 `
 const ProductBox = styled.div`
-  width: 56.6%;
+  width: 70.5%;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -171,7 +131,7 @@ const ProductBox = styled.div`
 `
 
 const Td = styled(TdCheck)`
-  width: 17%;
+  width: 15%;
 `
 const IconButton = styled.div`
   width: 1.7rem;
