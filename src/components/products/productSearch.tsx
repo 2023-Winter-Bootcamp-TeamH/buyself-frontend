@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
+/** 상품 검색 기능  */
+
 const ProductSearch = () => {
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
@@ -103,6 +105,8 @@ const Button = styled.button`
     height: 2.3rem;
     width: 4rem;
     font-size: 1rem;
+    margin-left: 0;
+    margin-left: 0.5rem;
     font-weight: 800;
     margin-right: 0;
   }

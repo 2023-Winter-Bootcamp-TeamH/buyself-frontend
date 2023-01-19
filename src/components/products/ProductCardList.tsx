@@ -3,6 +3,12 @@ import axios from 'axios'
 import styled from 'styled-components'
 import ProductCard from './ProductCard'
 import { Pagination } from './Pagination'
+import { customAxios } from '../common/CustomAxios'
+
+/** 상품 API 및 상품 페이지네이션 구현
+ * 상품 품목
+ * 페이지 수
+ */
 
 interface Response {
   data: Data[]
@@ -34,9 +40,8 @@ const ProductCardList = () => {
 
   const fetchData = async (page: number) => {
     try {
-      const response = await axios.get<Response>(
-        `http://127.0.0.1:5000/api/products?page=${page}
-        `
+      const response = await customAxios.get<Response>(
+        `/products?page=${page} `
       )
       const { data } = response.data
       setdata(data)

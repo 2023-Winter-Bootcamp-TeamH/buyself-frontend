@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+/** 페이지네이션 동작   */
+
 export interface Props {
   page: number
   totalPages: number
