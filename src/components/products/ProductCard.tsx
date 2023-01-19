@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-
 /** 상품 내용 삽입 카드
  * 상품 이미지
  * 상품 이름,가격
@@ -15,6 +14,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
+  const [isActive, setIsActive] = useState(false)
   return (
     <Block>
       <IMGBlock>
@@ -54,7 +54,6 @@ const PriceText = styled.div`
   font-weight: 1000;
   margin-bottom: 0.3rem;
   @media all and (max-width: 767px) {
-    font-size: 0;
     font-size: 0.6rem;
     margin-left: 1.5rem;
     margin-bottom: 0;

@@ -52,7 +52,6 @@ const Div = styled.div`
     margin-right: 5rem;
   }
   @media all and (max-width: 767px) {
-    mari-right: 0;
     margin-right: 0.5rem;
   }
 `
@@ -107,7 +106,6 @@ const Button = styled.button`
     height: 2.3rem;
     width: 4rem;
     font-size: 1rem;
-    margin-left: 0;
     margin-left: 0.5rem;
     font-weight: 800;
     margin-top: 2rem;
