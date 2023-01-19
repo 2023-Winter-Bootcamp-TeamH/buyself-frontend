@@ -9,28 +9,57 @@ import Chocolate from '../images/Chocolate.png'
 const ProductPage = () => {
   return (
     <>
-      <ImgCandy src={Candy} />
-      <ImgChocolate src={Chocolate} />
       <Header />
-      <ProductSearch />
-
-      <ProductCardList />
+      <ProductPageLayout>
+        <ImgCandy src={Candy} />
+        <ImgChocolate src={Chocolate} />
+        <ProductSearch />
+        <ProductCardList />
+      </ProductPageLayout>
     </>
   )
 }
 
 export default ProductPage
 
+const ProductPageLayout = styled.div`
+  position: relative;
+  height: 100rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justfy-content: space-evenly;
+  padding: 0.5rem 8rem;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 4rem;
+  }
+  @media all and (max-width: 767px) {
+    padding: 0 2rem;
+  }
+`
+
 const ImgCandy = styled.img`
   width: 10rem;
   position: fixed;
-  bottom: 0.1rem;
-  left: 87rem;
+  top: 40rem;
+  right: 0;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    display: none;
+  }
+  @media all and (max-width: 767px) {
+    display: none;
+  }
 `
 
 const ImgChocolate = styled.img`
-  width: 15rem;
+  width: 9rem;
   position: fixed;
-  bottom: 20rem;
-  right: 87rem;
+  top: 7rem;
+  left: 0;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    display: none;
+  }
+  @media all and (max-width: 767px) {
+    display: none;
+  }
 `

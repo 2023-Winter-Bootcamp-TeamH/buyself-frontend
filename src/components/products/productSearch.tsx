@@ -45,15 +45,17 @@ const ProductSearch = () => {
 export default ProductSearch
 
 const Div = styled.div`
+  width: 100%;
   display: flex;
   justify-content: end;
-  margin-right: 8rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    margin-right: 5rem;
+  align-items: center;
+  margin: 1.5rem;
+  @media all and (min-width: 1024px) and (max-width: 1262px) {
+    justify-content: center;
   }
-  @media all and (max-width: 767px) {
-    mari-right: 0;
-    margin-right: 0.5rem;
+  @media all and (max-width: 1023px) {
+    align-items: center;
+    justify-content: center;
   }
 `
 
@@ -62,22 +64,21 @@ const Input = styled.input`
   justify-content: center;
   align-items: center;
   height: 3.3rem;
-  width: 37rem;
+  width: 40%;
   border-radius: 8px;
   font-size: 1.5rem;
-  margin-left: 30.5rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-right: 2rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    margin-left: 6rem;
+  @media all and (min-width: 1024px) and (max-width: 1262px) {
+    margin-left: 2rem;
+    width: 50%;
+    font-size: 1rem;
   }
-  @media all and (max-width: 767px) {
+  @media all and (max-width: 1023px) {
     height: 2rem;
-    width: 18rem;
-    margin-left: 0;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    width: 50%;
+    margin-left: 2rem;
+    font-size: 1rem;
   }
 `
 const Button = styled.button`
@@ -92,24 +93,21 @@ const Button = styled.button`
   font-weight: 800;
   border-radius: 8px;
   font-size: 1.5rem;
+  margin-right: 6rem;
   cursor: pointer;
-  margin-top: 3rem;
-  margin-left: 1rem;
   &:hover {
     background: #ff7d6d;
   }
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 7rem;
-    font-size: 1.2rem;
-    font-weight: 800;
+  @media all and (min-width: 1024px) and (max-width: 1262px) {
+    margin-right: 0;
   }
-  @media all and (max-width: 767px) {
+  @media all and (max-width: 1023px) {
     height: 2.3rem;
     width: 4rem;
     font-size: 1rem;
     margin-left: 0;
     margin-left: 0.5rem;
     font-weight: 800;
-    margin-top: 2rem;
+    margin-right: 0;
   }
 `

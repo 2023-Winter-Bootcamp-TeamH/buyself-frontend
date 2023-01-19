@@ -31,7 +31,7 @@ export default BuyInfoBox
 
 const Box = styled.div`
   width: 30.875rem;
-  height: 45.438rem;
+  height: 38rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,18 +39,20 @@ const Box = styled.div`
   border: 0.15rem solid;
   border-radius: 1rem;
   margin-right: 2rem;
+  margin-top: 4.5rem;
   background: #fff;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
   @media all and (min-width: 768px) and (max-width: 1160px) {
     width: 85%;
     height: 25rem;
     margin-right: 0;
+    margin-top: 1rem;
   }
   @media all and (max-width: 767px) {
-    width: 85%;
+    width: 83%;
     height: 24rem;
     margin: 0;
     margin-right: 1rem;
-    padding 2rem 0;
+    margin-top: 1rem;
   }
 `
