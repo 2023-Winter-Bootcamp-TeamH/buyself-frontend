@@ -31,10 +31,7 @@ const BuyPage = () => {
         <BuyInfoBox price={total}>
           <ButtonLayout>
             <Link to="/pay">
-              <BuyButton text="전체 상품 주문하기" IsRed />
-            </Link>
-            <Link to="/pay">
-              <BuyButton text="선택 상품 주문하기" />
+              <BuyButton text="상품 결제하기" IsRed />
             </Link>
           </ButtonLayout>
         </BuyInfoBox>

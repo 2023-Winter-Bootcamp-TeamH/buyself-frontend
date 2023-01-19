@@ -19,7 +19,6 @@ const Btn = styled.button`
   border-radius: 1rem;
   font-size: 2rem;
   box-shadow: 0.2rem 0.3rem;
-  margin-bottom: 1rem;
   cursor: pointer;
   &:hover {
     background-color: #cae7ed;

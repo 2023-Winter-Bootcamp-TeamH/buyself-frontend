@@ -86,7 +86,7 @@ const StyledCard = styled.div`
 `
 
 const Cancel = styled.label`
-  margin-left: 8rem;
+  margin-left: 9rem;
   height: 1.5rem;
   cursor: pointer;
   @media all and (min-width: 768px) and (max-width: 1023px) {

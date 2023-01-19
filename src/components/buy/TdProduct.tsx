@@ -54,37 +54,36 @@ const TdProduct = ({
 export default TdProduct
 
 const ProductBox = styled.div`
-  width: 76.56%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 1.5rem;
+  justify-content: center;
   font-weight: bold;
   border-right: 0.16rem solid;
   border-bottom: 0;
   @media all and (min-width: 768px) and (max-width: 1325px) {
-    width: 77%;
     font-size: 1.3rem;
   }
   @media all and (max-width: 767px) {
-    width: 78%;
     font-size: 1.2rem;
     flex-direction: column;
   }
 `
 const PriceBox = styled(ProductBox)`
-  width: 33.44%;
+  width: 27%;
   justify-content: center;
 `
 const ImageBox = styled.div`
-  width: 30%
+  width: 40%
   height: 8rem;
   display: flex;
   align-items: center;
   margin-left: 1rem;
   @media all and (max-width: 767px) {
-    width: 5rem;
+    width: 30%;
     margin-left: 0;
   }
 `
@@ -101,8 +100,9 @@ const RightBox = styled.div`
   }
 `
 const Image = styled.img`
-  width: 5rem;
+  width: 8rem;
   @media all and (max-width: 767px) {
+    width: 5rem;
     margin-left: 0;
   }
 `
@@ -117,7 +117,6 @@ const CountButton = styled.button`
   background-color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 1rem;
   @media all and (min-width: 768px) and (max-width: 1325px) {
     width: 8rem;
     height: 2.3rem;
