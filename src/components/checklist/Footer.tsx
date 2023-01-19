@@ -1,16 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 /**
  * 체크리스트 하단바
  * 총 금액, 결제창
  */
 
-const Footer = ({ price }: { price: string }) => {
+const Footer = ({ price }: { price: number }) => {
+  const Items = useSelector((state: RootState) => state.buyList.checklists)
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate('/')
+    navigate('/buy', {
+      state: {
+        checklists: Items,
+      },
+    })
   }
   return (
     <FooterLayout>

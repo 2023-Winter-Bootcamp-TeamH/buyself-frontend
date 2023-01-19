@@ -1,51 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import image from '../../images/test_image.png'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
+import {
+  deleteChecklist,
+  increaseChecklist,
+  decreaseChecklist,
+  store,
+} from '../../store'
+import { BuyCardProps } from '../scan/BuyList'
 
 /**
  * 체크리스트 상품 카드
  * 상품 정보
  */
 
-const CheckListCard = ({ title, price }: { title: string; price: number }) => {
-  const [quantity, setQuantity] = useState(1)
+const CheckListCard = ({
+  id,
+  class_name,
+  price,
+  img_url,
+  count,
+}: BuyCardProps): React.ReactElement => {
   const [priceValue, setPrice] = useState(price)
-  const handleClickSub = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1)
+
+  const onIncrease = () => {
+    store.dispatch(increaseChecklist(id))
+    setPrice(price * (count + 1))
+  }
+  const onDecrease = () => {
+    if (count > 1) {
+      store.dispatch(decreaseChecklist(id))
       setPrice(priceValue - price)
     }
   }
-  const handleClickAdd = () => {
-    setPrice(price * (quantity + 1))
-    setQuantity(quantity + 1)
-  }
+  useEffect(() => {
+    setPrice(price * count)
+  }, [price, count])
   return (
     <CheckListCardLayout>
-      <Image src={image} />
+      <Image src={img_url} />
       <DetailContainer>
-        <Title>{title}</Title>
+        <Title>{class_name}</Title>
         <Price>{priceValue}원</Price>
         <QuantityBox>
-          <Button
-            onClick={() => {
-              handleClickSub()
-            }}
-          >
+          <Button onClick={onDecrease}>
             <BsDashLg />
           </Button>
-          {quantity}
-          <Button
-            onClick={() => {
-              handleClickAdd()
-            }}
-          >
+          {count}
+          <Button onClick={onIncrease}>
             <BsPlusLg />
           </Button>
         </QuantityBox>
       </DetailContainer>
-      <Cancel>
+      <Cancel onClick={() => store.dispatch(deleteChecklist(id))}>
         <BsXLg size="15" />
       </Cancel>
     </CheckListCardLayout>

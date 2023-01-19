@@ -2,6 +2,8 @@ import React from 'react'
 import CheckListCard from './CheckListCard'
 import styled from 'styled-components'
 import { Division } from './Division'
+import { RootState } from '../../store'
+import { useSelector } from 'react-redux'
 
 /**
  * 체크리스트 상품리스트
@@ -9,14 +11,23 @@ import { Division } from './Division'
  */
 
 const CheckListItemList = () => {
+  const checklists = useSelector((state: RootState) => state.buyList.checklists)
+
   return (
     <>
       <Division />
       <CheckListItemListLayout>
-        <CheckListCard title="롯데제과 월드콘 XQ" price={3000} />
-        <CheckListCard title="롯데제과 월드콘 XQ" price={2000} />
-        <CheckListCard title="롯데제과 월드콘 XQ" price={4000} />
-        <CheckListCard title="롯데제과 월드콘 XQ" price={5000} />
+        {checklists &&
+          checklists.map((v, index) => (
+            <CheckListCard
+              key={index}
+              class_name={v.class_name}
+              id={v.id}
+              img_url={v.img_url}
+              price={v.price}
+              count={v.count}
+            />
+          ))}
       </CheckListItemListLayout>
       <Division />
     </>
@@ -31,5 +42,17 @@ const CheckListItemListLayout = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  height: 30rem;
   padding: 1rem 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.8rem;
+    background: white;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10rem;
+  }
 `

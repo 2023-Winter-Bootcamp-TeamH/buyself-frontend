@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { AiOutlineClose } from 'react-icons/ai'
 import logo from '../../images/checklist_logo.svg'
 import Footer from './Footer'
 import CheckListItemList from './CheckListItemList'
+import { RootState, store, totalCheckPrice, totalPrice } from '../../store'
 /**
  * 체크리스트 토글 메뉴
  * 상단 헤더, 상품리스트, 하단 결제창
@@ -19,6 +21,17 @@ const CheckList = ({
   const toggleMenu = () => {
     setIsOpen(false)
   }
+  const items = useSelector((state: RootState) => state.buyList.checklists)
+  const total = useSelector((state: RootState) => state.buyList.checklistTotal)
+  useEffect(() => {
+    store.dispatch(
+      totalCheckPrice(
+        items
+          .map((item) => item.price * item.count)
+          .reduce((acc, price) => acc + price, 0)
+      )
+    )
+  }, [items])
   return (
     <CheckListLayout className={isOpen ? 'open' : ''}>
       <Header>
@@ -32,7 +45,7 @@ const CheckList = ({
         </Close>
       </Header>
       <CheckListItemList />
-      <Footer price="30000" />
+      <Footer price={total} />
       <Skeleton />
     </CheckListLayout>
   )
@@ -45,6 +58,7 @@ const CheckListLayout = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 10rem;
+  height: 55rem;
   padding: 12px;
   background-color: white;
   z-index: 5;
