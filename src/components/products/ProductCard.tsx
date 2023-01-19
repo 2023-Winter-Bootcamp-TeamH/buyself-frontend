@@ -31,8 +31,7 @@ justify-content: center;
   margin-top:1.2rem;
   margin-bottom:0.3rem;
   @media all and (max-width: 767px) {
-    font-size:0;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin-top:1rem;
     margin-left: 1.5rem;
     margin-bottom:0;

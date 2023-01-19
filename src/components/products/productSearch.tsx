@@ -70,11 +70,13 @@ const Input = styled.input`
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     margin-left: 2rem;
     width: 50%;
+    font-size: 1rem;
   }
   @media all and (max-width: 1023px) {
     height: 2rem;
     width: 50%;
     margin-left: 2rem;
+    font-size: 1rem;
   }
 `
 const Button = styled.button`
