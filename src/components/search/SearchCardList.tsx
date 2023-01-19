@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
+import { customAxios } from '../common/CustomAxios'
 import ProductCard from '../products/ProductCard'
 
 /** 검색 상품 컴포넌트 */
@@ -23,9 +23,7 @@ const SearchCardList = ({ keyWord }: { keyWord: string | null }) => {
   const getData = async () => {
     setZero(false)
     try {
-      const res = await axios.get<Response>(
-        `http://127.0.0.1:5000/search?kw=${keyWord}`
-      )
+      const res = await customAxios.get<Response>(`/search?kw=${keyWord}`)
       setData(res.data.data)
       if (res.data.data.length === 0) {
         setZero(true)
