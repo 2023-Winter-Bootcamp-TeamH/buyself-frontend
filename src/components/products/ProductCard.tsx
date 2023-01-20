@@ -18,6 +18,19 @@ interface ProductCardProps {
 
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
   const [isActive, setIsActive] = useState(false)
+  const HandleClickAdd = () => {
+    setIsActive(true)
+    store.dispatch(
+      addChecklist({
+        class_name: data.class_name,
+        id: data.id,
+        img_url: data.img_url,
+        price: data.price,
+        count: 1,
+      })
+    )
+  }
+
   return (
     <Block>
       <IMGBlock>
@@ -26,24 +39,9 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
       <Info>
         <TitleText>{data.class_name}</TitleText>
         <PriceText>{data.price}원</PriceText>
-        <CheckButton
-          onClick={() =>
-            setIsActive(true)
-            store.dispatch(
-              addChecklist({
-                class_name: data.class_name,
-                id: data.id,
-                img_url: data.img_url,
-                price: data.price,
-                count: 1,
-              })
-            )
-          }
-        >
-          체크리스트 추가
-        </CheckButton>
+        <CheckButton onClick={HandleClickAdd}>체크리스트 추가</CheckButton>
       </Info>
-       <Toast
+      <Toast
         isActive={isActive}
         setIsActive={setIsActive}
         message="상품이 등록되었습니다"
