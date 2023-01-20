@@ -5,7 +5,8 @@ import { AiOutlineClose } from 'react-icons/ai'
 import logo from '../../images/checklist_logo.svg'
 import Footer from './Footer'
 import CheckListItemList from './CheckListItemList'
-import { RootState, store, totalCheckPrice, totalPrice } from '../../store'
+import { RootState, store, totalCheckPrice, totalCheckCount } from '../../store'
+import { Root } from 'react-dom/client'
 /**
  * 체크리스트 토글 메뉴
  * 상단 헤더, 상품리스트, 하단 결제창
@@ -23,6 +24,10 @@ const CheckList = ({
   }
   const items = useSelector((state: RootState) => state.buyList.checklists)
   const total = useSelector((state: RootState) => state.buyList.checklistTotal)
+  const totalCount = useSelector(
+    (state: RootState) => state.buyList.checklistCount
+  )
+
   useEffect(() => {
     store.dispatch(
       totalCheckPrice(
@@ -32,6 +37,11 @@ const CheckList = ({
       )
     )
   }, [items])
+
+  useEffect(() => {
+    store.dispatch(totalCheckCount(items.length))
+  }, [items])
+
   return (
     <CheckListLayout className={isOpen ? 'open' : ''}>
       <Header>

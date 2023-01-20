@@ -6,12 +6,14 @@ interface stateProps {
   checklists: BuyCardProps[]
   productTotal: number
   checklistTotal: number
+  checklistCount: number
 }
 const initialState: stateProps = {
   products: [],
   checklists: [],
   productTotal: 0,
   checklistTotal: 0,
+  checklistCount: 0,
 }
 
 const buyList = createSlice({
@@ -86,6 +88,9 @@ const buyList = createSlice({
     totalCheckPrice: (state, action) => {
       state.checklistTotal = action.payload
     },
+    totalCheckCount: (state, action) => {
+      state.checklistCount = action.payload
+    },
   },
 })
 
@@ -106,6 +111,7 @@ export const {
   increaseChecklist,
   decreaseChecklist,
   totalCheckPrice,
+  totalCheckCount,
 } = buyList.actions
 
 export type RootState = ReturnType<typeof store.getState>
