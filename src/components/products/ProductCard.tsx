@@ -17,30 +17,25 @@ interface ProductCardProps {
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
   const [isActive, setIsActive] = useState(false)
   return (
-    <>
-      <Block>
-        <IMGBlock>
-          <IMG src={data.img_url} />
-        </IMGBlock>
+    <Block>
+      <IMGBlock>
+        <IMG src={data.img_url} />
+      </IMGBlock>
+      <Info>
         <TitleText>{data.class_name}</TitleText>
         <PriceText>{data.price}원</PriceText>
-        <CheckButton
-          onClick={() => {
+        <CheckButton onClick={() => {
             setIsActive(true)
-          }}
-        >
-          체크리스트 추가
-        </CheckButton>
-      </Block>
-      <Toast
+          }}>체크리스트 추가</CheckButton>
+      </Info>
+       <Toast
         isActive={isActive}
         setIsActive={setIsActive}
         message="상품이 등록되었습니다"
       />
-    </>
+    </Block>
   )
 }
-
 export default ProductCard
 
 const TitleText = styled.div`
@@ -53,11 +48,7 @@ justify-content: center;
   @media all and (max-width: 767px) {
     font-size: 0.8rem;
     margin-top:1rem;
-    margin-left: 1.5rem;
-    margin-bottom:0;
     margin-bottom:0.1rem;
-
-
 `
 
 const PriceText = styled.div`
@@ -68,7 +59,6 @@ const PriceText = styled.div`
   margin-bottom: 0.3rem;
   @media all and (max-width: 767px) {
     font-size: 0.6rem;
-    margin-left: 1.5rem;
     margin-bottom: 0;
   }
 `
@@ -136,7 +126,6 @@ const CheckButton = styled.button`
   height: 3rem;
   width: 12rem;
   font-weight: 800;
-  margin-left: 2.5rem;
   margin-top: 0.5rem;
   &:hover {
     background: #c6dceb;
@@ -146,7 +135,16 @@ const CheckButton = styled.button`
     width: 6rem;
     box-shadow: 0.1rem 0.1rem;
     font-size: 0.5rem;
-    margin-left: 2rem;
     margin-top: 0.5rem;
+  }
+`
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (max-width: 767px) {
+    margin-left: 1rem;
   }
 `
