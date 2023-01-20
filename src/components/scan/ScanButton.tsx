@@ -11,15 +11,18 @@ export default ScanButton
 
 const StyledButton = styled.button`
   height: 3.5rem;
-  width: 11rem;
+  width: 80%;
   background: #95dceb;
   border-radius: 0.5rem;
+  margin-left: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
   box-shadow: 0.2rem 0.2rem;
-  margin: 1.5rem 0 2rem;
   cursor: pointer;
   &:hover {
     background-color: #cae7ed;
+  }
+  @media all and (max-width: 1023px) {
+    width: 40%;
   }
 `
