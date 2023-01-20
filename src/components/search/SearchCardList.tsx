@@ -14,6 +14,7 @@ interface Data {
   id: number
   img_url: string
   price: number
+  count: number
 }
 
 const SearchCardList = ({ keyWord }: { keyWord: string | null }) => {

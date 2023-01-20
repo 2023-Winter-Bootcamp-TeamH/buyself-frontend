@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { store, addChecklist } from '../../store'
 import Toast from './Toast'
+
 /** 상품 내용 삽입 카드
  * 상품 이미지
  * 상품 이름,가격
@@ -24,9 +26,22 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
       <Info>
         <TitleText>{data.class_name}</TitleText>
         <PriceText>{data.price}원</PriceText>
-        <CheckButton onClick={() => {
+        <CheckButton
+          onClick={() =>
             setIsActive(true)
-          }}>체크리스트 추가</CheckButton>
+            store.dispatch(
+              addChecklist({
+                class_name: data.class_name,
+                id: data.id,
+                img_url: data.img_url,
+                price: data.price,
+                count: 1,
+              })
+            )
+          }
+        >
+          체크리스트 추가
+        </CheckButton>
       </Info>
        <Toast
         isActive={isActive}

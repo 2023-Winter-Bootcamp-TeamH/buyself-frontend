@@ -3,11 +3,17 @@ import { BuyCardProps } from './components/scan/BuyList'
 
 interface stateProps {
   products: BuyCardProps[]
+  checklists: BuyCardProps[]
   productTotal: number
+  checklistTotal: number
+  checklistCount: number
 }
 const initialState: stateProps = {
   products: [],
+  checklists: [],
   productTotal: 0,
+  checklistTotal: 0,
+  checklistCount: 0,
 }
 
 const buyList = createSlice({
@@ -48,6 +54,43 @@ const buyList = createSlice({
     totalPrice: (state, action) => {
       state.productTotal = action.payload
     },
+    addChecklist: (state, action: PayloadAction<BuyCardProps>) => {
+      const Item = state.checklists.findIndex(
+        (item) => item.id === action.payload.id
+      )
+      if (Item === -1) {
+        state.checklists.push({ ...action.payload })
+      } else {
+        state.checklists[Item].count++
+      }
+      return state
+    },
+    deleteChecklist: (state, action) => {
+      const index = state.checklists.findIndex(
+        (item) => item.id === action.payload
+      )
+      state.checklists.splice(index, 1)
+    },
+    increaseChecklist: (state, action) => {
+      const index = state.checklists.findIndex(
+        (item) => item.id === action.payload
+      )
+      state.checklists[index].count++
+    },
+    decreaseChecklist: (state, action) => {
+      const index = state.checklists.findIndex(
+        (item) => item.id === action.payload
+      )
+      if (state.checklists[index].count > 1) {
+        state.checklists[index].count--
+      }
+    },
+    totalCheckPrice: (state, action) => {
+      state.checklistTotal = action.payload
+    },
+    totalCheckCount: (state, action) => {
+      state.checklistCount = action.payload
+    },
   },
 })
 
@@ -63,6 +106,13 @@ export const {
   increaseProduct,
   decreaseProduct,
   totalPrice,
+  addChecklist,
+  deleteChecklist,
+  increaseChecklist,
+  decreaseChecklist,
+  totalCheckPrice,
+  totalCheckCount,
 } = buyList.actions
+
 export type RootState = ReturnType<typeof store.getState>
 export { store, buyList }

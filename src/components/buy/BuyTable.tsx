@@ -4,12 +4,14 @@ import { HiTrash } from 'react-icons/hi'
 import TdProduct from './TdProduct'
 import { deleteProduct, RootState, store, totalPrice } from '../../store'
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 /** 결제창 테이블표 */
 
 const BuyTable = () => {
   const products = useSelector((state: RootState) => state.buyList.products)
-
+  const checklists = useLocation()
+  console.log('state', checklists.state)
   return (
     <TableBox>
       <Table>
