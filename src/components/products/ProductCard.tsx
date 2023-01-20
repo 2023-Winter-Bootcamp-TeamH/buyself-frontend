@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Toast from './Toast'
 /** 상품 내용 삽입 카드
  * 상품 이미지
  * 상품 이름,가격
@@ -16,14 +17,27 @@ interface ProductCardProps {
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
   const [isActive, setIsActive] = useState(false)
   return (
-    <Block>
-      <IMGBlock>
-        <IMG src={data.img_url} />
-      </IMGBlock>
-      <TitleText>{data.class_name}</TitleText>
-      <PriceText>{data.price}원</PriceText>
-      <CheckButton>체크리스트 추가</CheckButton>
-    </Block>
+    <>
+      <Block>
+        <IMGBlock>
+          <IMG src={data.img_url} />
+        </IMGBlock>
+        <TitleText>{data.class_name}</TitleText>
+        <PriceText>{data.price}원</PriceText>
+        <CheckButton
+          onClick={() => {
+            setIsActive(true)
+          }}
+        >
+          체크리스트 추가
+        </CheckButton>
+      </Block>
+      <Toast
+        isActive={isActive}
+        setIsActive={setIsActive}
+        message="상품이 등록되었습니다"
+      />
+    </>
   )
 }
 
