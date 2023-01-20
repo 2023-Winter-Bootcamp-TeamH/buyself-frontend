@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { store, addChecklist } from '../../store'
+import Toast from './Toast'
 
 /** 상품 내용 삽입 카드
  * 상품 이미지
@@ -16,6 +17,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
+  const [isActive, setIsActive] = useState(false)
   return (
     <Block>
       <IMGBlock>
@@ -26,6 +28,7 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
         <PriceText>{data.price}원</PriceText>
         <CheckButton
           onClick={() =>
+            setIsActive(true)
             store.dispatch(
               addChecklist({
                 class_name: data.class_name,
@@ -40,10 +43,14 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
           체크리스트 추가
         </CheckButton>
       </Info>
+       <Toast
+        isActive={isActive}
+        setIsActive={setIsActive}
+        message="상품이 등록되었습니다"
+      />
     </Block>
   )
 }
-
 export default ProductCard
 
 const TitleText = styled.div`
@@ -66,7 +73,6 @@ const PriceText = styled.div`
   font-weight: 1000;
   margin-bottom: 0.3rem;
   @media all and (max-width: 767px) {
-    font-size: 0;
     font-size: 0.6rem;
     margin-bottom: 0;
   }

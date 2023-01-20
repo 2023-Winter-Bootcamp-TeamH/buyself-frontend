@@ -105,7 +105,6 @@ const Button = styled.button`
     height: 2.3rem;
     width: 4rem;
     font-size: 1rem;
-    margin-left: 0;
     margin-left: 0.5rem;
     font-weight: 800;
     margin-right: 0;
