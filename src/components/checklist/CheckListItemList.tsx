@@ -42,7 +42,7 @@ const CheckListItemListLayout = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 30rem;
+  height: 40rem;
   padding: 1rem 0;
   overflow-y: auto;
   overflow-x: hidden;

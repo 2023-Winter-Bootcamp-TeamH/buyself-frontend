@@ -58,7 +58,7 @@ const CheckListLayout = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 10rem;
-  height: 55rem;
+  height: 53rem;
   padding: 12px;
   background-color: white;
   z-index: 5;
@@ -69,7 +69,7 @@ const CheckListLayout = styled.div`
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.25);
   transition: 0.5s ease;
   &.open {
-    position: absolute;
+    position: fixed;
     right: 0;
     transition: 0.3s ease;
   }
