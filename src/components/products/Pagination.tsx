@@ -101,13 +101,9 @@ const Button = styled.button`
     height: 1.5rem;
     width: 1.5rem;
     font-size: 0.5rem;
-    margin-top: 0;
     margin-top: 2rem;
-    margin-bottom: 0;
     margin-bottom: 2rem;
-    margin-left: 0;
     margin-left: 0.1rem;
-    box-shadow: 0;
     box-shadow: 1px 1px black;
   }
 `
