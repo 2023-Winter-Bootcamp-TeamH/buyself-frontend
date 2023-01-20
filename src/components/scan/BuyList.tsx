@@ -68,7 +68,7 @@ const StyledList = styled.div`
   }
 `
 const BuyCardBox = styled.div`
-  width: 80vw;
+  width: 100%;
   height: 22.5rem;
   display: flex;
   flex-direction: row;
