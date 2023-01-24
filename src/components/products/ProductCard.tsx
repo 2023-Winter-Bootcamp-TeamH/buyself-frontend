@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { store, addChecklist } from '../../store'
 import Toast from './Toast'
+import FadeIn from 'react-fade-in'
 
 /** 상품 내용 삽입 카드
  * 상품 이미지
@@ -32,21 +33,25 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
   }
 
   return (
-    <Block>
-      <IMGBlock>
-        <IMG src={data.img_url} />
-      </IMGBlock>
-      <Info>
-        <TitleText>{data.class_name}</TitleText>
-        <PriceText>{data.price}원</PriceText>
-        <CheckButton onClick={HandleClickAdd}>체크리스트 추가</CheckButton>
-      </Info>
+    <>
+      <FadeIn transitionDuration={600} delay={100}>
+        <Block>
+          <IMGBlock>
+            <IMG src={data.img_url} />
+          </IMGBlock>
+          <Info>
+            <TitleText>{data.class_name}</TitleText>
+            <PriceText>{data.price}원</PriceText>
+            <CheckButton onClick={HandleClickAdd}>체크리스트 추가</CheckButton>
+          </Info>
+        </Block>
+      </FadeIn>
       <Toast
         isActive={isActive}
         setIsActive={setIsActive}
         message="상품이 등록되었습니다"
       />
-    </Block>
+    </>
   )
 }
 export default ProductCard
