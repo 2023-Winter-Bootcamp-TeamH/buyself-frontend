@@ -19,7 +19,6 @@ const BuyList = () => {
 
   const setIsChecked = () => {
     products.map((v) => store.dispatch(toggleChecklist(v.id)))
-    console.log(checklists.map((v) => v))
   }
 
   useEffect(() => {
