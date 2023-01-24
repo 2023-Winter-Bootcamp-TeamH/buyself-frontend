@@ -1,17 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 /* 결제버튼 & 취소버튼 디자인 */
 
 const ScanButton = ({ text }: { text: string }) => {
-  return <StyledButton>{text}</StyledButton>
+  return (
+    <Box>
+      <Link to="/buy" style={{ textDecoration: 'none' }}>
+        <StyledButton>{text}</StyledButton>
+      </Link>
+    </Box>
+  )
 }
 
 export default ScanButton
 
 const StyledButton = styled.button`
   height: 3.5rem;
-  width: 80%;
+  width: 12rem;
   background: #95dceb;
   border-radius: 0.5rem;
   margin-left: 0.5rem;
@@ -23,6 +30,9 @@ const StyledButton = styled.button`
     background-color: #cae7ed;
   }
   @media all and (max-width: 1023px) {
-    width: 40%;
+    width: 15rem;
   }
+`
+const Box = styled.div`
+  display: flex;
 `
