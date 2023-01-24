@@ -1,17 +1,33 @@
-import { check } from 'prettier'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Default } from './MediaQuery'
 import ScanButton from './ScanButton'
+import { RootState } from '../../store'
+import { useSelector } from 'react-redux'
+import { check } from 'prettier'
+
+export interface ChecklistProps {
+  class_name: string
+  id: number
+  img_url: string
+  price: number
+  count: number
+  checked: boolean
+}
 
 const ChecklistBox = () => {
+  const checklists = useSelector((state: RootState) => state.buyList.checklists)
+
   return (
     <ChecklistBoxLayout>
       <ListLayout>
-        <ItemLayout>
-          <CheckBox type="checkbox" />
-          짜요짜요
-        </ItemLayout>
+        {checklists &&
+          checklists.map((v, index) => (
+            <ItemLayout key={index}>
+              <CheckBox type="checkbox" />
+              <TextBox id={v.class_name}>{v.class_name}</TextBox>
+            </ItemLayout>
+          ))}
       </ListLayout>
       <Default>
         <ScanButton text="결제하기" />
@@ -23,7 +39,7 @@ const ChecklistBox = () => {
 export default ChecklistBox
 
 const ChecklistBoxLayout = styled.div`
-  width: 70%;
+  width: 74%;
   height: 33rem;
   display: flex;
   flex-direction: column;
@@ -46,7 +62,7 @@ const ChecklistBoxLayout = styled.div`
     width: 85%;
   }
   @media all and (max-width: 1023px) {
-    width: 78%;
+    width: 85%;
     height: 8rem;
     border-radius: 1rem;
     margin 2rem 0 0.5rem 0;
@@ -67,8 +83,6 @@ const ItemLayout = styled.div`
   align-items: center;
   margin: 0.2rem 0;
   padding-left: 2rem;
-  font-size: 1rem;
-  font-weight: bold;
 `
 
 const CheckBox = styled.input`
@@ -88,4 +102,13 @@ const CheckBox = styled.input`
     background-repeat: no-repeat;
     background-color: gray;
   }
+`
+const TextBox = styled.div`
+  width: 60%;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+`
+const CheckedText = styled(TextBox)`
+  text-decoration: line-through;
 `

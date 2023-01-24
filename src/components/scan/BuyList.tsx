@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { RootState } from '../../store'
+import { RootState, store, toggleChecklist } from '../../store'
 import BuyCard from './BuyCard'
 /* 결제상품 리스트 컴포넌트 */
 
@@ -15,10 +15,20 @@ export interface BuyCardProps {
 
 const BuyList = () => {
   const products = useSelector((state: RootState) => state.buyList.products)
+  const checklists = useSelector((state: RootState) => state.buyList.checklists)
+
+  const setIsChecked = () => {
+    products.map((v) => store.dispatch(toggleChecklist(v.id)))
+    console.log(checklists.map((v) => v.checked))
+  }
+
+  useEffect(() => {
+    setIsChecked()
+  }, [products])
 
   return (
     <StyledList>
-      <BuyCardBox>
+      <BuyCardBox onChange={setIsChecked}>
         {products &&
           products.map((value, i) => (
             <BuyCard
@@ -61,11 +71,10 @@ const StyledList = styled.div`
   }
   @media all and (max-width: 1023px) {
     width: 80%;
-    height: 25rem;
+    height: 20rem;
     flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding: 0;
     margin: 2rem;
   }
 `
