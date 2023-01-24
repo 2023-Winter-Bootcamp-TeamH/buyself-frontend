@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
+import styled, { css, keyframes } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../images/header_logo.svg'
 import { FaChevronLeft } from 'react-icons/fa'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { GoChecklist } from 'react-icons/go'
 import CheckList from '../checklist/CheckList'
+import { RootState, store, totalCheckCount } from '../../store'
+import { useSelector } from 'react-redux'
 
 /**
  * 상단 헤더 컴포넌트
@@ -16,6 +18,15 @@ const Header = () => {
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen)
   }
+  const items = useSelector((state: RootState) => state.buyList.checklists)
+  const totalCount = useSelector(
+    (state: RootState) => state.buyList.checklistCount
+  )
+
+  useEffect(() => {
+    store.dispatch(totalCheckCount(items.length))
+  }, [items])
+
   const navigate = useNavigate()
   return (
     <>
@@ -31,11 +42,12 @@ const Header = () => {
           <Image src={logo} />
         </Link>
         <Cart>
-          <AiOutlineShoppingCart
+          <GoChecklist
             onClick={() => {
               toggleMenu()
             }}
-          />
+          ></GoChecklist>
+          {totalCount > 0 && <ProductCount>{totalCount}</ProductCount>}
         </Cart>
       </Box>
       <CheckList isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -85,6 +97,8 @@ const Arrow = styled.label`
 `
 
 const Cart = styled.label`
+  position: relative;
+  display: block;
   display: flex;
   align-items: center;
   font-size: 2.8rem;
@@ -94,4 +108,33 @@ const Cart = styled.label`
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
+`
+
+const CountFade = keyframes`
+0% {
+  transform: scale(1);
+}
+20% {
+  transform: scale(1.05);
+}
+40% {
+  transform: scale(1.1);
+}
+`
+
+const ProductCount = styled.span`
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  z-index: 2;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  background: #d60b28;
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  display: block;
+  text-align: center;
+  color: white;
+  animation: ${CountFade} 3s 1s infinite linear alternate;
 `

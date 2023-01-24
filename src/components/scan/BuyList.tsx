@@ -38,12 +38,12 @@ const BuyList = () => {
 export default BuyList
 
 const StyledList = styled.div`
-  width: 80vw;
+  width: 75%;
   height: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5.375rem 13.375rem 1.125rem 14rem;
+  margin: 5.375rem 5rem 1.125rem 5rem;
   padding: 1.75rem 1.75rem 0 1.75rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
@@ -59,16 +59,18 @@ const StyledList = styled.div`
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10rem;
   }
-  @media all and (max-width: 767px) {
-    height: 30rem;
+  @media all and (max-width: 1023px) {
+    width: 80%;
+    height: 25rem;
     flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 0;
+    margin: 2rem;
   }
 `
 const BuyCardBox = styled.div`
-  width: 80vw;
+  width: 100%;
   height: 22.5rem;
   display: flex;
   flex-direction: row;

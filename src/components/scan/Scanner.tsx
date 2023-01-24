@@ -21,7 +21,6 @@ const StyledButton = styled.button`
   border: solid 0.2rem;
   border-radius: 2.9rem;
   box-shadow: 0 0.5rem rgba(0, 0, 0, 0.25);
-  margin-top: 6rem;
   cursor: pointer;
   &:hover {
     background-color: #ff9292;
@@ -30,9 +29,8 @@ const StyledButton = styled.button`
     border-radius: 2.7rem;
   }
   @media all and (max-width: 767px) {
-    height: 5.5rem;
-    width: 12rem;
-    margin-top: 3rem;
+    height: 5rem;
+    width: 11rem;
     border-radius: 3rem;
     box-shadow: 0 0.8rem 0.2rem rgba(0, 0, 0, 0.25);
   }
