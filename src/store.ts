@@ -93,9 +93,10 @@ const buyList = createSlice({
       state.checklistCount = action.payload
     },
     toggleChecklist: (state, action) => {
-      state.checklists.findIndex((item) =>
-        item.id === action.payload ? { ...item, checked: true } : item
+      const index = state.checklists.findIndex(
+        (item) => item.id === action.payload
       )
+      state.checklists[index].checked = true
     },
   },
 })

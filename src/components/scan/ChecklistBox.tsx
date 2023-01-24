@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Default } from './MediaQuery'
 import ScanButton from './ScanButton'
 import { RootState } from '../../store'
 import { useSelector } from 'react-redux'
-import { check } from 'prettier'
 
 export interface ChecklistProps {
   class_name: string
@@ -22,10 +21,14 @@ const ChecklistBox = () => {
     <ChecklistBoxLayout>
       <ListLayout>
         {checklists &&
-          checklists.map((v, index) => (
-            <ItemLayout key={index}>
-              <CheckBox type="checkbox" />
-              <TextBox id={v.class_name}>{v.class_name}</TextBox>
+          checklists.map((v) => (
+            <ItemLayout key={v.id}>
+              <CheckBox type="checkbox" checked={v.checked} readOnly={true} />
+              <TextBox
+                style={{ textDecoration: v.checked ? 'line-through' : 'none' }}
+              >
+                {v.class_name}
+              </TextBox>
             </ItemLayout>
           ))}
       </ListLayout>
@@ -108,7 +111,4 @@ const TextBox = styled.div`
   height: 2rem;
   font-size: 1rem;
   font-weight: bold;
-`
-const CheckedText = styled(TextBox)`
-  text-decoration: line-through;
 `

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { RootState, store, toggleChecklist } from '../../store'
@@ -19,12 +19,12 @@ const BuyList = () => {
 
   const setIsChecked = () => {
     products.map((v) => store.dispatch(toggleChecklist(v.id)))
-    console.log(checklists.map((v) => v.checked))
+    console.log(checklists.map((v) => v))
   }
 
   useEffect(() => {
     setIsChecked()
-  }, [products])
+  }, [products, checklists])
 
   return (
     <StyledList>
@@ -70,8 +70,8 @@ const StyledList = styled.div`
     border-radius: 10rem;
   }
   @media all and (max-width: 1023px) {
-    width: 80%;
-    height: 20rem;
+    width: 78%;
+    height: 18rem;
     flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: scroll;
