@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { BsPlusLg, BsDashLg, BsXLg } from 'react-icons/bs'
-import image from '../../images/test_image.png'
 import { BuyCardProps } from './BuyList'
 import {
   decreaseProduct,
@@ -79,8 +78,8 @@ const StyledCard = styled.div`
     margin-bottom: 1rem;
   }
   @media all and (max-width: 767px) {
-    width: 12rem;
-    height: 16.971rem;
+    width: 10rem;
+    height: 15rem;
     margin-bottom: 1.5rem;
   }
 `

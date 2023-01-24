@@ -1,9 +1,10 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { BuyCardProps } from './components/scan/BuyList'
+import { ChecklistProps } from './components/scan/ChecklistBox'
 
 interface stateProps {
   products: BuyCardProps[]
-  checklists: BuyCardProps[]
+  checklists: ChecklistProps[]
   productTotal: number
   checklistTotal: number
   checklistCount: number
@@ -54,7 +55,7 @@ const buyList = createSlice({
     totalPrice: (state, action) => {
       state.productTotal = action.payload
     },
-    addChecklist: (state, action: PayloadAction<BuyCardProps>) => {
+    addChecklist: (state, action: PayloadAction<ChecklistProps>) => {
       const Item = state.checklists.findIndex(
         (item) => item.id === action.payload.id
       )
@@ -91,6 +92,12 @@ const buyList = createSlice({
     totalCheckCount: (state, action) => {
       state.checklistCount = action.payload
     },
+    toggleChecklist: (state, action) => {
+      const index = state.checklists.findIndex(
+        (item) => item.id === action.payload
+      )
+      state.checklists[index].checked = true
+    },
   },
 })
 
@@ -112,6 +119,7 @@ export const {
   decreaseChecklist,
   totalCheckPrice,
   totalCheckCount,
+  toggleChecklist,
 } = buyList.actions
 
 export type RootState = ReturnType<typeof store.getState>

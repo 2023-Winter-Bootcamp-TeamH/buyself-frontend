@@ -28,6 +28,7 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
         img_url: data.img_url,
         price: data.price,
         count: 1,
+        checked: false,
       })
     )
   }
