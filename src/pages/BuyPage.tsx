@@ -1,15 +1,19 @@
-import { toNamespacedPath } from 'path'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import BuyButton from '../components/buy/BuyButton'
 import BuyInfoBox from '../components/buy/BuyInfoBox'
 import LeftLayout from '../components/buy/LeftLayout'
+import { customAxios } from '../components/common/CustomAxios'
 import Header from '../components/common/Header'
 import { RootState, store, totalPrice } from '../store'
 
 /** 결제 페이지 */
+
+export interface Response {
+  next_url: string
+  data: string
+}
 
 const BuyPage = () => {
   const items = useSelector((state: RootState) => state.buyList.products)
@@ -23,6 +27,11 @@ const BuyPage = () => {
       )
     )
   }, [items])
+  const payment = () => {
+    customAxios.post<Response>(`/payment?amount=${total}`).then((res) => {
+      window.open(res.data.next_url)
+    })
+  }
   return (
     <>
       <Header />
@@ -30,9 +39,7 @@ const BuyPage = () => {
         <LeftLayout />
         <BuyInfoBox price={total}>
           <ButtonLayout>
-            <Link to="/pay">
-              <BuyButton text="상품 결제하기" IsRed />
-            </Link>
+            <BuyButton onClick={payment} text="상품 결제하기" IsRed />
           </ButtonLayout>
         </BuyInfoBox>
       </BuyPageLayout>

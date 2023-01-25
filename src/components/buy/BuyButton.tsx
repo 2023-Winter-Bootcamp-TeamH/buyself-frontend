@@ -3,11 +3,19 @@ import styled from 'styled-components'
 
 /* 결제하기 버튼 */
 
-const BuyButton = ({ text, IsRed }: { text: string; IsRed?: boolean }) => {
+const BuyButton = ({
+  text,
+  IsRed,
+  onClick,
+}: {
+  text: string
+  IsRed?: boolean
+  onClick: any
+}) => {
   if (IsRed) {
-    return <RedBtn>{text}</RedBtn>
+    return <RedBtn onClick={onClick}>{text}</RedBtn>
   } else {
-    return <Btn>{text}</Btn>
+    return <Btn onClick={onClick}>{text}</Btn>
   }
 }
 
