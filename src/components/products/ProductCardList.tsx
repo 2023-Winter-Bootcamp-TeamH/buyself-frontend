@@ -50,6 +50,7 @@ const ProductCardList = () => {
       console.log(err)
     }
   }
+
   useEffect(() => {
     fetchData(page)
   }, [page])
@@ -59,13 +60,13 @@ const ProductCardList = () => {
       <Div>
         {data && data.map((data) => <ProductCard key={data.id} data={data} />)}
       </Div>
-      <DivP>
+      <DivPagination>
         <Pagination
           page={page}
           totalPages={totalPages}
           handlePagination={handlePages}
         />
-      </DivP>
+      </DivPagination>
     </>
   )
 }
@@ -78,7 +79,7 @@ const Div = styled.div`
   justify-content: space-evenly;
 `
 
-const DivP = styled.div`
+const DivPagination = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;

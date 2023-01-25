@@ -45,17 +45,17 @@ const ProductSearch = () => {
 export default ProductSearch
 
 const Div = styled.div`
-  width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
+  width: 100%;
   margin: 1.5rem;
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     justify-content: center;
   }
   @media all and (max-width: 1023px) {
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 `
 
@@ -65,9 +65,9 @@ const Input = styled.input`
   align-items: center;
   height: 3.3rem;
   width: 40%;
-  border-radius: 8px;
-  font-size: 1.5rem;
   margin-right: 2rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     margin-left: 2rem;
@@ -85,15 +85,15 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3.6rem;
   width: 7.8rem;
+  height: 3.6rem;
+  margin-right: 6rem;
   background: #ff6060;
   box-shadow: 2px 2px black;
   color: white;
   font-weight: 800;
-  border-radius: 8px;
   font-size: 1.5rem;
-  margin-right: 6rem;
+  border-radius: 8px;
   cursor: pointer;
   &:hover {
     background: #ff7d6d;
@@ -102,8 +102,8 @@ const Button = styled.button`
     margin-right: 0;
   }
   @media all and (max-width: 1023px) {
-    height: 2.3rem;
     width: 4rem;
+    height: 2.3rem;
     font-size: 1rem;
     margin-left: 0.5rem;
     font-weight: 800;
