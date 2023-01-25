@@ -96,9 +96,11 @@ const buyList = createSlice({
       const index = state.checklists.findIndex(
         (item) => item.id === action.payload
       )
-      if (state.checklistCount > 0) {
+      if (state.checklistCount === 0) {
+        state.checklists.map((v) => (v.checked = false))
+      } else {
         state.checklists[index].checked = true
-      } else state.checklists.map((v) => (v.checked = false))
+      }
     },
   },
 })
