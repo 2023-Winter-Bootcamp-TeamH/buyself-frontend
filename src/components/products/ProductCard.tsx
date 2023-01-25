@@ -57,30 +57,6 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
 }
 export default ProductCard
 
-const TitleText = styled.div`
-display:flex;
-justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bolder;
-  margin-top:1.2rem;
-  margin-bottom:0.3rem;
-  @media all and (max-width: 767px) {
-    font-size: 0.8rem;
-    margin-top:1rem;
-    margin-bottom:0.1rem;
-`
-
-const PriceText = styled.div`
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 1000;
-  margin-bottom: 0.3rem;
-  @media all and (max-width: 767px) {
-    font-size: 0.6rem;
-    margin-bottom: 0;
-  }
-`
 const Block = styled.div`
   width: 17rem;
   height: 30rem;
@@ -100,6 +76,7 @@ const Block = styled.div`
     margin: 1rem 2rem;
   }
 `
+
 const IMGBlock = styled.div`
   display: flex;
   justify-content: center;
@@ -134,6 +111,43 @@ const IMG = styled.img`
     }
   }
 `
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (max-width: 767px) {
+    margin-left: 1rem;
+  }
+`
+
+const TitleText = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  @media all and (max-width: 767px) {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 0.1rem;
+  }
+`
+
+const PriceText = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 1000;
+  margin-bottom: 0.3rem;
+  @media all and (max-width: 767px) {
+    font-size: 0.6rem;
+    margin-bottom: 0;
+  }
+`
+
 const CheckButton = styled.button`
   display: flex;
   justify-content: center;
@@ -155,15 +169,5 @@ const CheckButton = styled.button`
     box-shadow: 0.1rem 0.1rem;
     font-size: 0.5rem;
     margin-top: 0.5rem;
-  }
-`
-
-const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  @media all and (max-width: 767px) {
-    margin-left: 1rem;
   }
 `

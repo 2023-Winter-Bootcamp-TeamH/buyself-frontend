@@ -7,27 +7,31 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 
+/** 결제완료페이지 화면
+ * 결제금액
+ */
+
 const Paymentmain = () => {
   const total = useSelector((state: RootState) => state.buyList.productTotal)
   return (
     <Block>
       <ImgBlock>
-        <Div>
+        <Header>
           <Complte>결제완료</Complte>
-        </Div>
+        </Header>
         <Contour />
-        <PayDiv>
-          <IconFont>
-            <FaCheckCircle className="PayIcon" />
-          </IconFont>
-          <TitleDiv>
-            <PaymentComplte>결제가 정상적으로 완료되었습니다</PaymentComplte>
-            <PayComplte>이용해주셔서 감사합니다</PayComplte>
-          </TitleDiv>
-        </PayDiv>
+        <Body>
+          <Icon>
+            <FaCheckCircle className="PayIcon" />{' '}
+          </Icon>
+          <TitleDesign>
+            <PaymentSentence>결제가 정상적으로 완료되었습니다</PaymentSentence>
+            <ThanksSentence>이용해주셔서 감사합니다</ThanksSentence>
+          </TitleDesign>
+        </Body>
         <Contour />
-        <PriceDiv>총 결제 금액: {total}원</PriceDiv>
-        <MoveDiv>
+        <TotalPrice>총 결제 금액: {total}원</TotalPrice>
+        <BoxDesign>
           <Box>
             <Link to="/" style={{ textDecoration: 'none' }}>
               <PaymentButton title="메인으로" IsRed />
@@ -36,7 +40,7 @@ const Paymentmain = () => {
               <PaymentButton title="상품 페이지로" />
             </Link>
           </Box>
-        </MoveDiv>
+        </BoxDesign>
       </ImgBlock>
     </Block>
   )
@@ -65,39 +69,11 @@ const ImgBlock = styled.div`
     margin-top: 4rem;
   }
 `
-const Contour = styled.div`
-  width: 100%;
-  border-bottom: 1px solid lightgrey;
-`
 
-const Div = styled.div`
+const Header = styled.div`
+  display: flex;
+  align-items: center;
   height: 3rem;
-  display: flex;
-  align-items: center;
-`
-const PayDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 2rem;
-  @media all and (max-width: 767px) {
-    font-size: 0;
-    font-size: 1.5rem;
-  }
-`
-const PriceDiv = styled.div`
-  margin: 1rem;
-  font-size: 1.1rem;
-  font-weight: 800;
-`
-const MoveDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #d9d9d9;
-  padding: 0.5rem 0;
-  border-radius: 0 0 16px 16px;
 `
 
 const Complte = styled.div`
@@ -111,48 +87,81 @@ const Complte = styled.div`
   }
 `
 
-const PayComplte = styled.div`
+const Contour = styled.div`
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+`
+
+const Body = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  color: dimgrey;
-  font-weight: bold;
-  @media all and (max-width: 767px) {
-    font-size: 1.2rem;
-  }
-`
-const PaymentComplte = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.3rem;
-  margin-top: 1.8rem;
-  color: #95dceb;
-  font-weight: 800;
-  margin-left: 1rem;
-  @media all and (max-width: 767px) {
-    font-size: 1.6rem;
-    margin-left: 1rem;
-  }
-`
-
-const Box = styled.div`
-  display: flex;
-`
-
-const TitleDiv = styled.div`
-  display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 2rem;
+  @media all and (max-width: 767px) {
+    font-size: 0;
+    font-size: 1.5rem;
+  }
 `
 
-const IconFont = styled.div`
+const Icon = styled.div`
   font-size: 6rem;
   @media all and (max-width: 767px) {
     margin-top: 1.1rem;
     margin-bottom: 1rem;
     font-size: 115px;
   }
+`
+
+const TitleDesign = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const PaymentSentence = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+  margin-left: 1rem;
+  font-size: 2.3rem;
+  color: #95dceb;
+  font-weight: 800;
+  @media all and (max-width: 767px) {
+    margin-left: 1rem;
+    font-size: 1.6rem;
+  }
+`
+
+const ThanksSentence = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: dimgrey;
+  font-weight: bold;
+  @media all and (max-width: 767px) {
+    font-size: 1.2rem;
+  }
+`
+
+const TotalPrice = styled.div`
+  margin: 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+`
+
+const BoxDesign = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d9d9d9;
+  padding: 0.5rem 0;
+  border-radius: 0 0 16px 16px;
+`
+
+const Box = styled.div`
+  display: flex;
 `

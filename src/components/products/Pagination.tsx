@@ -90,13 +90,13 @@ const Button = styled.button`
   margin-top: 4rem;
   margin-bottom: 4rem;
   margin-left: 0.3rem;
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   font-size: 1.3rem;
   background: white;
-  cursor: pointer;
   border-radius: 3rem;
   box-shadow: 2px 2px black;
+  cursor: pointer;
   @media all and (max-width: 767px) {
     height: 1.5rem;
     width: 1.5rem;
