@@ -9,6 +9,7 @@ import ProductPage from './pages/ProductPage'
 import SearchPage from './pages/SearchPage'
 import BuyPage from './pages/BuyPage'
 import PaymentPage from './pages/PaymentPage'
+import PaymentFailPage from './pages/PaymentFailPage'
 import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/buy" element={<BuyPage />} />
           <Route path="/pay" element={<PaymentPage />} />
+          <Route path="/pay/Fail" element={<PaymentFailPage />} />
         </Routes>
       </BrowserRouter>
     </div>
