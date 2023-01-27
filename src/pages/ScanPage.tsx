@@ -70,7 +70,7 @@ const ScanPageLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 6rem;
+  margin-top: 5rem;
   @media all and (max-width: 1023px) {
     flex-direction: column;
     margin-top: 2rem;

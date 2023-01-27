@@ -48,7 +48,7 @@ const ChecklistBoxLayout = styled.div`
   flex-direction: column;
   align-items: center;
   background: #fff;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
   overflow-y: auto;

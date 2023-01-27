@@ -52,7 +52,7 @@ const StyledList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5.375rem 5rem 1.125rem 5rem;
+  margin: 5.75rem 5rem 1.125rem 5rem;
   padding: 1.75rem 1.75rem 0 1.75rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
