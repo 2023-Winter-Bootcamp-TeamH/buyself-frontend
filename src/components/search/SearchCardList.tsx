@@ -32,7 +32,7 @@ const SearchCardList = ({ keyWord }: { keyWord: string | null }) => {
     } catch (err) {
       console.log(err)
     }
-  }, [data])
+  }, [keyWord])
   useEffect(() => {
     void getData()
     console.log('키워드입력')
