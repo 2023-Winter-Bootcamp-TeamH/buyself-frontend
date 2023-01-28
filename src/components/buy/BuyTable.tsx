@@ -113,8 +113,8 @@ const Body = styled(Head)`
 `
 const ThProduct = styled(Head)`
   width: 55%;
+  height: 100%;
   border-right: 1px solid grey;
-  border-bottom: 0 grey;
   border-radius: 0;
 `
 const Th = styled(ThProduct)`
@@ -133,6 +133,7 @@ const ProductBox = styled.div`
 
 const Td = styled(Body)`
   width: 15%;
+  height: 100%;
   border-right: 1px solid grey;
   border-radius: 0;
 `
