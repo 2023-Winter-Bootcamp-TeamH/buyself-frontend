@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { HiTrash } from 'react-icons/hi'
 import TdProduct from './TdProduct'
@@ -19,7 +19,7 @@ const BuyTable = () => {
           <ThProduct>구매정보</ThProduct>
           <Th>가격</Th>
           <Th>할인정보</Th>
-          <Th>선택</Th>
+          <Thlast>선택</Thlast>
         </Head>
         {products &&
           products.map((v, index) => (
@@ -34,11 +34,11 @@ const BuyTable = () => {
                 />
               </ProductBox>
               <Td>X</Td>
-              <Td>
+              <Tdlast>
                 <IconButton onClick={() => store.dispatch(deleteProduct(v.id))}>
                   <HiTrash size="35" />
                 </IconButton>
-              </Td>
+              </Tdlast>
             </Body>
           ))}
       </Table>
@@ -50,25 +50,28 @@ export default BuyTable
 
 const TableBox = styled.div`
   width: 95%;
-  height: 35rem;
+  height: 38rem;
   background: white;
-  border-left: 0.16rem solid;
-  border-right: 0;
+  border-radius: 1rem;
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar {
-    width: 0.8rem;
-    height: 0.8rem;
-    background: #ff9668;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: white;
+    border-radius: 50rem;
+    display: none;
   }
   &::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10rem;
   }
-  @media all and (min-width: 1140px) and (max-width: 1325px) {
+  @media all and (min-width: 767px) and (max-width: 1325px) {
+    margin-top: 1.5rem;
     font-size: 1.3rem;
   }
   @media all and (max-width: 767px) {
+    margin-top: 1rem;
     height: 25rem;
   }
 `
@@ -79,22 +82,19 @@ const Table = styled.div`
   display: flex;
   flex-direction: column;
   background: white;
-  border: 0.16rem solid;
-  border-left: 0;
-  border-right: 0;
 `
 
-const Head = styled(Table)`
+const Head = styled.div`
   width: 100%;
-  height: 4rem;
+  height: 3rem;
   display: flex;
   flex-direction: row;
   background: white;
   justify-content: center;
   align-items: center;
-  border: 0;
-  border-bottom: 0.16rem solid;
-  font-size: 1.4rem;
+  border-radius: 0 1rem 0 0;
+  border-bottom: 0.1rem solid;
+  font-size: 1rem;
   font-weight: bold;
   white-space: pre-wrap;
   @media all and (min-width: 768px) and (max-width: 1325px) {
@@ -106,35 +106,40 @@ const Head = styled(Table)`
 `
 
 const Body = styled(Head)`
-  height: 12rem;
+  height: 8rem;
+  @media all and (max-width: 1160px) {
+    height: 5rem;
+  }
 `
-const ThCheck = styled(Head)`
-  width: 10%;
-  border-right: 0.16rem solid;
-  border-bottom: 0;
-`
-const ThProduct = styled(ThCheck)`
+const ThProduct = styled(Head)`
   width: 55%;
+  border-right: 0.1rem solid;
+  border-bottom: 0;
+  border-radius: 0;
 `
-const Th = styled(ThCheck)`
+const Th = styled(ThProduct)`
   width: 15%;
 `
-const TdCheck = styled(Body)`
-  width: 10%;
-  border-right: 0.16rem solid;
-  border-bottom: 0;
+const Thlast = styled(Th)`
+  border-right: 0;
 `
 const ProductBox = styled.div`
-  width: 70.5%;
+  width: 70.1%;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 `
 
-const Td = styled(TdCheck)`
+const Td = styled(Body)`
   width: 15%;
+  border-right: 0.1rem solid;
+  border-radius: 0;
 `
+const Tdlast = styled(Td)`
+  border-right: 0;
+`
+
 const IconButton = styled.div`
   width: 1.7rem;
   height: 1.7rem;
@@ -143,20 +148,4 @@ const IconButton = styled.div`
   align-items: center;
   margin: 0;
   cursor: pointer;
-`
-const StyledInput = styled.input`
-  appearance: none;
-  border: 0.2rem solid black;
-  border-radius: 0.35rem;
-  width: 1.7rem;
-  height: 1.7rem;
-  cursor: pointer;
-
-  &:checked {
-    border-color: transparent;
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-    background-size: 100% 100%;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-color: black;
 `

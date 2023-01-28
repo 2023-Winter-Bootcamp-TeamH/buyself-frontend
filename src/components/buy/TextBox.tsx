@@ -7,7 +7,7 @@ const TextBox = ({ text, price }: { text: string; price: number }) => {
   return (
     <>
       <Text>{text}</Text>
-      <Price>{price}원</Price>
+      <Price>₩{price}</Price>
     </>
   )
 }
@@ -20,12 +20,12 @@ const Text = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-right: 0;
   margin-left: 1rem;
   @media all and (max-width: 767px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 `
 const Price = styled(Text)`

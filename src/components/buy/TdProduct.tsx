@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { BsPlusLg, BsDashLg } from 'react-icons/bs'
 import { decreaseProduct, increaseProduct, store } from '../../store'
 import { BuyCardProps } from '../scan/BuyList'
+import { Default } from '../scan/MediaQuery'
 
 /** 테이블표 중 구매정보 컴포넌트 */
 
@@ -30,9 +31,11 @@ const TdProduct = ({
   return (
     <>
       <ProductBox>
-        <ImageBox>
-          <Image src={img_url} />
-        </ImageBox>
+        <Default>
+          <ImageBox>
+            <Image src={img_url} />
+          </ImageBox>
+        </Default>
         <RightBox>
           {class_name}
           <CountButton>
@@ -59,29 +62,25 @@ const ProductBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 1.5rem;
   justify-content: center;
-  font-weight: bold;
-  border-right: 0.16rem solid;
+  border-right: 0.1rem solid;
   border-bottom: 0;
-  @media all and (min-width: 768px) and (max-width: 1325px) {
-    font-size: 1.3rem;
-  }
   @media all and (max-width: 767px) {
-    font-size: 1.2rem;
     flex-direction: column;
   }
 `
 const PriceBox = styled(ProductBox)`
-  width: 27%;
+  width: 27.2%;
   justify-content: center;
+  font-size: 1rem;
 `
 const ImageBox = styled.div`
   width: 40%
-  height: 8rem;
+  height: 7rem;
   display: flex;
   align-items: center;
   margin-left: 1rem;
+  padding: 1rem;
   @media all and (max-width: 767px) {
     width: 30%;
     margin-left: 0;
@@ -94,38 +93,35 @@ const RightBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 1.3rem;
-  @media all and (max-width: 767px) {
+  font-size: 1.2rem;
+  @media all and (max-width: 1160px) {
     font-size: 1rem;
   }
 `
 const Image = styled.img`
-  width: 8rem;
-  @media all and (max-width: 767px) {
-    width: 5rem;
+  width: 6rem;
+  @media all and (max-width: 1160px) {
+    width: 3rem;
     margin-left: 0;
   }
 `
 
 const CountButton = styled.button`
-  width: 10rem;
-  height: 2.6rem;
+  width: 8rem;
+  height: 2.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 0.15rem solid #000000;
+  border: 0.1rem solid #000000;
   background-color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1rem;
   @media all and (min-width: 768px) and (max-width: 1325px) {
     width: 8rem;
-    height: 2.3rem;
-    font-size: 1.2rem;
+    height: 2.1rem;
   }
   @media all and (max-width: 767px) {
     width: 7.5rem;
-    height: 2.2rem;
-    font-size: 1rem;
+    height: 1.8rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
