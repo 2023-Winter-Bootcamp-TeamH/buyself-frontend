@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { customAxios } from '../common/CustomAxios'
 import ProductCard from '../products/ProductCard'
@@ -21,7 +21,7 @@ const SearchCardList = ({ keyWord }: { keyWord: string | null }) => {
   const [data, setData] = useState<Data[]>()
   const [zero, setZero] = useState(false)
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     setZero(false)
     try {
       const res = await customAxios.get<Response>(`/search?kw=${keyWord}`)
@@ -32,9 +32,10 @@ const SearchCardList = ({ keyWord }: { keyWord: string | null }) => {
     } catch (err) {
       console.log(err)
     }
-  }
+  }, [data])
   useEffect(() => {
     void getData()
+    console.log('키워드입력')
   }, [keyWord])
 
   return (

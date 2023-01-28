@@ -46,10 +46,11 @@ export default ProductSearch
 
 const Div = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   width: 100%;
   margin: 1.5rem;
+  margin-top: 3rem;
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     justify-content: center;
   }
@@ -64,11 +65,14 @@ const Input = styled.input`
   justify-content: center;
   align-items: center;
   height: 3.3rem;
-  width: 40%;
-  margin-right: 2rem;
-  font-size: 1.5rem;
+  width: 38%;
+  margin-right: 1%;
+  margin-left: 9%;
+  font-size: 1.3rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  padding-left: 2%;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+  border: 2px solid black;
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     margin-left: 2rem;
     width: 50%;
@@ -85,8 +89,8 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 7.8rem;
-  height: 3.6rem;
+  width: 6.5rem;
+  height: 3.5rem;
   margin-right: 6rem;
   background: #ff6060;
   box-shadow: 2px 2px black;

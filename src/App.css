@@ -36,15 +36,12 @@
     transform: rotate(360deg);
   }
 }
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-@font-face {
-  font-family: 'NanumSquareRound';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
+.nanumgothic * {
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 .Font {
-  font-family: 'NanumSquareRound';
+  font-family: 'Nanum Gothic';
 }

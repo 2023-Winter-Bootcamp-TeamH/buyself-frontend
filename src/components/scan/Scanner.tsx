@@ -7,7 +7,7 @@ import { BsCamera } from 'react-icons/bs'
 const Scanner = ({ onClick }: { onClick: () => void }) => {
   return (
     <StyledButton onClick={onClick}>
-      <BsCamera size="70" />
+      <BsCamera size="60" />
     </StyledButton>
   )
 }
@@ -15,8 +15,8 @@ const Scanner = ({ onClick }: { onClick: () => void }) => {
 export default Scanner
 
 const StyledButton = styled.button`
-  height: 6rem;
-  width: 13rem;
+  height: 5.4rem;
+  width: 12rem;
   background: #ff6d6d;
   border: solid 0.2rem;
   border-radius: 2.9rem;

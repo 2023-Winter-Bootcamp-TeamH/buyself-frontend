@@ -7,24 +7,29 @@ import { GoChecklist } from 'react-icons/go'
 import CheckList from '../checklist/CheckList'
 import { RootState, store, totalCheckCount } from '../../store'
 import { useSelector } from 'react-redux'
+import { createSelector } from '@reduxjs/toolkit'
 
 /**
  * 상단 헤더 컴포넌트
  * 로고, 뒤로가기 버튼, 장바구니 체크리스트 토글 버튼
  */
-
+export const useItems = createSelector(
+  (state: RootState) => state.buyList.checklists,
+  (items) => items
+)
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen)
   }
-  const items = useSelector((state: RootState) => state.buyList.checklists)
+  const items = useSelector(useItems)
   const totalCount = useSelector(
     (state: RootState) => state.buyList.checklistCount
   )
 
   useEffect(() => {
     store.dispatch(totalCheckCount(items.length))
+    console.log('숫자증가')
   }, [items])
 
   const navigate = useNavigate()

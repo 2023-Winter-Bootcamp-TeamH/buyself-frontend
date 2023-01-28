@@ -43,11 +43,10 @@ const SearchPageLayout = styled.div`
   }
 `
 const Searchbar = styled.div`
-  width: 100%;
+  width: 104%;
   display: flex;
   justify-content: end;
   align-items: center;
-  margin: 1.5rem;
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     justify-content: center;
   }
