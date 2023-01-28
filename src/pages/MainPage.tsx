@@ -1,41 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import MainContainer from '../components/main/MainContainer'
-import img from '../images/main_image4.png'
-import logo from '../images/header_logo.svg'
+import '../components/main/MainPage.css'
+import $ from 'jquery'
 
 const MainPage = () => {
+  const listHTML = $('.Title').html()
+  const listItems = listHTML.split('<br>')
+  $('.Title').html('')
+  $.each(listItems, function (i, v) {
+    const item =
+      '<div class="Title-mask"><span class="Title-line">' + v + '</span></div>'
+    $('.Title').append(item)
+  })
   return (
-    <MainPageLayout>
-      <Logo src={logo} />
-      <MainContainer />
-    </MainPageLayout>
+    <h1 data-linecount="3" className="Title">
+      The spectacle
+      <br> before us was</br>
+      <br>
+        indeed
+        <span className="Title-cursive">sublime</span>
+        <span className="Title-dot">.</span>
+      </br>
+    </h1>
   )
 }
 
 export default MainPage
-
-const MainPageLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100vw;
-  height: 100vh;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-`
-
-const Logo = styled.img`
-  display: flex;
-  width: 20rem;
-  align-self: center;
-  margin-top: 2rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 15rem;
-  }
-  @media all and (max-width: 767px) {
-    width: 14rem;
-  }
-`
