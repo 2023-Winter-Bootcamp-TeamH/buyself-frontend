@@ -35,14 +35,6 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
       })
     )
   }
-  const fadeIn = keyframes`
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-`
 
   return (
     <>
@@ -146,10 +138,10 @@ const TitleText = styled.div`
   justify-content: center;
   margin-top: 1.2rem;
   margin-bottom: 0.3rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bolder;
   @media all and (max-width: 767px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 1rem;
     margin-bottom: 0.1rem;
   }
@@ -158,7 +150,7 @@ const TitleText = styled.div`
 const PriceText = styled.div`
   display: flex;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 1000;
   margin-top: 1rem;
   @media all and (max-width: 767px) {
@@ -176,7 +168,7 @@ const CheckButton = styled.button`
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem;
   height: 3rem;
-  width: 80%;
+  width: 50%;
   font-weight: 800;
   margin-top: 1.5rem;
   &:hover {
