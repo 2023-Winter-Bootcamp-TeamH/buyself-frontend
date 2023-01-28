@@ -29,7 +29,7 @@ const BuyPage = () => {
   }, [items])
   const payment = () => {
     customAxios.post<Response>(`/payment?amount=${total}`).then((res) => {
-      window.open(res.data.next_url)
+      window.open(res.data.next_url, '_parent')
     })
   }
   return (
@@ -39,7 +39,7 @@ const BuyPage = () => {
         <LeftLayout />
         <BuyInfoBox price={total}>
           <ButtonLayout>
-            <BuyButton onClick={payment} text="상품 결제하기" IsRed />
+            <BuyButton onClick={payment} text="상품 결제하기" />
           </ButtonLayout>
         </BuyInfoBox>
       </BuyPageLayout>

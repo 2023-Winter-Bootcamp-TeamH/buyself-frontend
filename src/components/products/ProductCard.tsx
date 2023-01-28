@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { store, addChecklist } from '../../store'
 import Toast from './Toast'
 import FadeIn from 'react-fade-in'
+import { BsCartPlus } from 'react-icons/bs'
+import { Default, Mobile } from '../../components/scan/MediaQuery'
 
 /** 상품 내용 삽입 카드
  * 상품 이미지
@@ -18,6 +20,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
+  const [isHover, setIsHover] = useState(false)
   const [isActive, setIsActive] = useState(false)
   const HandleClickAdd = () => {
     setIsActive(true)
@@ -32,18 +35,43 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
       })
     )
   }
+  const fadeIn = keyframes`
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+`
 
   return (
     <>
       <FadeIn transitionDuration={600} delay={100}>
         <Block>
-          <IMGBlock>
-            <IMG src={data.img_url} />
+          <IMGBlock
+            onMouseOver={() => setIsHover(true)}
+            onMouseOut={() => setIsHover(false)}
+          >
+            {isHover ? (
+              <HoverBox>
+                <Info>
+                  <TitleText>{data.class_name}</TitleText>
+                  <PriceText>₩{data.price}</PriceText>
+                </Info>
+              </HoverBox>
+            ) : (
+              <IMG src={data.img_url} />
+            )}
           </IMGBlock>
           <Info>
-            <TitleText>{data.class_name}</TitleText>
-            <PriceText>{data.price}원</PriceText>
-            <CheckButton onClick={HandleClickAdd}>체크리스트 추가</CheckButton>
+            <CheckButton onClick={HandleClickAdd}>
+              <Default>
+                <BsCartPlus size="35" />
+              </Default>
+              <Mobile>
+                <BsCartPlus size="25" />
+              </Mobile>
+            </CheckButton>
           </Info>
         </Block>
       </FadeIn>
@@ -59,20 +87,17 @@ export default ProductCard
 
 const Block = styled.div`
   width: 17rem;
-  height: 30rem;
+  height: 26rem;
   border-radius: 20px;
-  margin: 3rem 4rem;
-  @media all and (min-width: 807px) and (max-width: 1500px) {
-    margin: 1rem 2rem;
-  }
-  @media all and (min-width: 768px) and (max-width: 806px) {
+  margin: 2rem 3rem;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 14rem;
-    height: 28rem;
+    height: 22rem;
     margin: 1rem 2rem;
   }
   @media all and (max-width: 767px) {
-    width: 8rem;
-    height: 17rem;
+    width: 10rem;
+    height: 15rem;
     margin: 1rem 2rem;
   }
 `
@@ -80,35 +105,32 @@ const Block = styled.div`
 const IMGBlock = styled.div`
   display: flex;
   justify-content: center;
-  width: 17rem;
+  width: 100%;
   height: 20rem;
   background: white;
   border-radius: 20px;
-  padding: 0.5rem 0;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 15rem;
-    height: 18rem;
+    height: 17rem;
   }
   @media all and (max-width: 767px) {
-    width: 9.5rem;
     height: 11rem;
-    margin-top: 1rem;
   }
 `
+
+const HoverBox = styled(IMGBlock)`
+  height: 100%;
+  opacity: 1;
+  background: #e4e4e4;
+`
+
 const IMG = styled.img`
   display: flex;
   align-self: center;
   width: 13rem;
-  &:hover {
-    width: 14rem;
-  }
   @media all and (max-width: 767px) {
     width: 7rem;
-    &:hover {
-      width: 8rem;
-    }
   }
 `
 
@@ -117,9 +139,6 @@ const Info = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media all and (max-width: 767px) {
-    margin-left: 1rem;
-  }
 `
 
 const TitleText = styled.div`
@@ -139,11 +158,11 @@ const TitleText = styled.div`
 const PriceText = styled.div`
   display: flex;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 1000;
-  margin-bottom: 0.3rem;
+  margin-top: 1rem;
   @media all and (max-width: 767px) {
-    font-size: 0.6rem;
+    font-size: 1rem;
     margin-bottom: 0;
   }
 `
@@ -157,17 +176,15 @@ const CheckButton = styled.button`
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem;
   height: 3rem;
-  width: 12rem;
+  width: 80%;
   font-weight: 800;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
   &:hover {
     background: #c6dceb;
   }
   @media all and (max-width: 767px) {
     height: 2rem;
-    width: 6rem;
     box-shadow: 0.1rem 0.1rem;
-    font-size: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 `

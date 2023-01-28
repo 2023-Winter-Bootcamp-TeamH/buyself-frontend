@@ -30,14 +30,14 @@ const BuyInfoBox = ({
 export default BuyInfoBox
 
 const Box = styled.div`
-  width: 30.875rem;
+  width: 25rem;
   height: 38rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 0.15rem solid;
   border-radius: 1rem;
+  margin-left: 2rem;
   margin-right: 2rem;
   margin-top: 4.5rem;
   background: #fff;
