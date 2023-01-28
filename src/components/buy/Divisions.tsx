@@ -15,12 +15,12 @@ const Divisions = ({ IsShort }: { IsShort?: boolean }) => {
 
 const LongLine = styled.div`
   width: 100%;
-  border-bottom: 0.1rem solid black;
+  border-bottom: 1px solid grey;
   margin-bottom: 1rem;
 `
 const ShortLine = styled(LongLine)`
   width: 90%;
-  border-bottom: 0.1rem solid black;
+  border-bottom: 1px solid grey;
   @media all and (max-width: 767px) {
     margin-top: 1rem;
   }
