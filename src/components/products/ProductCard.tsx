@@ -48,7 +48,6 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
               <HoverBox>
                 <Info>
                   <TitleText>{data.class_name}</TitleText>
-                  <PriceText>₩{data.price}</PriceText>
                 </Info>
               </HoverBox>
             ) : (
@@ -56,6 +55,7 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
             )}
           </IMGBlock>
           <Info>
+            <PriceText>₩{data.price}</PriceText>
             <CheckButton onClick={HandleClickAdd}>
               <Default>
                 <BsCartPlus size="35" />
@@ -97,22 +97,23 @@ const Block = styled.div`
 const IMGBlock = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 17rem;
   height: 20rem;
   background: white;
   border-radius: 20px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   @media all and (min-width: 768px) and (max-width: 1023px) {
+    width: 14rem;
     height: 17rem;
   }
   @media all and (max-width: 767px) {
+    width: 10rem;
     height: 11rem;
   }
 `
 
 const HoverBox = styled(IMGBlock)`
-  height: 100%;
   opacity: 1;
   background: #e4e4e4;
 `
@@ -128,34 +129,36 @@ const IMG = styled.img`
 
 const Info = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
 `
 
 const TitleText = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 1.2rem;
-  margin-bottom: 0.3rem;
   font-size: 1.2rem;
   font-weight: bolder;
   @media all and (max-width: 767px) {
     font-size: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.1rem;
   }
 `
 
 const PriceText = styled.div`
+  width: 12rem;
+  height: 2.6rem;
   display: flex;
   justify-content: center;
-  font-size: 1.2rem;
+  align-items: center;
+  font-size: 1rem;
   font-weight: 1000;
-  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid black;
   @media all and (max-width: 767px) {
+    width: 7rem;
+    height: 2rem;
     font-size: 1rem;
-    margin-bottom: 0;
+    margin-left: 0.5rem;
   }
 `
 
@@ -167,16 +170,14 @@ const CheckButton = styled.button`
   cursor: pointer;
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem;
-  height: 3rem;
-  width: 50%;
-  font-weight: 800;
-  margin-top: 1.5rem;
+  width: 5rem;
+  height: 2.6rem;
   &:hover {
     background: #c6dceb;
   }
   @media all and (max-width: 767px) {
+    width: 3rem;
     height: 2rem;
     box-shadow: 0.1rem 0.1rem;
-    margin-top: 1rem;
   }
 `
