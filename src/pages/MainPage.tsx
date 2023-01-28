@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import MainContainer from '../components/main/MainContainer'
-import img from '../images/main_image.png'
-import logo from '../images/main_logo.svg'
+import img from '../images/main_image4.png'
+import logo from '../images/header_logo.svg'
 
 const MainPage = () => {
   return (
@@ -25,7 +25,7 @@ const MainPageLayout = styled.div`
 
 const Logo = styled.img`
   display: flex;
-  width: 17.5rem;
+  width: 20rem;
   align-self: center;
   margin-top: 2rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {

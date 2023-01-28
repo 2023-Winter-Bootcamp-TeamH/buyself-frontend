@@ -28,7 +28,7 @@ const Box = styled.div`
 `
 const Typo = styled.img`
   display: flex;
-  width: 43.75rem;
+  width: 35rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 35rem;
   }
