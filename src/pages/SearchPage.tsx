@@ -34,7 +34,7 @@ const SearchPageLayout = styled.div`
   flex-direction: column;
   align-items: center;
   justfy-content: space-evenly;
-  padding: 0.5rem 8.07rem;
+  padding: 0.5rem 8.129rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     padding: 0 4rem;
   }
