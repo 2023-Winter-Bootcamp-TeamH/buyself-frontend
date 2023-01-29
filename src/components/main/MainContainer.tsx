@@ -20,7 +20,9 @@ export default MainContainer
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 4.5rem;
+  // position: absolute;
+  // bottom: -40rem;
+  margin-bottom: 4rem;
   margin-left: 4rem;
   @media all and (max-width: 767px) {
     margin-left: 1.25rem;

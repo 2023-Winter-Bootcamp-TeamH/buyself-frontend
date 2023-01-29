@@ -10,6 +10,9 @@
   font-family: 'Gilroy ExtraBold', sans-serif;
   font-style: normal;
   font-weight: normal;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 .Title-cursive {
