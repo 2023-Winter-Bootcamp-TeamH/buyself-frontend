@@ -30,7 +30,6 @@ const Paymentmain = () => {
           </TitleDesign>
         </Body>
         <Contour />
-        <PriceComplte>카카오페이 결제가 완료되었습니다.</PriceComplte>
         <BoxDesign>
           <Box>
             <Link to="/" style={{ textDecoration: 'none' }}>
@@ -52,7 +51,7 @@ const Block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin: 4rem 0;
   @media all and (max-width: 767px) {
     margin-top: 0;
   }
@@ -97,7 +96,7 @@ const Body = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   @media all and (max-width: 767px) {
     font-size: 0;
     font-size: 1.5rem;
@@ -108,7 +107,7 @@ const Icon = styled.div`
   font-size: 6rem;
   @media all and (max-width: 767px) {
     margin-top: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
     font-size: 115px;
   }
 `
@@ -145,12 +144,6 @@ const ThanksSentence = styled.div`
   @media all and (max-width: 767px) {
     font-size: 1.2rem;
   }
-`
-
-const PriceComplte = styled.div`
-  margin: 1rem;
-  font-size: 1.1rem;
-  font-weight: 800;
 `
 
 const BoxDesign = styled.div`
