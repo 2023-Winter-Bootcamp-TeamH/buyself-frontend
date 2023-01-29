@@ -154,7 +154,7 @@ const Title = styled.div`
 `
 
 const PriceText = styled.div`
-  width: 12.8rem;
+  width: 13rem;
   height: 2.6rem;
   display: flex;
   justify-content: center;
@@ -162,7 +162,7 @@ const PriceText = styled.div`
   font-size: 1rem;
   font-weight: 1000;
   margin-right: 1rem;
-  margin-left: 1rem;
+  margin-left: 0.2rem;
   border-radius: 0.5rem;
   border: 0.1rem solid black;
   @media all and (max-width: 767px) {
