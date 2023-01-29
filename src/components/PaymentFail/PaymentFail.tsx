@@ -30,7 +30,6 @@ const PaymentmainFail = () => {
           </TitleDesign>
         </Body>
         <Contour />
-        <TotalPrice>결제 시도 과정이 정상 처리되지 않았습니다.</TotalPrice>
         <BoxDesign>
           <Box>
             <Link to="/" style={{ textDecoration: 'none' }}>
@@ -56,7 +55,7 @@ const Block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin: 4rem 0;
   @media all and (max-width: 767px) {
     margin-top: 0;
   }
@@ -101,7 +100,7 @@ const Body = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   @media all and (max-width: 767px) {
     font-size: 0;
     font-size: 1.5rem;
@@ -121,7 +120,7 @@ const TitleDesign = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-  @media all and (max-width: 767px) {
+  @media all and (max-width: 1024px) {
     flex-direction: column;
   }
 `
@@ -153,15 +152,6 @@ const FailSentence = styled.div`
   font-weight: bold;
   @media all and (max-width: 767px) {
     font-size: 1.3rem;
-  }
-`
-
-const TotalPrice = styled.div`
-  margin: 1rem;
-  font-size: 1.1rem;
-  font-weight: 800;
-  @media all and (max-width: 767px) {
-    font-size: 0.85rem;
   }
 `
 
