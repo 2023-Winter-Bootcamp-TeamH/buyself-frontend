@@ -45,11 +45,10 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
             onMouseOut={() => setIsHover(false)}
           >
             {isHover ? (
-              <HoverBox>
-                <Info>
-                  <TitleText>{data.class_name}</TitleText>
-                </Info>
-              </HoverBox>
+              <IMGBox>
+                <IMG src={data.img_url} isHover={true} />
+                <Title>{data.class_name}</Title>
+              </IMGBox>
             ) : (
               <IMG src={data.img_url} />
             )}
@@ -113,17 +112,17 @@ const IMGBlock = styled.div`
   }
 `
 
-const HoverBox = styled(IMGBlock)`
-  opacity: 1;
-  background: #e4e4e4;
+const IMGBox = styled(IMGBlock)`
+  flex-direction: column;
+  position: relative;
 `
 
-const IMG = styled.img`
+const IMG = styled.img<{ isHover?: boolean }>`
+  width: ${(props) => (props.isHover ? '14rem' : '13rem')};
   display: flex;
   align-self: center;
-  width: 13rem;
   @media all and (max-width: 767px) {
-    width: 7rem;
+    width: ${(props) => (props.isHover ? '8rem' : '7rem')};
   }
 `
 
@@ -131,19 +130,31 @@ const Info = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 `
 
-const TitleText = styled.div`
+const Title = styled.div`
+  width: 100%;
+  height: 3rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.2rem;
   font-weight: bolder;
+  background: black;
+  color: white;
+  border-radius: 0 0 20px 20px;
+  opacity: 0.7;
   @media all and (max-width: 767px) {
+    height: 2rem;
     font-size: 1rem;
   }
 `
 
 const PriceText = styled.div`
-  width: 12rem;
+  width: 12.8rem;
   height: 2.6rem;
   display: flex;
   justify-content: center;
