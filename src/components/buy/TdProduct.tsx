@@ -63,8 +63,7 @@ const ProductBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-right: 0.1rem solid;
-  border-bottom: 0;
+  border-right: 1px solid grey;
   @media all and (max-width: 767px) {
     flex-direction: column;
   }

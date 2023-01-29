@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Header from '../components/common/Header'
 import ProductCardList from '../components/products/ProductCardList'
 import ProductSearch from '../components/products/productSearch'
@@ -7,6 +7,7 @@ import ProductSearch from '../components/products/productSearch'
 const ProductPage = () => {
   return (
     <>
+      <ProductPageStyle />
       <Header />
       <ProductPageLayout>
         <ProductSearch />
@@ -31,5 +32,11 @@ const ProductPageLayout = styled.div`
   }
   @media all and (max-width: 767px) {
     padding: 0 2rem;
+  }
+`
+
+const ProductPageStyle = createGlobalStyle`
+  body {
+    background-color: #ff9668;
   }
 `

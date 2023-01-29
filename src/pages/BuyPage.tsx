@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import BuyButton from '../components/buy/BuyButton'
 import BuyInfoBox from '../components/buy/BuyInfoBox'
 import LeftLayout from '../components/buy/LeftLayout'
@@ -34,6 +34,7 @@ const BuyPage = () => {
   }
   return (
     <>
+      <BuyPageStyle />
       <Header />
       <BuyPageLayout>
         <LeftLayout />
@@ -70,5 +71,11 @@ const ButtonLayout = styled.div`
   }
   @media all and (max-width: 767px) {
     height: 11rem;
+  }
+`
+
+const BuyPageStyle = createGlobalStyle`
+  body {
+    background-color: #ff9668;
   }
 `

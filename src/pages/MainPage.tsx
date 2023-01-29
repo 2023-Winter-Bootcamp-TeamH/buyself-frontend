@@ -1,15 +1,29 @@
 import React from 'react'
-import styled from 'styled-components'
-import MainContainer from '../components/main/MainContainer'
-import img from '../images/main_image4.png'
+import styled, { createGlobalStyle } from 'styled-components'
+import '../components/main/MainPage.css'
+import $ from 'jquery'
 import logo from '../images/header_logo.svg'
+import MainContainer from '../components/main/MainContainer'
+import Button from '../components/main/Button'
+import FadeIn from 'react-fade-in'
 
 const MainPage = () => {
   return (
-    <MainPageLayout>
-      <Logo src={logo} />
-      <MainContainer />
-    </MainPageLayout>
+    <>
+      <MainPageStyle />
+      <div className="bo">
+        <div className="Title">
+          <MainPageLayout>
+            <FadeIn transitionDuration={800} delay={1200}>
+              <Box>
+                <Logo src={logo} />
+              </Box>
+            </FadeIn>
+            <MainContainer />
+          </MainPageLayout>
+        </div>
+      </div>
+    </>
   )
 }
 
@@ -18,24 +32,32 @@ export default MainPage
 const MainPageLayout = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: relative;
   justify-content: space-between;
   width: 100vw;
-  height: 100vh;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 `
-
 const Logo = styled.img`
   display: flex;
-  width: 20rem;
+  justify-content: center;
+  width: 21rem;
+  margin: 1rem;
   align-self: center;
-  margin-top: 2rem;
+  margin-top: 13rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 15rem;
   }
   @media all and (max-width: 767px) {
     width: 14rem;
+  }
+`
+const Box = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const MainPageStyle = createGlobalStyle`
+  body {
+    background-color:  #F5FFFA;
   }
 `

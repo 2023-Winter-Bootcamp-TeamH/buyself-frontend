@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/common/Header'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Scanner from '../components/scan/Scanner'
 import BuyList from '../components/scan/BuyList'
 import Modal from '../components/common/Modal'
@@ -18,6 +18,7 @@ const ScanPage = () => {
 
   return (
     <>
+      <ScanPageStyle />
       <Header />
       <Default>
         <ScanPageLayout>
@@ -95,4 +96,10 @@ const RightLayout = styled(LeftLayout)`
   width: 27%;
   align-items: flex-start;
   padding-left: 1rem;
+`
+
+const ScanPageStyle = createGlobalStyle`
+  body {
+    background-color: #ff9668;
+  }
 `

@@ -30,7 +30,7 @@ const Paymentmain = () => {
           </TitleDesign>
         </Body>
         <Contour />
-        <TotalPrice>총 결제 금액: {total}원</TotalPrice>
+        <PriceComplte>카카오페이 결제가 완료되었습니다.</PriceComplte>
         <BoxDesign>
           <Box>
             <Link to="/" style={{ textDecoration: 'none' }}>
@@ -147,7 +147,7 @@ const ThanksSentence = styled.div`
   }
 `
 
-const TotalPrice = styled.div`
+const PriceComplte = styled.div`
   margin: 1rem;
   font-size: 1.1rem;
   font-weight: 800;

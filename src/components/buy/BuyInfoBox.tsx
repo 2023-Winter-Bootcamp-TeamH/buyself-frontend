@@ -36,12 +36,11 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   margin-left: 2rem;
   margin-right: 2rem;
   margin-top: 4.5rem;
   background: #fff;
-  box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.25);
   @media all and (min-width: 768px) and (max-width: 1160px) {
     width: 85%;
     height: 25rem;

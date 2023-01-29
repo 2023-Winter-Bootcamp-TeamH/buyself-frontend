@@ -38,7 +38,7 @@ const PaymentmainFail = () => {
             </Link>
             <div
               onClick={() => {
-                navigate(-1)
+                navigate(-2)
               }}
             >
               <PaymentButton title="다시 주문하기" />

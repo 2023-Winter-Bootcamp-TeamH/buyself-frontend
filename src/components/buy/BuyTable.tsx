@@ -52,7 +52,7 @@ const TableBox = styled.div`
   width: 95%;
   height: 38rem;
   background: white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow-y: auto;
   overflow-x: hidden;
   &::-webkit-scrollbar {
@@ -93,7 +93,7 @@ const Head = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 0 1rem 0 0;
-  border-bottom: 0.1rem solid;
+  border-bottom: 1px solid grey;
   font-size: 1rem;
   font-weight: bold;
   white-space: pre-wrap;
@@ -113,8 +113,8 @@ const Body = styled(Head)`
 `
 const ThProduct = styled(Head)`
   width: 55%;
-  border-right: 0.1rem solid;
-  border-bottom: 0;
+  height: 100%;
+  border-right: 1px solid grey;
   border-radius: 0;
 `
 const Th = styled(ThProduct)`
@@ -133,7 +133,8 @@ const ProductBox = styled.div`
 
 const Td = styled(Body)`
   width: 15%;
-  border-right: 0.1rem solid;
+  height: 100%;
+  border-right: 1px solid grey;
   border-radius: 0;
 `
 const Tdlast = styled(Td)`
