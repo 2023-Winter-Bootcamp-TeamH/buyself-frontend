@@ -3,7 +3,7 @@ import Header from '../components/common/Header'
 import SearchCardList from '../components/search/SearchCardList'
 import ProductSearch from '../components/products/productSearch'
 import { useLocation } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 /**
  * 검색 결과 페이지
@@ -15,6 +15,7 @@ const SearchPage = () => {
 
   return (
     <>
+      <SearchPageStyle />
       <Header />
       <SearchPageLayout>
         <Searchbar>
@@ -53,5 +54,11 @@ const Searchbar = styled.div`
   @media all and (max-width: 1023px) {
     align-items: center;
     justify-content: center;
+  }
+`
+
+const SearchPageStyle = createGlobalStyle`
+  body {
+    background-color: #ff9668;
   }
 `
