@@ -34,7 +34,7 @@ export default Footer
 const FooterLayout = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 3rem;
+  margin-bottom: 10rem;
 `
 const Button = styled.div`
   display: flex;
@@ -43,9 +43,10 @@ const Button = styled.div`
   align-items: center;
   font-size: 1.7rem;
   width: 24rem;
-  height: 4.3rem;
+  height: 4rem;
   border-radius: 20px;
   box-shadow: 3px 7px 0 0 #000;
+  font-weight: 600;
   border: solid 2px #000;
   background-color: #95dceb;
   cursor: pointer;
@@ -57,9 +58,9 @@ const Button = styled.div`
 const TextBox = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   font-weight: 600;
-  font-size: 1.45rem;
+  font-size: 1.4rem;
   margin-bottom: 1.5rem;
 `
 
