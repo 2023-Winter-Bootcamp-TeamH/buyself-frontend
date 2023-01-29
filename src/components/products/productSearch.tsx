@@ -33,7 +33,7 @@ const ProductSearch = () => {
       <Input
         autoFocus
         type="text"
-        placeholder="상품 이름 검색하기"
+        placeholder="상품 이름 입력"
         onChange={onChangeSearch}
         onKeyPress={handleKeyPress}
       />

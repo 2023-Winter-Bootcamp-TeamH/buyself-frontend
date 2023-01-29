@@ -51,9 +51,16 @@ const Searchbar = styled.div`
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     justify-content: center;
   }
-  @media all and (max-width: 1023px) {
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    width: 107%;
     align-items: center;
     justify-content: center;
+  }
+  @media all and (min-width: 481px) and (max-width: 767px) {
+    width: 107%;
+  }
+  @media all and (max-width: 480px) {
+    width: 112%;
   }
 `
 
