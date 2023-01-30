@@ -93,6 +93,7 @@ const Button = styled.button`
   width: 2rem;
   height: 2rem;
   font-size: 1.3rem;
+  font-weight: 500;
   background: white;
   border-radius: 3rem;
   box-shadow: 2px 2px black;

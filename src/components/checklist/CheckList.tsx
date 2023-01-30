@@ -6,7 +6,7 @@ import logo from '../../images/checklist_logo.svg'
 import Footer from './Footer'
 import CheckListItemList from './CheckListItemList'
 import { RootState, store, totalCheckPrice, totalCheckCount } from '../../store'
-import { Root } from 'react-dom/client'
+import '../main/MainContainer.css'
 /**
  * 체크리스트 토글 메뉴
  * 상단 헤더, 상품리스트, 하단 결제창
@@ -45,7 +45,7 @@ const CheckList = ({
   return (
     <CheckListLayout className={isOpen ? 'open' : ''}>
       <Header>
-        <Logo src={logo} />
+        <Logo className="FontText">CHECK-LIST</Logo>
         <Close
           onClick={() => {
             toggleMenu()
@@ -103,16 +103,15 @@ const Header = styled.div`
   justify-content: space-between;
 `
 
-const Logo = styled.img`
-  width: 14rem;
+const Logo = styled.div`
+  width: 20rem;
   margin-top: 0.8rem;
   margin-left: 1rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 50%;
-  }
+  font-size: 2.5rem;
   @media all and (max-width: 767px) {
-    width: 12rem;
     margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 2.3rem;
   }
 `
 

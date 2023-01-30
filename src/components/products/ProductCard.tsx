@@ -57,7 +57,7 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
             <PriceText>₩{data.price}</PriceText>
             <CheckButton onClick={HandleClickAdd}>
               <Default>
-                <BsCartPlus size="25" />
+                <BsCartPlus size="23" />
               </Default>
               <Mobile>
                 <BsCartPlus size="17" />
@@ -135,7 +135,7 @@ const Info = styled.div`
 
 const Title = styled.div`
   width: 100%;
-  height: 3rem;
+  height: 4rem;
   position: absolute;
   bottom: 0;
   display: flex;
@@ -143,12 +143,12 @@ const Title = styled.div`
   align-items: center;
   font-size: 1.2rem;
   font-weight: bolder;
-  background: black;
+  background: #ff8686;
   color: white;
   border-radius: 0 0 20px 20px;
   opacity: 0.7;
   @media all and (max-width: 767px) {
-    height: 2rem;
+    height: 3rem;
     font-size: 1rem;
   }
 `
@@ -180,8 +180,9 @@ const CheckButton = styled.button`
   align-items: center;
   background: #95dceb;
   cursor: pointer;
+  border: 0;
   border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.2rem;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   width: 4.5rem;
   height: 2.6rem;
   &:hover {
