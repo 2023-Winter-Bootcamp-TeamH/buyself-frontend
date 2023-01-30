@@ -29,8 +29,8 @@ const LogoBox = styled.div`
   justify-content: center;
   // position: absolute;
   // bottom: -40rem;
-  margin-bottom: 6.83rem;
   margin-top: 0;
+  margin-bottom: 6.83rem;
   @media all and (max-width: 767px) {
   }
 `
