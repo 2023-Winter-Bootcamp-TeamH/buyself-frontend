@@ -108,7 +108,8 @@ const CheckBox = styled.input`
 `
 const TextBox = styled.div`
   width: 60%;
-  height: 2rem;
+  height: 1.5rem;
   font-size: 1rem;
   font-weight: bold;
+  margin-top: ;
 `

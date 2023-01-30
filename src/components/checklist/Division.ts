@@ -5,7 +5,8 @@ import styled from 'styled-components'
  */
 
 export const Division = styled.div`
-  width: 100%;
-  border-bottom: 1px solid #dcdddd;
+  width: 90%;
+  border-bottom: 1px solid black;
+  margin-left: 1.5rem;
   margin-top: 0.6rem;
 `

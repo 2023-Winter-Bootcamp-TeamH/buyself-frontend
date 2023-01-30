@@ -73,6 +73,8 @@ const Input = styled.input`
   padding-left: 2%;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
   border: 2px solid black;
+  caret-color: #ff6060;
+
   @media all and (min-width: 1024px) and (max-width: 1262px) {
     margin-left: 2rem;
     width: 50%;

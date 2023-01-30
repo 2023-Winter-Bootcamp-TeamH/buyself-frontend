@@ -44,11 +44,11 @@ const CheckListCard = ({
         <Price>{priceValue}원</Price>
         <QuantityBox>
           <Button onClick={onDecrease}>
-            <BsDashLg />
+            <BsDashLg size="15" />
           </Button>
           {count}
           <Button onClick={onIncrease}>
-            <BsPlusLg />
+            <BsPlusLg size="15" />
           </Button>
         </QuantityBox>
       </DetailContainer>
@@ -64,9 +64,9 @@ export default CheckListCard
 const CheckListCardLayout = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 85%;
+  width: 83%;
   padding: 1rem;
-  height: 10rem;
+  height: 8rem;
   border-radius: 20px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   border: solid 1px #000;
@@ -80,13 +80,7 @@ const Image = styled.img`
 
 const Title = styled.div`
   font-weight: bold;
-  font-size: 1.4rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 1.2rem;
-  }
-  @media all and (max-width: 767px) {
-    font-size: 1.2rem;
-  }
+  font-size: 1.2rem;
 `
 const DetailContainer = styled.div`
   display: flex;
@@ -96,9 +90,9 @@ const DetailContainer = styled.div`
 const QuantityBox = styled.div`
   display: flex;
   justify-content: space-around;
-  font-size: 1.5rem;
-  width: 10rem;
-  border: 2px solid black;
+  font-size: 1.3rem;
+  width: 8rem;
+  border: 1.5px solid black;
 `
 const Button = styled.div`
   display: flex;
@@ -109,15 +103,9 @@ const Button = styled.div`
 
 const Price = styled.div`
   margin-top: 3rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
-  font-size: 1.2rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    margin-top: 3.5rem;
-  }
-  @media all and (max-width: 767px) {
-    margin-top: 4rem;
-    font-size: 1rem;
-  }
+  font-size: 1.1rem;
 `
 
 const Cancel = styled.label`
