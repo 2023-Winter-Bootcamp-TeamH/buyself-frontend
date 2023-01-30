@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'TTTtangsbudaejjigaeB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2')
+    format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+.FontText {
+  font-family: 'TTTtangsbudaejjigaeB';
+}

@@ -146,3 +146,11 @@ html {
     transform: translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0);
   }
 } /*# sourceMappingURL=MainPage.css.map */
+
+body {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

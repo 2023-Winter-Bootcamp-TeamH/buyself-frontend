@@ -11,9 +11,9 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 13rem;
-  height: 4.8rem;
-  margin: 3rem 3.125rem 0 0;
+  width: 10rem;
+  height: 4rem;
+  margin: 0 1rem 5rem 1rem;
   background-color: #fff;
   border-radius: 0.7rem;
   box-shadow: 0 7px 4px 0 rgba(0, 0, 0, 0.25);
@@ -23,6 +23,7 @@ const Box = styled.div`
   @media all and (max-width: 767px) {
     width: 15rem;
     height: 4.5rem;
+    margin: 0 1rem 3rem 1rem;
   }
   &:hover {
     background-color: #C9CACA;

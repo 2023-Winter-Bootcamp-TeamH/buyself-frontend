@@ -14,7 +14,7 @@ const MainPage = () => {
       <div className="bo">
         <div className="Title">
           <MainPageLayout>
-            <FadeIn transitionDuration={800} delay={1200}>
+            <FadeIn transitionDuration={600} delay={2000}>
               <Box>
                 <Logo src={logo} />
               </Box>
@@ -40,15 +40,16 @@ const MainPageLayout = styled.div`
 const Logo = styled.img`
   display: flex;
   justify-content: center;
-  width: 21rem;
+  width: 25.5rem;
   margin: 1rem;
   align-self: center;
   margin-top: 13rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 15rem;
+    width: 20rem;
   }
   @media all and (max-width: 767px) {
-    width: 14rem;
+    margin-top: 8rem;
+    width: 21rem;
   }
 `
 const Box = styled.div`

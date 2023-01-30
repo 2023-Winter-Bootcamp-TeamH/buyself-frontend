@@ -1,50 +1,57 @@
 import React from 'react'
 import styled from 'styled-components'
-import typo from '../../images/typo5.svg'
 import FadeIn from 'react-fade-in'
 import ButtonBox from './ButtonBox'
-
+import './MainContainer.css'
 const MainContainer = () => {
   return (
     <Block>
-      <Box>
-        <FadeIn transitionDuration={800} delay={2100}>
-          <Typo className="animate__slideInUp" src={typo} />
+      <LogoBox>
+        <FadeIn transitionDuration={800} delay={2700}>
+          <Div className="FontText">BUY PRODUCT</Div>
         </FadeIn>
-        <FadeIn transitionDuration={800} delay={3000}>
+        <FadeIn transitionDuration={800} delay={3100}>
+          <Div className="FontText">BY YOURSELF!</Div>
+        </FadeIn>
+        <FadeIn transitionDuration={800} delay={3600}>
           <ButtonBox />
         </FadeIn>
-      </Box>
+      </LogoBox>
     </Block>
   )
 }
 
 export default MainContainer
 
-const Box = styled.div`
+const LogoBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   // position: absolute;
   // bottom: -40rem;
-  margin-bottom: 10rem;
+  margin-bottom: 6.83rem;
+  margin-top: 0;
   @media all and (max-width: 767px) {
-    margin-left: 1.25rem;
   }
 `
-const Typo = styled.img`
+const Div = styled.div`
   display: flex;
-  width: 32rem;
+  justify-content: center;
+  width: 30rem;
+  color: black;
+  font-size: 2.5rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 35rem;
+    width: 30rem;
+    font-size: 2.2rem;
   }
   @media all and (max-width: 767px) {
     width: 21rem;
-    margin-left: 1rem;
+    font-size: 1.9rem;
   }
 `
 
 const Block = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
 `
