@@ -42,15 +42,16 @@ const Div = styled.div`
   font-size: 2.5rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 30rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   @media all and (max-width: 767px) {
     width: 21rem;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
   }
 `
 
 const Block = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
 `

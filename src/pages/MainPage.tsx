@@ -45,10 +45,11 @@ const Logo = styled.img`
   align-self: center;
   margin-top: 13rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 15rem;
+    width: 20rem;
   }
   @media all and (max-width: 767px) {
-    width: 14rem;
+    margin-top: 8rem;
+    width: 21rem;
   }
 `
 const Box = styled.div`
