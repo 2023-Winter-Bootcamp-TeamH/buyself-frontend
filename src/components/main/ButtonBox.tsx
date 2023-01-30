@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Button from './Button'
+import './MainContainer.css'
 
 const ButtonBox = () => {
   return (
@@ -20,6 +21,8 @@ export default ButtonBox
 
 const Box = styled.div`
   display: flex;
+  justify-content: center;
+  margin-top: 2rem;
   @media all and (max-width: 767px) {
     flex-direction: column;
     align-items: center;

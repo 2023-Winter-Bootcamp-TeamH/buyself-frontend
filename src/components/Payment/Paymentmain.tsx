@@ -127,9 +127,9 @@ const PaymentSentence = styled.div`
   font-size: 2.3rem;
   color: #95dceb;
   font-weight: 800;
-  @media all and (max-width: 767px) {
-    margin-left: 1rem;
-    font-size: 1.6rem;
+  @media all and (max-width: 820px) {
+    margin-left: 0;
+    font-size: 1.2rem;
   }
 `
 
@@ -142,7 +142,7 @@ const ThanksSentence = styled.div`
   color: dimgrey;
   font-weight: bold;
   @media all and (max-width: 767px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 `
 
