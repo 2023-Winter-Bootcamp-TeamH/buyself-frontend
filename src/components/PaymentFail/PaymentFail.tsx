@@ -120,7 +120,7 @@ const TitleDesign = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1040px) {
     flex-direction: column;
   }
 `
@@ -133,10 +133,10 @@ const PaymentSentence = styled.div`
   margin-left: 1rem;
   margin-right: 0.5rem;
   font-size: 2.1rem;
-  color: #95dceb;
-  font-weight: 800;
+  color: dimgrey;
+  font-weight: bold;
   @media all and (max-width: 767px) {
-    margin-left: 1rem;
+    margin-left: 0;
     margin-right: 0;
     font-size: 1.3rem;
   }
