@@ -57,10 +57,10 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
             <PriceText>₩{data.price}</PriceText>
             <CheckButton onClick={HandleClickAdd}>
               <Default>
-                <BsCartPlus size="35" />
+                <BsCartPlus size="25" />
               </Default>
               <Mobile>
-                <BsCartPlus size="25" />
+                <BsCartPlus size="17" />
               </Mobile>
             </CheckButton>
           </Info>
@@ -182,7 +182,7 @@ const CheckButton = styled.button`
   cursor: pointer;
   border-radius: 0.5rem;
   box-shadow: 0.2rem 0.2rem;
-  width: 5rem;
+  width: 4.5rem;
   height: 2.6rem;
   &:hover {
     background: #c6dceb;
