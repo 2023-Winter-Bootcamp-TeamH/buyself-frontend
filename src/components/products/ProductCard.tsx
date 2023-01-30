@@ -164,7 +164,8 @@ const PriceText = styled.div`
   margin-right: 1rem;
   margin-left: 0.2rem;
   border-radius: 0.5rem;
-  border: 0.1rem solid black;
+  background: white;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   @media all and (max-width: 767px) {
     width: 7rem;
     height: 2rem;
