@@ -40,6 +40,7 @@ const Div = styled.div`
   width: 30rem;
   color: black;
   font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 30rem;
     font-size: 2.2rem;

@@ -34,7 +34,7 @@ const MainPageLayout = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
-  justify-content: space-between;
+  align-items: space-between;
   width: 100vw;
 `
 const Logo = styled.img`
