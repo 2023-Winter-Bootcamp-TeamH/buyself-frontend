@@ -1,9 +1,9 @@
 /** 결제완료페이지 아이콘 설정*/
 
-.PayIcon {
+.PayIconT {
   display: flex;
   margin-top: 2rem;
-  color: #95dceb;
+  color: #5edb1b;
   @media all and (max-width: 767px) {
     margin-top: 0;
   }

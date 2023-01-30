@@ -16,13 +16,10 @@ const Paymentmain = () => {
   return (
     <Block>
       <ImgBlock>
-        <Header>
-          <Complte>결제완료</Complte>
-        </Header>
         <Contour />
         <Body>
           <Icon>
-            <FaCheckCircle className="PayIcon" />{' '}
+            <FaCheckCircle className="PayIconT" />{' '}
           </Icon>
           <TitleDesign>
             <PaymentSentence>결제가 정상적으로 완료되었습니다</PaymentSentence>
@@ -33,7 +30,7 @@ const Paymentmain = () => {
         <BoxDesign>
           <Box>
             <Link to="/" style={{ textDecoration: 'none' }}>
-              <PaymentButton title="메인으로" IsRed />
+              <PaymentButton title="메인으로" />
             </Link>
             <Link to="/product" style={{ textDecoration: 'none' }}>
               <PaymentButton title="상품 페이지로" />
@@ -69,23 +66,6 @@ const ImgBlock = styled.div`
   }
 `
 
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  height: 3rem;
-`
-
-const Complte = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  font-size: 1.5rem;
-  margin: 1rem;
-  font-weight: bolder;
-  @media all and (max-width: 767px) {
-    font-size: 1.4rem;
-  }
-`
-
 const Contour = styled.div`
   width: 100%;
   border-bottom: 1px solid lightgrey;
@@ -97,6 +77,7 @@ const Body = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 3rem;
+  margin-top: 3rem;
   @media all and (max-width: 767px) {
     font-size: 0;
     font-size: 1.5rem;
@@ -104,7 +85,7 @@ const Body = styled.div`
 `
 
 const Icon = styled.div`
-  font-size: 6rem;
+  font-size: 7rem;
   @media all and (max-width: 767px) {
     margin-top: 1.1rem;
     margin-bottom: 1.1rem;
@@ -125,7 +106,7 @@ const PaymentSentence = styled.div`
   margin-top: 1.8rem;
   margin-left: 1rem;
   font-size: 2.3rem;
-  color: #95dceb;
+  color: dimgrey;
   font-weight: 800;
   @media all and (max-width: 820px) {
     margin-left: 0;
