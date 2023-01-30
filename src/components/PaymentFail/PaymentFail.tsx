@@ -16,9 +16,6 @@ const PaymentmainFail = () => {
   return (
     <Block>
       <ImgBlock>
-        <Header>
-          <Complte>결제실패</Complte>
-        </Header>
         <Contour />
         <Body>
           <Icon>
@@ -33,7 +30,7 @@ const PaymentmainFail = () => {
         <BoxDesign>
           <Box>
             <Link to="/" style={{ textDecoration: 'none' }}>
-              <PaymentButton title="메인으로" IsRed />
+              <PaymentButton title="메인으로" />
             </Link>
             <div
               onClick={() => {
@@ -73,23 +70,6 @@ const ImgBlock = styled.div`
   }
 `
 
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  height: 3rem;
-`
-
-const Complte = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  font-size: 1.5rem;
-  margin: 1rem;
-  font-weight: bolder;
-  @media all and (max-width: 767px) {
-    font-size: 1.4rem;
-  }
-`
-
 const Contour = styled.div`
   width: 100%;
   border-bottom: 1px solid lightgrey;
@@ -101,6 +81,7 @@ const Body = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 3rem;
+  margin-top: 3rem;
   @media all and (max-width: 767px) {
     font-size: 0;
     font-size: 1.5rem;
@@ -108,7 +89,7 @@ const Body = styled.div`
 `
 
 const Icon = styled.div`
-  font-size: 7.5rem;
+  font-size: 7rem;
   margin-top: 1.1rem;
   margin-bottom: 1rem;
   @media all and (max-width: 767px) {
@@ -130,6 +111,7 @@ const PaymentSentence = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 0.8rem;
   margin-left: 1rem;
   margin-right: 0.5rem;
   font-size: 2.1rem;
@@ -147,6 +129,7 @@ const FailSentence = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 0.8rem;
   font-size: 2.1rem;
   color: dimgrey;
   font-weight: bold;

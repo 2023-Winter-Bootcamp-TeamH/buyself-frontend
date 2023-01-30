@@ -3,7 +3,7 @@
 .PayIcon {
   display: flex;
   margin-top: 2rem;
-  color: dimgrey;
+  color: rgb(227, 50, 50);
   @media all and (max-width: 767px) {
     margin-top: 0;
   }

@@ -40,11 +40,11 @@ const TdProduct = ({
           {class_name}
           <CountButton>
             <IconButton onClick={onDecrease}>
-              <BsDashLg />
+              <BsDashLg size={10} />
             </IconButton>
             {count}
             <IconButton onClick={onIncrease}>
-              <BsPlusLg />
+              <BsPlusLg size={10} />
             </IconButton>
           </CountButton>
         </RightBox>
@@ -106,8 +106,10 @@ const Image = styled.img`
 `
 
 const CountButton = styled.button`
-  width: 8rem;
-  height: 2.2rem;
+  width: 5.7rem;
+  height: 1.7rem;
+  margin-left: 13.5rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,12 +119,16 @@ const CountButton = styled.button`
   @media all and (min-width: 768px) and (max-width: 1325px) {
     width: 8rem;
     height: 2.1rem;
+    margin-left: 0;
+    margin-top: 0;
   }
   @media all and (max-width: 767px) {
-    width: 7.5rem;
+    width: 7rem;
     height: 1.8rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-left: 0;
+    margin-top: 0;
   }
 `
 const IconButton = styled.div`
