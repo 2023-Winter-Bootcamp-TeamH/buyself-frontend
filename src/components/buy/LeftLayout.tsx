@@ -9,12 +9,12 @@ import './LeftLayout.css'
 const LeftLayout = () => {
   return (
     <Layout>
-      <AllCheckLabel>
+      <ShoppingCart>
         <IconButton>
           <FaListAlt size="35" />
         </IconButton>
         <Label className="FontText">Shopping cart</Label>
-      </AllCheckLabel>
+      </ShoppingCart>
       <BuyTable />
     </Layout>
   )
@@ -29,28 +29,30 @@ const Layout = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0;
   @media all and (min-width: 768px) and (max-width: 1160px) {
+    justify-content: flex-start;
     width: 90%;
-    height: 28rem;
+    height: 25rem;
     padding: 2rem 0;
     font-size: 1.3rem;
+    margin-bottom: 0;
   }
   @media all and (max-width: 767px) {
+    justify-content: flex-start;
     width: 90%;
-    height: 28rem;
-    padding: 2rem 0;
+    margin-top: 1rem;
+    height: 25rem;
   }
 `
-const AllCheckLabel = styled.div`
+const ShoppingCart = styled.div`
   width: 90%;
   display: flex;
   margin: 2.5rem 0 1.5rem 0;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  @media all and (max-width: 1048px) {
-    margin: 0;
+  @media all and (max-width: 1150px) {
+    margin-top: 0;
   }
 `
 const Label = styled.div`

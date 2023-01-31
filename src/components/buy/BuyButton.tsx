@@ -20,12 +20,12 @@ const BuyButton = ({
 }
 
 const Btn = styled.button`
-  height: 5.5rem;
-  width: 20rem;
+  height: 4rem;
+  width: 18rem;
   background-color: #95dced;
   color: black;
   border-radius: 1rem;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
   box-shadow: 0.2rem 0.3rem;
   cursor: pointer;
@@ -33,13 +33,11 @@ const Btn = styled.button`
     background-color: #cae7ed;
   }
   @media all and (min-width: 768px) and (max-width: 1325px) {
-    height: 5rem;
     margin-right: 0.5rem;
     margin-left: 0.5rem;
     font-size: 1.5rem;
   }
   @media all and (max-width: 767px) {
-    height: 5rem;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;

@@ -61,11 +61,14 @@ const ChecklistBoxLayout = styled.div`
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10rem;
   }
-  @media all and (min-width: 1024px) and (max-width: 1221px) {
+  @media all and (min-width: 768px) and (max-width: 1221px) {
     width: 85%;
+    height: 8rem;
+    border-radius: 1rem;
+    margin 2rem 0 0.5rem 0;
   }
-  @media all and (max-width: 1023px) {
-    width: 85%;
+  @media all and (max-width: 767px) {
+    width: 88%;
     height: 8rem;
     border-radius: 1rem;
     margin 2rem 0 0.5rem 0;

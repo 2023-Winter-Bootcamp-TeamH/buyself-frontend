@@ -16,7 +16,7 @@ const BuyInfoBox = ({
     <>
       <Box>
         <BuyInfoLabel text="총 주문금액" price={price} />
-        <Divisions />
+        <Divisions IsShort />
         <BuyInfoLabel text="원가" price={price} />
         <BuyInfoLabel text="할인금액" price={0} />
         <Divisions IsShort />
@@ -43,15 +43,13 @@ const Box = styled.div`
   background: #fff;
   @media all and (min-width: 768px) and (max-width: 1160px) {
     width: 85%;
-    height: 25rem;
-    margin-right: 0;
-    margin-top: 1rem;
+    height: 23rem;
+    margin: 0;
+    padding-bottom: 1rem;
   }
   @media all and (max-width: 767px) {
-    width: 83%;
-    height: 24rem;
-    margin: 0;
-    margin-right: 1rem;
-    margin-top: 1rem;
+    width: 85%;
+    height: 22rem;
+    margin-top: 0;
   }
 `

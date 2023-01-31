@@ -66,19 +66,18 @@ const TableBox = styled.div`
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10rem;
   }
-  @media all and (min-width: 767px) and (max-width: 1325px) {
-    margin-top: 1.5rem;
+  @media all and (min-width: 768px) and (max-width: 1160px) {
+    height: 22rem;
     font-size: 1.3rem;
   }
   @media all and (max-width: 767px) {
-    margin-top: 1rem;
-    height: 25rem;
+    height: 20rem;
   }
 `
 
 const Table = styled.div`
   width: 100%;
-  height: 40rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background: white;
@@ -97,16 +96,18 @@ const Head = styled.div`
   font-size: 1rem;
   font-weight: bold;
   white-space: pre-wrap;
-  @media all and (min-width: 768px) and (max-width: 1325px) {
+  @media all and (min-width: 768px) and (max-width: 1160px) {
+    height: 2.5rem;
     font-size: 1.1rem;
   }
   @media all and (max-width: 767px) {
+    height: 2.2rem;
     font-size: 1rem;
   }
 `
 
 const Body = styled(Head)`
-  height: 8rem;
+  height: 6rem;
   @media all and (max-width: 1160px) {
     height: 5rem;
   }
