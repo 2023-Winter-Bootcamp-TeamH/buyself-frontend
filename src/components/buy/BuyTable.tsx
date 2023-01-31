@@ -107,7 +107,7 @@ const Head = styled.div`
 `
 
 const Body = styled(Head)`
-  height: 7rem;
+  height: 6rem;
   @media all and (max-width: 1160px) {
     height: 5rem;
   }

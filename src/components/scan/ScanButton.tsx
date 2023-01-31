@@ -31,6 +31,7 @@ const StyledButton = styled.button`
   }
   @media all and (max-width: 1023px) {
     width: 15rem;
+    margin-bottom: 1rem;
   }
 `
 const Box = styled.div`
