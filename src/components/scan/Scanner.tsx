@@ -26,11 +26,12 @@ const StyledButton = styled.button`
     background-color: #ff9292;
   }
   @media all and (min-width: 768px) and (max-width: 1023px) {
+    height: 5rem;
     border-radius: 2.7rem;
   }
   @media all and (max-width: 767px) {
-    height: 5rem;
-    width: 11rem;
+    height: 4.5rem;
+    width: 10rem;
     border-radius: 3rem;
     box-shadow: 0 0.8rem 0.2rem rgba(0, 0, 0, 0.25);
   }
