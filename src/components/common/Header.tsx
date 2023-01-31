@@ -52,7 +52,15 @@ const Header = () => {
               toggleMenu()
             }}
           ></GoChecklist>
-          {totalCount > 0 && <ProductCount>{totalCount}</ProductCount>}
+          {totalCount > 0 && (
+            <ProductCount
+              onClick={() => {
+                toggleMenu()
+              }}
+            >
+              {totalCount}
+            </ProductCount>
+          )}
         </Cart>
       </Box>
       <CheckList isOpen={isOpen} setIsOpen={setIsOpen} />

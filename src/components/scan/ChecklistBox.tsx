@@ -78,6 +78,19 @@ const ListLayout = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 1rem 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: white;
+    border-radius: 50rem;
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10rem;
+  }
 `
 const ItemLayout = styled.div`
   width: 100%;
