@@ -1,0 +1,10 @@
+/** 결제실패페이지 아이콘 설정*/
+
+.PayIcon {
+  display: flex;
+  margin-top: 2rem;
+  color: rgb(227, 50, 50);
+  @media all and (max-width: 767px) {
+    margin-top: 0;
+  }
+}

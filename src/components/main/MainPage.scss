@@ -1,0 +1,152 @@
+// ======================
+// Customisable Variables
+// ======================
+$lines: 3; // 1. how many lines of text?
+$duration: 1000; // 2. how long is the animation? (milliseconds)
+$theme: #ff9668; // 4. what is the theme colour?
+$angle: -45; // 5. what angle should the background be? (degrees)
+
+// === Defaults ======
+$dark: white;
+$light: black;
+
+// === Placeholders ======
+%crisp-text {
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%sans-serif {
+  font-family: 'Gilroy ExtraBold', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+%cursive {
+  font-family: 'Kaushan Script', cursive;
+  font-style: normal;
+  font-weight: normal;
+}
+
+// === Codepen Setup ======
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+// === Page Setup ======
+body {
+  @extend %crisp-text;
+  background-color: $dark;
+  color: $light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  // === Background Shape ======
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $theme;
+    width: 400vw;
+    height: 100vh;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    transform: skewX($angle + deg) translateX(-100%) scaleX(0);
+    will-change: transform;
+    animation: revealBG ($duration + $delay) + ms cubic-bezier(0.19, 1, 0.22, 1)
+      forwards;
+  }
+}
+
+// === <h1> wrapper ======
+.Title {
+  @extend %sans-serif;
+  font-size: 3rem;
+  opacity: 0;
+  transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
+  animation: revealText $duration + ms cubic-bezier(0.7, 0, 0.3, 1) forwards
+    $delay + ms;
+}
+
+// === Mask each line ======
+.Title-mask {
+  display: block;
+  position: relative;
+  text-align: start;
+  overflow: hidden;
+}
+
+// === Animate each line within the mask ======
+.Title-line {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);
+  will-change: opacity, transform;
+  animation: revealText $duration + ms cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+// === Cursive Word ======
+.Title-cursive {
+  @extend %cursive;
+}
+
+// === Dot Accent ======
+.Title-dot {
+  color: $theme;
+  transform-origin: 50% 80%;
+  transform: scale(0);
+  display: inline-block;
+
+  animation: revealDot 300ms cubic-bezier(0.19, 1, 0.22, 1) forwards
+    (($delay * $lines) + $delay * 2) + ms;
+}
+
+// =========
+// Functions
+// =========
+@for $i from 1 through $lines {
+  .Title-mask:nth-child(#{$i}) .Title-line {
+    animation-delay: $delay * $i + ms;
+  }
+}
+
+// ==========
+// Animations
+// ==========
+@keyframes revealBG {
+  from {
+    transform: skewX($angle + deg) translateX(-100%) scaleX(0);
+  }
+  to {
+    transform: skewX($angle + deg) translateX(-100%) scaleX(1);
+  }
+}
+
+@keyframes revealDot {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0%, 0%) matrix(1, 0, 0, 1, 0, 0);
+  }
+}

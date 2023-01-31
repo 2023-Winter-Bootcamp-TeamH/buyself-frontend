@@ -1,27 +1,32 @@
 import React from 'react'
-import logo from './logo.svg'
-import main_logo from './images/header_logo.svg'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NotFound from './components/common/NotFound'
+import ScrollToTop from './components/common/ScrollToTop'
+import MainPage from './pages/MainPage'
+import ScanPage from './pages/ScanPage'
+import ProductPage from './pages/ProductPage'
+import SearchPage from './pages/SearchPage'
+import BuyPage from './pages/BuyPage'
+import PaymentPage from './pages/PaymentPage'
+import PaymentFailPage from './pages/PaymentFailPage'
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <img src={main_logo} width="125px" />
-      </header>
+    <div className="Font">
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/*" element={<NotFound />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/scan" element={<ScanPage />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/buy" element={<BuyPage />} />
+          <Route path="/pay" element={<PaymentPage />} />
+          <Route path="/pay/fail" element={<PaymentFailPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

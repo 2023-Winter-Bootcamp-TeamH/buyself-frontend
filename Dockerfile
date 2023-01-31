@@ -1,14 +1,16 @@
 FROM node:16.17.0
+USER root
 
-WORKDIR /frontend
+WORKDIR /buyself-frontend
+COPY . /buyself-frontend
 
 COPY ./package.json ./
 COPY ./package-lock.json ./
 
-RUN npm install
+COPY . ./
 
-COPY  . ./
+RUN npm install --force
+
+RUN npm run build
 
 EXPOSE 3000
-
-CMD ["npm", "start"]
