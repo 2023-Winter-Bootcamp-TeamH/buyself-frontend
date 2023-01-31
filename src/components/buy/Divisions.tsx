@@ -21,9 +21,6 @@ const LongLine = styled.div`
 const ShortLine = styled(LongLine)`
   width: 90%;
   border-bottom: 1px solid grey;
-  @media all and (max-width: 767px) {
-    margin-top: 1rem;
-  }
 `
 
 export default Divisions

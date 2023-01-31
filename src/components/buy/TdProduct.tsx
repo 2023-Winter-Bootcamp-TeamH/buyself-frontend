@@ -31,11 +31,9 @@ const TdProduct = ({
   return (
     <>
       <ProductBox>
-        <Default>
-          <ImageBox>
-            <Image src={img_url} />
-          </ImageBox>
-        </Default>
+        <ImageBox>
+          <Image src={img_url} />
+        </ImageBox>
         <RightBox>
           {class_name}
           <CountButton>
@@ -64,9 +62,6 @@ const ProductBox = styled.div`
   align-items: center;
   justify-content: center;
   border-right: 1px solid grey;
-  @media all and (max-width: 767px) {
-    flex-direction: column;
-  }
 `
 const PriceBox = styled(ProductBox)`
   width: 27.2%;
@@ -82,7 +77,6 @@ const ImageBox = styled.div`
   padding: 1rem;
   @media all and (max-width: 767px) {
     width: 30%;
-    margin-left: 0;
   }
 `
 const RightBox = styled.div`
@@ -92,15 +86,15 @@ const RightBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 1.2rem;
-  @media all and (max-width: 1160px) {
-    font-size: 1rem;
+  font-size: 1rem;
+  @media all and (max-width: 767px) {
+    font-size: 0.9rem;
   }
 `
 const Image = styled.img`
-  width: 6rem;
+  width: 5.5rem;
   @media all and (max-width: 1160px) {
-    width: 3rem;
+    width: 3.5rem;
     margin-left: 0;
   }
 `
@@ -108,28 +102,12 @@ const Image = styled.img`
 const CountButton = styled.button`
   width: 5.7rem;
   height: 1.7rem;
-  margin-left: 13.5rem;
-  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 0.1rem solid #000000;
   background-color: #fff;
   font-size: 1rem;
-  @media all and (min-width: 768px) and (max-width: 1325px) {
-    width: 8rem;
-    height: 2.1rem;
-    margin-left: 0;
-    margin-top: 0;
-  }
-  @media all and (max-width: 767px) {
-    width: 7rem;
-    height: 1.8rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: 0;
-    margin-top: 0;
-  }
 `
 const IconButton = styled.div`
   width: 1.5rem;
