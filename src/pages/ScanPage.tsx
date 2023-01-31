@@ -96,6 +96,10 @@ const RightLayout = styled(LeftLayout)`
   width: 27%;
   align-items: flex-start;
   padding-left: 1rem;
+  @media all and (min-width: 1024px) and (max-width: 1220px) {
+    width: 30%;
+    margin-right: 0;
+  }
 `
 
 const ScanPageStyle = createGlobalStyle`

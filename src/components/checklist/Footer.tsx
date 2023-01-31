@@ -42,7 +42,7 @@ const Button = styled.div`
   align-self: center;
   align-items: center;
   font-size: 1.7rem;
-  width: 24rem;
+  width: 20rem;
   height: 4rem;
   border-radius: 20px;
   box-shadow: 3px 7px 0 0 #000;

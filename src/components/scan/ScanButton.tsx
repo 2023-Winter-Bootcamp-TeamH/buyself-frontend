@@ -28,9 +28,6 @@ const StyledButton = styled.button`
   &:hover {
     background-color: #cae7ed;
   }
-  @media all and (min-width: 1024px) and (max-width: 1160px) {
-    width: 10rem;
-  }
   @media all and (max-width: 1023px) {
     width: 15rem;
     margin-bottom: 1rem;

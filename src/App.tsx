@@ -24,7 +24,7 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/buy" element={<BuyPage />} />
           <Route path="/pay" element={<PaymentPage />} />
-          <Route path="/pay/Fail" element={<PaymentFailPage />} />
+          <Route path="/pay/fail" element={<PaymentFailPage />} />
         </Routes>
       </BrowserRouter>
     </div>
