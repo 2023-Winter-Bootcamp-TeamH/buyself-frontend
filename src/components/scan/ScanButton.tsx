@@ -21,13 +21,15 @@ const StyledButton = styled.button`
   width: 12rem;
   background: #95dceb;
   border-radius: 0.5rem;
-  margin-left: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
   box-shadow: 0.2rem 0.2rem;
   cursor: pointer;
   &:hover {
     background-color: #cae7ed;
+  }
+  @media all and (min-width: 1024px) and (max-width: 1160px) {
+    width: 10rem;
   }
   @media all and (max-width: 1023px) {
     width: 15rem;

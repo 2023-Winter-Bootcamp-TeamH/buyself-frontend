@@ -68,13 +68,21 @@ const StyledList = styled.div`
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10rem;
   }
-  @media all and (max-width: 1023px) {
+  @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 78%;
     height: 18rem;
     flex-wrap: wrap;
     overflow-x: hidden;
     overflow-y: scroll;
-    margin: 2rem;
+    margin: 1rem;
+  }
+  @media all and (max-width: 767px) {
+    width: 73%;
+    height: 18rem;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 1rem;
   }
 `
 const BuyCardBox = styled.div`
