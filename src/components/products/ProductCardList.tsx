@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ProductCard from './ProductCard'
 import { Pagination } from './Pagination'
 import { customAxios } from '../common/CustomAxios'
+import { delay } from '@reduxjs/toolkit/dist/utils'
 
 /** 상품 API 및 상품 페이지네이션 구현
  * 상품 품목
@@ -53,6 +54,7 @@ const ProductCardList = () => {
 
   useEffect(() => {
     fetchData(page)
+    window.scrollTo(0, 0)
   }, [page])
 
   return (

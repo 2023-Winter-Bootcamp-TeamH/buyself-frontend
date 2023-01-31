@@ -38,7 +38,7 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
 
   return (
     <>
-      <FadeIn transitionDuration={600} delay={100}>
+      <FadeIn transitionDuration={500} delay={0}>
         <Block>
           <IMGBlock
             onMouseOver={() => setIsHover(true)}
