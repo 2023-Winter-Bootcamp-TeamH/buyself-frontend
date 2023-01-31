@@ -108,7 +108,7 @@ const Image = styled.img`
 const CountButton = styled.button`
   width: 5.7rem;
   height: 1.7rem;
-  margin-left: 13.5rem;
+  margin-left: 12.5rem;
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
@@ -117,14 +117,10 @@ const CountButton = styled.button`
   background-color: #fff;
   font-size: 1rem;
   @media all and (min-width: 768px) and (max-width: 1325px) {
-    width: 8rem;
-    height: 2.1rem;
     margin-left: 0;
     margin-top: 0;
   }
   @media all and (max-width: 767px) {
-    width: 7rem;
-    height: 1.8rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 0;

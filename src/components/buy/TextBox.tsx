@@ -20,16 +20,19 @@ const Text = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin-right: 0;
-  margin-left: 1rem;
-  @media all and (max-width: 767px) {
-    font-size: 1.2rem;
+  margin-left: 1.5rem;
+  @media all and (min-width: 767px) and (max-width: 1150px) {
+    margin-left: 2.5rem;
   }
 `
 const Price = styled(Text)`
   justify-content: flex-end;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   margin-left: 0;
+  @media all and (min-width: 767px) and (max-width: 1150px) {
+    margin-right: 2.5rem;
+  }
 `
