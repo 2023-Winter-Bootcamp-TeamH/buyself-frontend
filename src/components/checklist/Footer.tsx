@@ -16,7 +16,8 @@ const Footer = ({ price }: { price: number }) => {
   }
   useEffect(() => {
     comma(price)
-  }, [])
+  }, [price])
+
   const handleClick = () => {
     navigate('/scan')
   }
