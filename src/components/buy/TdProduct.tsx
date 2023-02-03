@@ -15,6 +15,11 @@ const TdProduct = ({
   count,
 }: BuyCardProps): React.ReactElement => {
   const [priceValue, setPrice] = useState(price)
+  const [stringPrice, setStringPrice] = useState('')
+  const comma = (price: number) => {
+    const commaPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    setStringPrice(commaPrice)
+  }
   const onIncrease = () => {
     store.dispatch(increaseProduct(id))
     setPrice(price * (count + 1))
@@ -27,6 +32,7 @@ const TdProduct = ({
   }
   useEffect(() => {
     setPrice(price * count)
+    comma(price * count)
   }, [price, count])
   return (
     <>
@@ -47,7 +53,7 @@ const TdProduct = ({
           </CountButton>
         </RightBox>
       </ProductBox>
-      <PriceBox>{priceValue}</PriceBox>
+      <PriceBox>{stringPrice}</PriceBox>
     </>
   )
 }

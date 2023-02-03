@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 /** 결제정보창 텍스트 (총주문금액 / ---원) */
 
 const TextBox = ({ text, price }: { text: string; price: number }) => {
+  const [stringPrice, setStringPrice] = useState('')
+  const comma = (price: number) => {
+    const commaPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    setStringPrice(commaPrice)
+  }
+  useEffect(() => {
+    comma(price)
+  }, [])
+  useEffect(() => {
+    comma(price)
+  }, [price])
   return (
     <>
       <Text>{text}</Text>
-      <Price>₩{price}</Price>
+      <Price>₩{stringPrice}</Price>
     </>
   )
 }

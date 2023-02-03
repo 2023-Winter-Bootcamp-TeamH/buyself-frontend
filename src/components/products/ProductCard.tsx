@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { store, addChecklist } from '../../store'
 import Toast from './Toast'
@@ -22,6 +22,14 @@ interface ProductCardProps {
 const ProductCard = ({ data }: { data: ProductCardProps }) => {
   const [isHover, setIsHover] = useState(false)
   const [isActive, setIsActive] = useState(false)
+  const [stringPrice, setStringPrice] = useState('')
+  const comma = (price: number) => {
+    const commaPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    setStringPrice(commaPrice)
+  }
+  useEffect(() => {
+    comma(data.price)
+  }, [])
   const HandleClickAdd = () => {
     setIsActive(true)
     store.dispatch(
@@ -54,7 +62,7 @@ const ProductCard = ({ data }: { data: ProductCardProps }) => {
             )}
           </IMGBlock>
           <Info>
-            <PriceText>₩{data.price}</PriceText>
+            <PriceText>₩{stringPrice}</PriceText>
             <CheckButton onClick={HandleClickAdd}>
               <Default>
                 <BsCartPlus size="23" />

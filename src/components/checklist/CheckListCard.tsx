@@ -22,7 +22,11 @@ const CheckListCard = ({
   count,
 }: BuyCardProps): React.ReactElement => {
   const [priceValue, setPrice] = useState(price)
-
+  const [stringPrice, setStringPrice] = useState('')
+  const comma = (price: number) => {
+    const commaPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    setStringPrice(commaPrice)
+  }
   const onIncrease = () => {
     store.dispatch(increaseChecklist(id))
     setPrice(price * (count + 1))
@@ -35,13 +39,14 @@ const CheckListCard = ({
   }
   useEffect(() => {
     setPrice(price * count)
+    comma(price * count)
   }, [price, count])
   return (
     <CheckListCardLayout>
       <Image src={img_url} />
       <DetailContainer>
         <Title>{class_name}</Title>
-        <Price>{priceValue}원</Price>
+        <Price>{stringPrice}원</Price>
         <QuantityBox>
           <Button onClick={onDecrease}>
             <BsDashLg size="15" />

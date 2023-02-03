@@ -19,6 +19,12 @@ const BuyCard = ({
   count,
 }: BuyCardProps): React.ReactElement => {
   const [priceValue, setPrice] = useState(price)
+  const [stringPrice, setStringPrice] = useState('')
+  const comma = (price: number) => {
+    const commaPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    setStringPrice(commaPrice)
+    return commaPrice
+  }
   const onIncrease = () => {
     store.dispatch(increaseProduct(id))
     setPrice(price * (count + 1))
@@ -31,6 +37,7 @@ const BuyCard = ({
   }
   useEffect(() => {
     setPrice(price * count)
+    comma(price * count)
   }, [price, count])
   return (
     <StyledCard>
@@ -43,7 +50,7 @@ const BuyCard = ({
         <Image src={img_url} />
       </ImgBlock>
       <TextLarge>{class_name}</TextLarge>
-      <TextSmall>{priceValue}원</TextSmall>
+      <TextSmall>{stringPrice}원</TextSmall>
       <CountButton>
         <IconButton onClick={onDecrease}>
           <BsDashLg />

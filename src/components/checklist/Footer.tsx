@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,14 +9,23 @@ import { useNavigate } from 'react-router-dom'
 
 const Footer = ({ price }: { price: number }) => {
   const navigate = useNavigate()
+  const [stringPrice, setStringPrice] = useState('')
+  const comma = (price: number) => {
+    const commaPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    setStringPrice(commaPrice)
+  }
+  useEffect(() => {
+    comma(price)
+  }, [])
   const handleClick = () => {
     navigate('/scan')
   }
+
   return (
     <FooterLayout>
       <TextBox>
         <Text>최종 결제 금액</Text>
-        <Text>{price}원</Text>
+        <Text>{stringPrice}원</Text>
       </TextBox>
       <Button
         onClick={() => {
